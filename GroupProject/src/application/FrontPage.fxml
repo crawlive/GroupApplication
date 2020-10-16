@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	
+
 <?import javafx.scene.layout.AnchorPane?>
-	
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.FrontPageController">
-	<!-- TODO Add Nodes -->
-</AnchorPane>
+<?import javafx.scene.layout.Pane?>
+
+
+<fx:root fx:id="background" prefHeight="708.0" prefWidth="897.0" stylesheets="@application.css" type="AnchorPane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="application.FrontPageController">
+   <children>
+      <Pane fx:id="SideBar" prefHeight="701.0" prefWidth="100.0" stylesheets="@application.css" />
+      <Pane fx:id="Body" layoutX="100.0" prefHeight="708.0" prefWidth="799.0" stylesheets="@application.css">
+         <children>
+            <Pane fx:id="Title" prefHeight="70.0" prefWidth="799.0" stylesheets="@application.css" />
+            <Pane fx:id="TaskPane" layoutY="70.0" prefHeight="637.0" prefWidth="505.0" stylesheets="@application.css" />
+            <Pane fx:id="EventsPane" layoutX="505.0" layoutY="70.0" prefHeight="302.0" prefWidth="295.0" stylesheets="@application.css" />
+            <Pane fx:id="NotesPane" layoutX="505.0" layoutY="372.0" prefHeight="337.0" prefWidth="295.0" stylesheets="@application.css" />
+         </children>
+      </Pane>
+   </children>
+</fx:root>
