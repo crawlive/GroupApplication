@@ -1,4 +1,34 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
-.root {
+.root{
 	-fx-background-color: #E1F9EB;
 }
+.anchor{
+	-fx-background-color: #E1F9EB;
+}
+#NavPane{
+	-fx-background-color: #6FCF97;
+}
+
+#Title{
+	-fx-font-family: Poppins;
+	-fx-font-size: 48px;
+	-fx-text-fill: #219653;
+}
+
+.rectangle{
+	-fx-fill: #FFFFFF;
+	-fx-arc-width: 50;
+	-fx-arc-height: 50;
+	-fx-stroke: #FFFFFF;
+}
+.boxLabels{
+	-fx-font-family: Poppins;
+	-fx-font-size: 20px;
+	-fx-text-fill: #4F4F4F;
+}
+.boxSubLabels{
+	-fx-font-family: Poppins;
+	-fx-font-size: 10px;
+	-fx-text-fill: #4F4F4F;
+}
+

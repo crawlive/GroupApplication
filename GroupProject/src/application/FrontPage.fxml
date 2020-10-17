@@ -1,19 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
 
-
-<fx:root fx:id="background" prefHeight="708.0" prefWidth="897.0" stylesheets="@application.css" type="AnchorPane" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="application.FrontPageController">
+<AnchorPane fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="442.0" prefWidth="652.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pane fx:id="SideBar" prefHeight="701.0" prefWidth="100.0" stylesheets="@application.css" />
-      <Pane fx:id="Body" layoutX="100.0" prefHeight="708.0" prefWidth="799.0" stylesheets="@application.css">
+      <Pane fx:id="NavPane" prefHeight="426.0" prefWidth="74.0" stylesheets="@application.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Pane fx:id="TitlePane" layoutX="72.0" prefHeight="66.0" prefWidth="555.0" AnchorPane.bottomAnchor="360.0" AnchorPane.leftAnchor="72.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Pane fx:id="Title" prefHeight="70.0" prefWidth="799.0" stylesheets="@application.css" />
-            <Pane fx:id="TaskPane" layoutY="70.0" prefHeight="637.0" prefWidth="505.0" stylesheets="@application.css" />
-            <Pane fx:id="EventsPane" layoutX="505.0" layoutY="70.0" prefHeight="302.0" prefWidth="295.0" stylesheets="@application.css" />
-            <Pane fx:id="NotesPane" layoutX="505.0" layoutY="372.0" prefHeight="337.0" prefWidth="295.0" stylesheets="@application.css" />
+            <Label id="Title" fx:id="Title" layoutX="14.0" prefHeight="70.0" prefWidth="468.0" stylesheets="@application.css" text="Assignment Tracker" />
          </children>
       </Pane>
+      <Pane fx:id="TaskPane" layoutX="74.0" layoutY="66.0" prefHeight="376.0" prefWidth="367.0" stylesheets="@application.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="74.0" AnchorPane.rightAnchor="211.0" AnchorPane.topAnchor="66.0" />
+    <AnchorPane layoutX="444.0" layoutY="65.0" minHeight="0.0" minWidth="0.0" prefHeight="179.0" prefWidth="208.0" styleClass="anchor" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Pane fx:id="EventsPane" layoutY="9.0" prefHeight="1.0" prefWidth="207.0" stylesheets="@application.css" AnchorPane.bottomAnchor="169.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <Rectangle fx:id="EventsRectamgle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="166.0" stroke="BLACK" strokeType="INSIDE" styleClass="rectangle" width="200.0">
+                     <effect>
+                        <DropShadow blurType="TWO_PASS_BOX" color="#00000080" height="17.89" radius="7.6675" width="14.78" />
+                     </effect>
+                  </Rectangle>
+                  <Pane prefHeight="52.0" prefWidth="200.0" stylesheets="@application.css">
+                     <children>
+                        <Label fx:id="EventsLabel" layoutX="15.0" layoutY="8.0" styleClass="boxLabels" stylesheets="@application.css" text="Events" />
+                        <Label layoutX="74.0" layoutY="18.0" styleClass="boxSubLabels" stylesheets="@application.css" text="exams, meetings, etc" />
+                        <Line endX="48.5" layoutX="149.0" layoutY="42.0" startX="-149.0" stroke="#f1f8f1" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+    <AnchorPane layoutX="438.0" layoutY="245.0" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="213.0" styleClass="anchor" stylesheets="@application.css" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Pane fx:id="NotesPane" layoutX="3.0" layoutY="6.0" prefHeight="184.0" prefWidth="207.0" stylesheets="@application.css" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="3.0">
+               <children>
+                  <Rectangle fx:id="EventsRectamgle1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="167.0" layoutX="3.0" layoutY="8.0" stroke="BLACK" strokeType="INSIDE" styleClass="rectangle" width="200.0">
+                     <effect>
+                        <DropShadow blurType="TWO_PASS_BOX" color="#00000080" height="17.89" radius="7.6675" width="14.78" />
+                     </effect>
+                  </Rectangle>
+                  <Pane layoutX="3.0" layoutY="8.0" prefHeight="42.0" prefWidth="200.0" stylesheets="@application.css">
+                     <children>
+                        <Label fx:id="EventsLabel1" layoutX="15.0" layoutY="8.0" styleClass="boxLabels" stylesheets="@application.css" text="Notes" />
+                        <Label layoutX="74.0" layoutY="18.0" styleClass="boxSubLabels" stylesheets="@application.css" text="reminders, etc" />
+                        <Line endX="48.5" layoutX="149.0" layoutY="42.0" startX="-149.0" stroke="#f1f8f1" />
+                     </children>
+                  </Pane>
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
    </children>
-</fx:root>
+</AnchorPane>
