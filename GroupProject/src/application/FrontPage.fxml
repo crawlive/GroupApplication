@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
@@ -22,24 +24,47 @@
       </Pane>
       <Pane fx:id="TaskPane" layoutX="74.0" layoutY="66.0" prefHeight="376.0" prefWidth="367.0" stylesheets="@application.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="74.0" AnchorPane.rightAnchor="211.0" AnchorPane.topAnchor="66.0">
          <children>
-            <StackPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="376.0" prefWidth="367.0">
+            <StackPane minWidth="300.0" prefHeight="376.0" prefWidth="367.0">
                <children>
-                  <Pane fx:id="EventsPane1" prefHeight="347.0" prefWidth="347.0" stylesheets="@application.css">
+                  <VBox id="events_card" alignment="TOP_CENTER" styleClass="card">
                      <children>
-                        <Rectangle fx:id="EventsRectamgle2" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="376.0" stroke="BLACK" strokeType="INSIDE" styleClass="rectangle" width="367.0">
-                           <effect>
-                              <DropShadow blurType="TWO_PASS_BOX" color="#00000080" height="17.89" radius="7.6675" width="14.78" />
-                           </effect>
-                        </Rectangle>
-                        <Pane prefHeight="52.0" prefWidth="367.0" stylesheets="@application.css">
+                        <HBox alignment="CENTER" styleClass="card-header">
                            <children>
-                              <Label fx:id="EventsLabel2" layoutX="15.0" layoutY="8.0" styleClass="boxLabels" stylesheets="@application.css" text="Events" />
-                              <Label layoutX="74.0" layoutY="18.0" styleClass="boxSubLabels" stylesheets="@application.css" text="exams, meetings, etc" />
-                              <Line endX="48.5" layoutX="149.0" layoutY="42.0" startX="-149.0" stroke="#f1f8f1" />
+                              <VBox HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label styleClass="boxLabels" text="Assignments/Tasks" />
+                                    <HBox VBox.vgrow="NEVER">
+                                       <children>
+                                          <ToggleButton id="toggle_todo_btn" mnemonicParsing="false" selected="true" styleClass="toggle-btn" text="ToDo">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="todo_date_toggle" />
+                                             </toggleGroup>
+                                          </ToggleButton>
+                                          <ToggleButton id="toggle_date_btn" mnemonicParsing="false" styleClass="toggle-btn" text="Date" toggleGroup="$todo_date_toggle">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ToggleButton>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <Button id="add-btn" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="+" />
                            </children>
-                        </Pane>
+                        </HBox>
+                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+                           <padding>
+                              <Insets left="25.0" right="25.0" />
+                           </padding>
+                        </VBox>
                      </children>
-                  </Pane>
+                     <StackPane.margin>
+                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                     </StackPane.margin>
+                  </VBox>
                </children>
             </StackPane>
          </children></Pane>
