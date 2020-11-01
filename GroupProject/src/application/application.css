@@ -25,11 +25,23 @@
 	-fx-text-fill: #219653;
 }
 
+/*** card ***/
+.card {
+	-fx-background-radius: 25px;
+	-fx-effect: dropshadow(three-pass-box, #C5C5C5, 10, 25%, 0, 3);
+	-fx-background-color: white;
+}
+
 .rectangle{
 	-fx-fill: #FFFFFF;
 	-fx-arc-width: 50;
 	-fx-arc-height: 50;
 	-fx-stroke: #FFFFFF;
+}
+.card-header {
+	-fx-padding: 16px 24px 16px 24px;
+	-fx-background-radius: 25px 25px 0px 0px;
+	-fx-background-color: #F1F8F1;
 }
 .boxLabels{
 	-fx-font-family: Poppins;
@@ -41,4 +53,31 @@
 	-fx-font-size: 10px;
 	-fx-text-fill: #4F4F4F;
 }
+
+/*** toggle button ***/
+.toggle-btn {
+	-fx-background-color: white;
+	-fx-font-size: 18px;
+}
+
+#toggle_todo_btn {
+	-fx-background-radius: 10px 0px 0px 10px;
+}
+
+#toggle_date_btn {
+	-fx-background-radius: 0px 10px 10px 0px;
+}
+
+.toggle-btn:selected {
+	-fx-background-color: #6FCF97;
+	-fx-text-fill: white;
+}
+
+#add-btn {
+	-fx-background-color: #6FCF97;
+	-fx-background-radius: 10px;
+	-fx-text-fill: white;
+	-fx-font-size: 24px;
+}
+
 
