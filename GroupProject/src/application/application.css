@@ -1,4 +1,14 @@
 /* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+@font-face {
+    font-family: Poppins;
+    src: url('..//fonts//Poppins-Regular.ttf');
+}
+
+@font-face {
+    font-family: Poppins-Bold;
+    src: url('..//fonts//Poppins-Medium.ttf');
+}
+
 .root{
 	-fx-background-color: #E1F9EB;
 }
