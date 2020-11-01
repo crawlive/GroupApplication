@@ -24,9 +24,9 @@
       </Pane>
       <Pane fx:id="TaskPane" layoutX="74.0" layoutY="66.0" prefHeight="376.0" prefWidth="367.0" stylesheets="@application.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="74.0" AnchorPane.rightAnchor="211.0" AnchorPane.topAnchor="66.0">
          <children>
-            <StackPane minWidth="300.0" prefHeight="376.0" prefWidth="367.0">
+            <StackPane>
                <children>
-                  <VBox id="events_card" alignment="TOP_CENTER" styleClass="card">
+                  <VBox alignment="TOP_CENTER" styleClass="card">
                      <children>
                         <HBox alignment="CENTER" styleClass="card-header">
                            <children>
