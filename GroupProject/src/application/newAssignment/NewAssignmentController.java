@@ -1,4 +1,4 @@
-package application;
+package application.newAssignment;
 
 
 import javafx.event.ActionEvent;

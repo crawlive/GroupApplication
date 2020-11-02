@@ -1,4 +1,4 @@
-package application;
+package application.editCourse;
 	
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -7,12 +7,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.fxml.FXMLLoader;
 
 
-public class AddCourse extends Application {
+public class EditCourse extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("AddCourse.fxml"));
-			Scene scene = new Scene(root,400,225);
+			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("EditCourse.fxml"));
+			Scene scene = new Scene(root,400,400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 			primaryStage.setScene(scene);
 			primaryStage.show();
