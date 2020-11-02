@@ -19,6 +19,18 @@
 	-fx-background-color: #6FCF97;
 }
 
+.menuButton{
+	-fx-pref-height: 50px;
+	-fx-pref-width: 50px;
+	-fx-background-radius: 50%;
+	-fx-background-color: #F2F2F2;
+	-fx-font-family: Poppins;
+	-fx-font-size: 18px;
+	-fx-text-fill: #F2F2F2;
+	
+	
+}
+
 #Title{
 	-fx-font-family: Poppins;
 	-fx-font-size: 48px;
