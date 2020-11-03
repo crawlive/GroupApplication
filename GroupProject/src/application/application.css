@@ -9,6 +9,9 @@
     src: url('..//fonts//Poppins-Medium.ttf');
 }
 
+* {
+	-fx-font-family: Poppins;
+}
 .root{
 	-fx-background-color: #E1F9EB;
 }
@@ -32,7 +35,6 @@
 }
 
 #Title{
-	-fx-font-family: Poppins;
 	-fx-font-size: 48px;
 	-fx-text-fill: #219653;
 }
@@ -56,14 +58,12 @@
 	-fx-background-color: #F1F8F1;
 }
 .boxLabels{
-	-fx-font-family: Poppins;
-	-fx-font-size: 20px;
+	-fx-font-size: 24px;
 	-fx-text-fill: #4F4F4F;
 }
 .boxSubLabels{
-	-fx-font-family: Poppins;
-	-fx-font-size: 10px;
-	-fx-text-fill: #4F4F4F;
+	-fx-font-size: 14px;
+	-fx-text-fill: #8D8D8D;
 }
 
 /*** toggle button ***/
@@ -92,4 +92,12 @@
 	-fx-font-size: 24px;
 }
 
+/*** note card text area***/
+#notes_textarea {
+	-fx-padding: 16px;
+	-fx-background-color: transparent;
+}
 
+#notes_textarea .content {
+    -fx-background-color: white;
+}

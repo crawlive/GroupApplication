@@ -23,11 +23,11 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 
-<StackPane id="background" maxHeight="1024.0" maxWidth="1440.0" prefHeight="780.0" prefWidth="1024.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane id="root" fx:id="background" maxHeight="1024.0" maxWidth="1440.0" prefHeight="780.0" prefWidth="1024.0" styleClass="root" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pane fx:id="NavPane" prefHeight="426.0" prefWidth="74.0" stylesheets="@../application.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <HBox>
          <children>
-            <VBox alignment="TOP_CENTER" spacing="10.0">
+            <VBox fx:id="NavPane" prefWidth="100.0" spacing="10.0">
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding>
@@ -62,97 +62,122 @@
                   <Button mnemonicParsing="false" style="-fx-background-color: #FB634F;" styleClass="menuButton" text="AP" />
                </children>
             </VBox>
-         </children></Pane>
-      <Pane fx:id="TitlePane" layoutX="72.0" prefHeight="66.0" prefWidth="555.0" stylesheets="@../application.css" AnchorPane.bottomAnchor="360.0" AnchorPane.leftAnchor="72.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <children>
-            <Label id="Title" fx:id="Title" layoutX="14.0" prefHeight="70.0" prefWidth="468.0" stylesheets="@../application.css" text="Assignment Tracker" />
-         </children>
-      </Pane>
-      <Pane fx:id="TaskPane" layoutX="74.0" layoutY="66.0" prefHeight="376.0" prefWidth="367.0" stylesheets="@../application.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="74.0" AnchorPane.rightAnchor="211.0" AnchorPane.topAnchor="66.0">
-         <children>
-            <StackPane>
+            <VBox HBox.hgrow="ALWAYS">
                <children>
-                  <VBox alignment="TOP_CENTER" styleClass="card">
+                  <HBox fx:id="TitlePane">
                      <children>
-                        <HBox alignment="CENTER" styleClass="card-header">
+                        <Label id="Title" fx:id="Title" stylesheets="@../application.css" text="Assignment Tracker" />
+                     </children>
+                  </HBox>
+                  <HBox id="body" VBox.vgrow="ALWAYS">
+                     <children>
+                        <StackPane id="TaskPane" minWidth="300.0" HBox.hgrow="ALWAYS">
                            <children>
-                              <VBox HBox.hgrow="ALWAYS">
+                              <VBox id="events_card" alignment="TOP_CENTER" styleClass="card">
                                  <children>
-                                    <Label styleClass="boxLabels" text="Assignments/Tasks" />
-                                    <HBox VBox.vgrow="NEVER">
+                                    <HBox alignment="CENTER" styleClass="card-header">
                                        <children>
-                                          <ToggleButton id="toggle_todo_btn" mnemonicParsing="false" selected="true" styleClass="toggle-btn" text="ToDo">
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                             <toggleGroup>
-                                                <ToggleGroup fx:id="todo_date_toggle" />
-                                             </toggleGroup>
-                                          </ToggleButton>
-                                          <ToggleButton id="toggle_date_btn" mnemonicParsing="false" styleClass="toggle-btn" text="Date" toggleGroup="$todo_date_toggle">
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </ToggleButton>
+                                          <VBox HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <Label styleClass="boxLabels" text="Assignments/Tasks" />
+                                                <HBox VBox.vgrow="NEVER">
+                                                   <children>
+                                                      <ToggleButton id="toggle_todo_btn" mnemonicParsing="false" selected="true" styleClass="toggle-btn" text="ToDo">
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                         <toggleGroup>
+                                                            <ToggleGroup fx:id="todo_date_toggle" />
+                                                         </toggleGroup>
+                                                      </ToggleButton>
+                                                      <ToggleButton id="toggle_date_btn" mnemonicParsing="false" styleClass="toggle-btn" text="Date" toggleGroup="$todo_date_toggle">
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </ToggleButton>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                          <Button id="add-btn" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="+" />
                                        </children>
                                     </HBox>
+                                    <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+                                       <padding>
+                                          <Insets left="25.0" right="25.0" />
+                                       </padding>
+                                    </VBox>
                                  </children>
+                                 <StackPane.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </StackPane.margin>
                               </VBox>
-                              <Button id="add-btn" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="+" />
                            </children>
-                        </HBox>
-                        <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
-                           <padding>
-                              <Insets left="25.0" right="25.0" />
-                           </padding>
+                        </StackPane>
+                        <VBox prefWidth="350.0">
+                           <children>
+                              <StackPane minWidth="200.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox id="events_card" alignment="TOP_CENTER" styleClass="card">
+                                       <children>
+                                          <HBox styleClass="card-header">
+                                             <children>
+                                                <VBox HBox.hgrow="ALWAYS">
+                                                   <children>
+                                                      <Label styleClass="boxLabels" text="Events" />
+                                                      <Label styleClass="boxSubLabels" text="Exams, meetings, etc." />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                          <VBox minHeight="100.0" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <Label text="Currently no upcomming events" textFill="#4f4f4f" wrapText="true" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                             </padding>
+                                          </VBox>
+                                       </children>
+                                       <StackPane.margin>
+                                          <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                       </StackPane.margin>
+                                    </VBox>
+                                 </children>
+                              </StackPane>
+                              <StackPane id="todo-btn" minWidth="200.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox id="events_card" alignment="TOP_CENTER" styleClass="card">
+                                       <children>
+                                          <HBox styleClass="card-header">
+                                             <children>
+                                                <VBox HBox.hgrow="ALWAYS">
+                                                   <children>
+                                                      <Label styleClass="boxLabels" text="Notes" />
+                                                      <Label styleClass="boxSubLabels" text="Reminders, etc" />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                          <TextArea id="notes_textarea" promptText="Write notes here!" wrapText="true" VBox.vgrow="ALWAYS">
+                                             <cursor>
+                                                <Cursor fx:constant="TEXT" />
+                                             </cursor>
+                                          </TextArea>
+                                       </children>
+                                       <StackPane.margin>
+                                          <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                       </StackPane.margin>
+                                    </VBox>
+                                 </children>
+                              </StackPane>
+                           </children>
                         </VBox>
                      </children>
-                     <StackPane.margin>
-                        <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
-                     </StackPane.margin>
-                  </VBox>
+                  </HBox>
                </children>
-            </StackPane>
-         </children></Pane>
-    <AnchorPane layoutX="444.0" layoutY="65.0" minHeight="0.0" minWidth="0.0" prefHeight="179.0" prefWidth="208.0" styleClass="anchor" stylesheets="@../application.css" AnchorPane.rightAnchor="0.0">
-         <children>
-            <Pane fx:id="EventsPane" layoutY="9.0" prefHeight="1.0" prefWidth="207.0" stylesheets="@../application.css" AnchorPane.bottomAnchor="169.0" AnchorPane.rightAnchor="0.0">
-               <children>
-                  <Rectangle fx:id="EventsRectamgle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="166.0" stroke="BLACK" strokeType="INSIDE" styleClass="rectangle" width="200.0">
-                     <effect>
-                        <DropShadow blurType="TWO_PASS_BOX" color="#00000080" height="17.89" radius="7.6675" width="14.78" />
-                     </effect>
-                  </Rectangle>
-                  <Pane prefHeight="52.0" prefWidth="200.0" stylesheets="@../application.css">
-                     <children>
-                        <Label fx:id="EventsLabel" layoutX="15.0" layoutY="8.0" styleClass="boxLabels" stylesheets="@../application.css" text="Events" />
-                        <Label layoutX="74.0" layoutY="18.0" styleClass="boxSubLabels" stylesheets="@../application.css" text="exams, meetings, etc" />
-                        <Line endX="48.5" layoutX="149.0" layoutY="42.0" startX="-149.0" stroke="#f1f8f1" />
-                     </children>
-                  </Pane>
-               </children>
-            </Pane>
+            </VBox>
          </children>
-      </AnchorPane>
-    <AnchorPane layoutX="438.0" layoutY="245.0" minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="213.0" styleClass="anchor" stylesheets="@../application.css" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <children>
-            <Pane fx:id="NotesPane" layoutX="3.0" layoutY="6.0" prefHeight="184.0" prefWidth="207.0" stylesheets="@../application.css" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="3.0">
-               <children>
-                  <Rectangle fx:id="EventsRectamgle1" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="167.0" layoutX="3.0" layoutY="8.0" stroke="BLACK" strokeType="INSIDE" styleClass="rectangle" width="200.0">
-                     <effect>
-                        <DropShadow blurType="TWO_PASS_BOX" color="#00000080" height="17.89" radius="7.6675" width="14.78" />
-                     </effect>
-                  </Rectangle>
-                  <Pane layoutX="3.0" layoutY="8.0" prefHeight="42.0" prefWidth="200.0" stylesheets="@../application.css">
-                     <children>
-                        <Label fx:id="EventsLabel1" layoutX="15.0" layoutY="8.0" styleClass="boxLabels" stylesheets="@../application.css" text="Notes" />
-                        <Label layoutX="74.0" layoutY="18.0" styleClass="boxSubLabels" stylesheets="@../application.css" text="reminders, etc" />
-                        <Line endX="48.5" layoutX="149.0" layoutY="42.0" startX="-149.0" stroke="#f1f8f1" />
-                     </children>
-                  </Pane>
-               </children>
-            </Pane>
-         </children>
-      </AnchorPane>
+      </HBox>
    </children>
 </StackPane>
