@@ -23,7 +23,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 
-<StackPane id="root" fx:id="background" maxHeight="1024.0" maxWidth="1440.0" prefHeight="780.0" prefWidth="1024.0" styleClass="root" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane id="root" fx:id="background" maxHeight="1024.0" maxWidth="1440.0" prefHeight="780.0" prefWidth="1024.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <HBox>
          <children>
@@ -64,9 +64,9 @@
             </VBox>
             <VBox HBox.hgrow="ALWAYS">
                <children>
-                  <HBox fx:id="TitlePane">
+                  <HBox id="main-header" fx:id="TitlePane">
                      <children>
-                        <Label id="Title" fx:id="Title" stylesheets="@../application.css" text="Assignment Tracker" />
+                        <Label id="Title" fx:id="Title" stylesheets="@../application.css" text="Assignment Tracker" HBox.hgrow="ALWAYS" />
                      </children>
                   </HBox>
                   <HBox id="body" VBox.vgrow="ALWAYS">
@@ -116,7 +116,7 @@
                         </StackPane>
                         <VBox prefWidth="350.0">
                            <children>
-                              <StackPane minWidth="200.0" prefWidth="200.0">
+                              <StackPane minWidth="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                  <children>
                                     <VBox id="events_card" alignment="TOP_CENTER" styleClass="card">
                                        <children>
@@ -145,7 +145,7 @@
                                     </VBox>
                                  </children>
                               </StackPane>
-                              <StackPane id="todo-btn" minWidth="200.0" prefWidth="200.0">
+                              <StackPane id="todo-btn" minWidth="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                                  <children>
                                     <VBox id="events_card" alignment="TOP_CENTER" styleClass="card">
                                        <children>
