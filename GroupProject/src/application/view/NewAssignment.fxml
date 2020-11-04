@@ -35,7 +35,7 @@
             <Font size="12.0" />
          </font>
       </CheckBox>
-      <Button fx:id="submitButton" layoutX="266.0" layoutY="296.0" mnemonicParsing="false" onAction="#submitAssignment" prefHeight="90.0" prefWidth="120.0" style="-fx-background-color: mediumspringgreen;" stylesheets="@../../bin/application/application.css" text="Submit" />
+      <Button fx:id="submitButton" layoutX="266.0" layoutY="296.0" mnemonicParsing="false" onAction="#submitAssignment" prefHeight="90.0" prefWidth="120.0" style="-fx-background-color: mediumspringgreen;" text="Submit" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="MEDIUMSPRINGGREEN" height="69.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" width="400.0" />
       <Label layoutX="23.0" layoutY="8.0" prefHeight="38.0" prefWidth="241.0" text="New Assignment/Task">
          <font>
@@ -51,7 +51,7 @@
       </MenuButton>
       <DatePicker layoutX="73.0" layoutY="227.0" prefHeight="31.0" prefWidth="170.0" />
       <TextField fx:id="courseField" layoutX="73.0" layoutY="134.0" prefHeight="31.0" prefWidth="241.0" promptText="Select a Course" />
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="335.0" layoutY="13.0" mnemonicParsing="false" onAction="#closeModal" style="-fx-background-color: none;">
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="335.0" layoutY="13.0" mnemonicParsing="false" onAction="#close" style="-fx-background-color: none;">
          <graphic>
             <StackPane style="-fx-background-color: none;">
                <children>

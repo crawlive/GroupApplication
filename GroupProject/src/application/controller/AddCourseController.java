@@ -4,12 +4,20 @@
 
 package application.controller;
 
+import java.io.IOException;
 import java.util.ResourceBundle;
 
+import application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 public class AddCourseController {
 	//variables
@@ -97,5 +105,20 @@ public class AddCourseController {
     	System.out.println("Created New Course");
     	newCourseName = courseName.getText();
     	System.out.println("Course Name: " + newCourseName);
+    }
+    
+    /*
+     * close
+     * Closes scene and cancels action. Returns back to front page.
+     */
+    @FXML
+    void close(ActionEvent event) throws IOException {
+		FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(Main.class.getResource("view/FrontPage.fxml"));
+        StackPane newPane = loader.load();
+        Scene scene = new Scene(newPane);
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+        window.setScene(scene);
+        window.show();
     }
 }
