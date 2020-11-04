@@ -24,13 +24,13 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 
-<StackPane id="root" fx:id="background" maxHeight="1024.0" maxWidth="1440.0" prefHeight="780.0" prefWidth="1024.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.FrontPageController">
+<StackPane id="root" maxHeight="1024.0" maxWidth="1440.0" prefHeight="780.0" prefWidth="1024.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.FrontPageController">
    <children>
       <HBox>
          <children>
-            <VBox fx:id="NavPane" alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" spacing="15.0">
+            <VBox id="NavPane" alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" spacing="15.0">
                <children>
-                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" styleClass="menuButton">
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openAddTask" styleClass="menuButton">
                      <graphic>
                         <StackPane prefHeight="150.0" prefWidth="200.0">
                            <children>
@@ -46,7 +46,7 @@
                         </StackPane>
                      </graphic>
                   </Button>
-                  <Button mnemonicParsing="false" styleClass="menuButton">
+                  <Button mnemonicParsing="false" onAction="#openAddCourse" styleClass="menuButton">
                      <graphic>
                         <StackPane prefHeight="150.0" prefWidth="200.0">
                            <children>
@@ -60,7 +60,7 @@
                      </graphic>
                   </Button>
                   <Line endX="-50.0" startX="-100.0" stroke="#27ae60" strokeWidth="3.0" />
-                  <Button mnemonicParsing="false" style="-fx-background-color: #FB634F;" styleClass="menuButton" text="AP" />
+                  <Button fx:id="courseBtn" mnemonicParsing="false" onAction="#openEditCourse" style="-fx-background-color: #FB634F;" styleClass="menuButton" text="AP" />
                </children>
                <padding>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
@@ -68,9 +68,9 @@
             </VBox>
             <VBox maxHeight="1024.0" HBox.hgrow="ALWAYS">
                <children>
-                  <HBox id="main-header" fx:id="TitlePane">
+                  <HBox id="main-header">
                      <children>
-                        <Label id="Title" fx:id="Title" stylesheets="@../application.css" text="Assignment Tracker" HBox.hgrow="ALWAYS" />
+                        <Label id="Title" stylesheets="@../application.css" text="Assignment Tracker" HBox.hgrow="ALWAYS" />
                      </children>
                   </HBox>
                   <HBox id="body" VBox.vgrow="ALWAYS">
@@ -103,7 +103,7 @@
                                                 </HBox>
                                              </children>
                                           </VBox>
-                                          <Button id="add-btn" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" text="+" />
+                                          <Button id="add-btn" mnemonicParsing="false" onAction="#openAddTask" prefHeight="50.0" prefWidth="50.0" text="+" />
                                        </children>
                                     </HBox>
                                     <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
