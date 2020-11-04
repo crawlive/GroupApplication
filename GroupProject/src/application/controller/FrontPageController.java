@@ -21,6 +21,12 @@ public class FrontPageController {
     @FXML
     private Button courseBtn;
 
+    
+    /*
+     * openAddTask
+     * 
+     * Opens add task scene when user clicks new task button
+     */
     @FXML
     void openAddTask(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
@@ -32,6 +38,12 @@ public class FrontPageController {
         window.show();
     }
 
+    
+    /*
+     * openAddCourse
+     * 
+     * Opens add course scene when user clicks add course button
+     */
     @FXML
     void openAddCourse(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
@@ -43,6 +55,12 @@ public class FrontPageController {
         window.show();
     }
 
+    
+    /*
+     * openEditCourse
+     * 
+     * Opens edit course scene when user clicks edit course button
+     */
     @FXML
     void openEditCourse(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
