@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
@@ -50,5 +51,15 @@
       </MenuButton>
       <DatePicker layoutX="73.0" layoutY="227.0" prefHeight="31.0" prefWidth="170.0" />
       <TextField fx:id="courseField" layoutX="73.0" layoutY="134.0" prefHeight="31.0" prefWidth="241.0" promptText="Select a Course" />
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="345.0" layoutY="27.0" mnemonicParsing="false" style="-fx-background-color: none;">
+         <graphic>
+            <StackPane style="-fx-background-color: none;" />
+         </graphic>
+      </Button>
+      <ImageView layoutX="346.0" layoutY="15.0">
+         <image>
+            <Image url="@Images/x-btn.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

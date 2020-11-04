@@ -122,7 +122,7 @@
                   <Insets left="30.0" right="10.0" top="15.0" />
                </HBox.margin>
                <image>
-                  <Image url="@../../../../images/noticeimage.PNG" />
+                  <Image url="@Images/warning-sign.png" />
                </image>
             </ImageView>
             <Label prefHeight="54.0" prefWidth="228.0" text="Deleting this course will remove all assignments related to this course. Delete with caution." wrapText="true">
@@ -133,11 +133,21 @@
                   <Insets right="10.0" />
                </padding>
             </Label>
-            <Button fx:id="deleteCourseButton" mnemonicParsing="false" onAction="#deleteCourse" style="-fx-background-color: #EB5757;" text="Button">
+            <Button fx:id="deleteCourseButton" mnemonicParsing="false" onAction="#deleteCourse" style="-fx-background-color: #EB5757;" text="Delete">
                <HBox.margin>
                   <Insets right="20.0" top="20.0" />
                </HBox.margin>
             </Button>
          </children></HBox>
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="345.0" layoutY="27.0" mnemonicParsing="false" style="-fx-background-color: none;">
+         <graphic>
+            <StackPane style="-fx-background-color: none;" />
+         </graphic>
+      </Button>
+      <ImageView layoutX="356.0" layoutY="14.0">
+         <image>
+            <Image url="@Images/x-btn.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

@@ -95,5 +95,18 @@
             <Insets top="10.0" />
          </padding>
       </VBox>
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="335.0" layoutY="17.0" mnemonicParsing="false" style="-fx-background-color: none;">
+         <graphic>
+            <StackPane style="-fx-background-color: none;">
+               <children>
+                  <ImageView>
+                     <image>
+                        <Image url="@Images/x-btn.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </StackPane>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>
