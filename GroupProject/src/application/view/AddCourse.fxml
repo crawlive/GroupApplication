@@ -95,7 +95,7 @@
             <Insets top="10.0" />
          </padding>
       </VBox>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="335.0" layoutY="17.0" mnemonicParsing="false" style="-fx-background-color: none;">
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="335.0" layoutY="17.0" mnemonicParsing="false" onAction="#close" style="-fx-background-color: none;">
          <graphic>
             <StackPane style="-fx-background-color: none;">
                <children>

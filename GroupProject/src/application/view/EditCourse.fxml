@@ -139,15 +139,17 @@
                </HBox.margin>
             </Button>
          </children></HBox>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="345.0" layoutY="27.0" mnemonicParsing="false" style="-fx-background-color: none;">
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="345.0" layoutY="27.0" mnemonicParsing="false" onAction="#close" style="-fx-background-color: none;">
          <graphic>
-            <StackPane style="-fx-background-color: none;" />
+            <StackPane style="-fx-background-color: none;">
+               <children>
+                  <ImageView>
+                     <image>
+                        <Image url="@Images/x-btn.png" />
+                     </image>
+                  </ImageView>
+               </children></StackPane>
          </graphic>
       </Button>
-      <ImageView layoutX="356.0" layoutY="14.0">
-         <image>
-            <Image url="@Images/x-btn.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>
