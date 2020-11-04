@@ -24,7 +24,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.shape.Rectangle?>
 
-<StackPane id="root" fx:id="background" maxHeight="1024.0" maxWidth="1440.0" prefHeight="780.0" prefWidth="1024.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<StackPane id="root" fx:id="background" maxHeight="1024.0" maxWidth="1440.0" prefHeight="780.0" prefWidth="1024.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.FrontPageController">
    <children>
       <HBox>
          <children>
@@ -36,7 +36,7 @@
                            <children>
                               <ImageView fitHeight="50.0" fitWidth="45.0">
                                  <image>
-                                    <Image url="@../../Images/add-task-icon.png" />
+                                    <Image url="@../view/images/add-task-icon.png" />
                                  </image>
                                  <StackPane.margin>
                                     <Insets left="7.0" top="7.0" />
@@ -52,7 +52,7 @@
                            <children>
                               <ImageView fitHeight="50.0" fitWidth="40.0">
                                  <image>
-                                    <Image url="@../../Images/add-course-icon.png" />
+                                    <Image url="@../view/images/add-course-icon.png" />
                                  </image>
                               </ImageView>
                            </children>

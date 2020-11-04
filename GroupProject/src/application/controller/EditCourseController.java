@@ -2,7 +2,7 @@
  * Sample Skeleton for 'Sample.fxml' Controller Class
  */
 
-package application.editCourse;
+package application.controller;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;

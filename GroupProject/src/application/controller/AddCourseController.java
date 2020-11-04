@@ -2,7 +2,7 @@
  * Sample Skeleton for 'Sample.fxml' Controller Class
  */
 
-package application.addCourse;
+package application.controller;
 
 import java.util.ResourceBundle;
 
