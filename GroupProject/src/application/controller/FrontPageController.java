@@ -59,13 +59,17 @@ public class FrontPageController {
     /*
      * openEditCourse
      * 
-     * Opens edit course scene when user clicks edit course button
+     * Opens edit course scene for a particular course when user clicks an existing course button
      */
     @FXML
     void openEditCourse(ActionEvent event) throws IOException {
 		FXMLLoader loader = new FXMLLoader();
         loader.setLocation(Main.class.getResource("view/EditCourse.fxml"));
         AnchorPane newPane = loader.load();
+        
+        // TODO: use EditCourse controller too pass in course info for edit
+        // ...
+        
         Scene scene = new Scene(newPane);
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
         window.setScene(scene);
