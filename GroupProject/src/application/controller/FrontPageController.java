@@ -1,7 +1,6 @@
 package application.controller;
 
 import java.io.IOException;
-
 import application.Main;
 import application.UserController;
 import javafx.event.ActionEvent;
