@@ -24,6 +24,8 @@ public class NewAssignmentController {
 	int type;
 	
 	//FXML VARIABLES
+	@FXML
+	private Stage modal, window;
     @FXML
     private CheckBox notesBox;
     @FXML
@@ -95,18 +97,22 @@ public class NewAssignmentController {
     	}
     }
     
+    
     /*
      * close
-     * Closes scene and cancels action. Returns back to front page.
+     * 
+     * Closes modal and removes effect from the front page window
      */
     @FXML
     void close(ActionEvent event) throws IOException {
-		FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(Main.class.getResource("view/FrontPage.fxml"));
-        StackPane newPane = loader.load();
-        Scene scene = new Scene(newPane);
-        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-        window.setScene(scene);
-        window.show();
+    	window.getScene().getRoot().setEffect(null);
+        modal.close();
     }
+    
+    
+    void passStages(Stage modal, Stage window) {
+    	this.modal = modal;
+    	this.window = window;
+    }
+    
 }
