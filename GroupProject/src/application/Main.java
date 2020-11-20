@@ -1,5 +1,7 @@
 package application;
-	
+
+import application.model.TextModel;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
@@ -22,8 +24,12 @@ public class Main extends Application {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public static void main(String[] args) {
+		TextModel.importData();				//import all data to respective files
+		TextModel.importEvents();
+		TextModel.importCompleted();
 		launch(args);
+		TextModel.saveToFiles();			//after launching save everything into respective files
 	}
 }

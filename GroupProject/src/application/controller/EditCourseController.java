@@ -1,20 +1,14 @@
-/**
- * Sample Skeleton for 'Sample.fxml' Controller Class
+/*
+ * EditCourse Controller Class
  */
 
 package application.controller;
 
 import java.io.IOException;
-
-import application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class EditCourseController {
@@ -23,7 +17,7 @@ public class EditCourseController {
 
 	@FXML
 	private Stage modal, window;
-	
+
     @FXML // fx:id="red"
     private Button red; // Value injected by FXMLLoader
 
@@ -99,7 +93,7 @@ public class EditCourseController {
     @FXML
     void clickedSubmit(ActionEvent event) {
     	//change color of course (last color pressed is new color)
-    	
+
 
     }
 
@@ -112,10 +106,10 @@ public class EditCourseController {
 
     }
 
-    
+
     /*
      * close
-     * 
+     *
      * Closes modal and removes effect from the front page window
      */
     @FXML
@@ -123,11 +117,11 @@ public class EditCourseController {
     	window.getScene().getRoot().setEffect(null);
         modal.close();
     }
-    
-    
+
+
     void passStages(Stage modal, Stage window) {
     	this.modal = modal;
     	this.window = window;
     }
-    
+
 }

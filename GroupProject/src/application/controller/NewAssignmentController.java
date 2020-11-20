@@ -1,28 +1,24 @@
+/*
+ * NewAssignment Controller Class
+ */
 package application.controller;
 
-
 import java.io.IOException;
-
-import application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class NewAssignmentController {
-	
+
 	//VARIBLES
 	String assignmentName;
 	String course;
 	String date;
 	int type;
-	
+
 	//FXML VARIABLES
 	@FXML
 	private Stage modal, window;
@@ -35,12 +31,12 @@ public class NewAssignmentController {
     @FXML
     private TextField nameField;
     @FXML
-    private CheckBox homeworkBox;   
+    private CheckBox homeworkBox;
     @FXML
-    private Button submitButton;   
+    private Button submitButton;
     @FXML
     private TextField courseField;
-    
+
     //Methods
     @FXML
     void submitAssignment(ActionEvent event) {
@@ -60,9 +56,9 @@ public class NewAssignmentController {
     	}
     	System.out.println(assignmentName);
     	System.out.println("Type: " + type);
-    	
+
     }
-    
+
     // METHODS TO HANDLE CHECK BOXES
     @FXML
     void handleNotes(ActionEvent event) {
@@ -71,7 +67,7 @@ public class NewAssignmentController {
     		quizBox.setSelected(false);
     		examBox.setSelected(false);
     	}
-    }	
+    }
     @FXML
     void handleHomework(ActionEvent event) {
     	if(homeworkBox.isSelected()){
@@ -87,7 +83,7 @@ public class NewAssignmentController {
     		homeworkBox.setSelected(false);
     		examBox.setSelected(false);
     	}
-    }   
+    }
     @FXML
     void handleExam(ActionEvent event) {
     	if(examBox.isSelected()){
@@ -96,11 +92,11 @@ public class NewAssignmentController {
     		quizBox.setSelected(false);
     	}
     }
-    
-    
+
+
     /*
      * close
-     * 
+     *
      * Closes modal and removes effect from the front page window
      */
     @FXML
@@ -108,11 +104,11 @@ public class NewAssignmentController {
     	window.getScene().getRoot().setEffect(null);
         modal.close();
     }
-    
-    
+
+
     void passStages(Stage modal, Stage window) {
     	this.modal = modal;
     	this.window = window;
     }
-    
+
 }

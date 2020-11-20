@@ -1,22 +1,15 @@
-/**
- * Sample Skeleton for 'Sample.fxml' Controller Class
+/*
+ * AddCourse Controller Class
  */
 
 package application.controller;
 
 import java.io.IOException;
 import java.util.ResourceBundle;
-
-import application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class AddCourseController {
@@ -25,10 +18,10 @@ public class AddCourseController {
 
 	@FXML
 	private Stage modal, window;
-	
+
     @FXML // ResourceBundle that was given to the FXMLLoader
     private ResourceBundle resources;
-    
+
     @FXML // fx:id="courseName"
     private TextField courseName; // Value injected by FXMLLoader
 
@@ -59,7 +52,7 @@ public class AddCourseController {
 
     @FXML
     void createdNewCourseName(ActionEvent event) {
-   
+
     }
 
     @FXML
@@ -109,11 +102,11 @@ public class AddCourseController {
     	newCourseName = courseName.getText();
     	System.out.println("Course Name: " + newCourseName);
     }
-    
-    
+
+
     /*
      * close
-     * 
+     *
      * Closes modal and removes effect from the front page window
      */
     @FXML
@@ -121,8 +114,8 @@ public class AddCourseController {
     	window.getScene().getRoot().setEffect(null);
         modal.close();
     }
-    
-    
+
+
     void passStages(Stage modal, Stage window) {
     	this.modal = modal;
     	this.window = window;
