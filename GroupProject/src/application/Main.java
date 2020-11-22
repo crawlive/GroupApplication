@@ -1,6 +1,5 @@
 package application;
 
-import application.model.MainModel;
 import application.model.TextModel;
 
 import javafx.application.Application;
