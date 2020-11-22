@@ -55,7 +55,7 @@ public class MainModel{
      * adjusts the data per the placement index
      */
 	public static void adjustDataIndice(Task task){
-		//FINISH ME
+		//---------------------------------------------------------FINISH ME
 		//use temp.placement to track placement from listview
 		//taskMap.put(task.placement, task);					//add task to taskMap
 		
