@@ -11,9 +11,9 @@ public class Task {
 	String name;		//title
 	String course;		//course name
 	String date;		//due date
-	/*int month;
+	int month;
 	int day;
-	int year;*/
+	int year;
 	int placement;
 	Date completedDate; //Date completed for queue
 
@@ -32,9 +32,9 @@ public class Task {
 
 	public void date(String date){
 		this.date = date;
-		//parseDate();
+		parseDate();
 	}
-/*
+
 	public void parseDate(){
 		String regex = "[/]";
 		String[] tokeArr = this.date.split(regex);
@@ -42,7 +42,7 @@ public class Task {
 		this.day = Integer.parseInt(tokeArr[1]);
 		this.year = Integer.parseInt(tokeArr[2]);
 	}
-*/
+
 	public void completedDate(){
 		this.completedDate = new Date();	//grabs the current date
 	}
@@ -50,7 +50,7 @@ public class Task {
 	public void placement(int placement){
 		this.placement = placement;
 	}
-	
+
 	public String toString() {
 		String retString = type + "," + name + "," + course + "," + date + "," + placement +"\n";
 		return retString;

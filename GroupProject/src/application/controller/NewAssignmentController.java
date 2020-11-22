@@ -7,15 +7,20 @@ import java.io.IOException;
 
 import application.model.MainModel;
 import application.model.Task;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class NewAssignmentController {
 
+	//static ObservableList<String> courseList = FXCollections.observableArrayList(MainModel.courses);
+	ObservableList<String> courseList = FXCollections.observableArrayList(MainModel.courses);
 	//FXML VARIABLES
 	@FXML
 	private Stage modal, window;
@@ -30,13 +35,18 @@ public class NewAssignmentController {
     @FXML
     private TextField nameField;		//NAME
     @FXML
-    private TextField courseField;		//COURSE
+    private ChoiceBox<String> courseBox;		//COURSE
     									//WE NEED TO GRAB THE DATE FIELD	//MICHAELS TASK
     @FXML
     private CheckBox meetingBox;		//MEETING TYPE
     @FXML
     private Button submitButton;
 
+    @FXML
+    void initialize(){
+    	courseBox.setValue("Select a Course");
+    	courseBox.setItems(courseList);
+    }
 
     //Methods
     @FXML
@@ -45,7 +55,7 @@ public class NewAssignmentController {
     	Task temp = new Task();
     	//grab all the variables from the fields
     	temp.name(nameField.getText());
-    	temp.course(courseField.getText());
+    	temp.course(courseBox.getValue());
     	//temp.date(/*FIX ME*/);											//MICHAELS TASK
     	//HANDLE THE TYPE
     	if(notesBox.isSelected()) {
@@ -63,9 +73,9 @@ public class NewAssignmentController {
     	if(meetingBox.isSelected()){
     		temp.type("m");
     	}
-   
+
     	MainModel.addNewTask(temp);	//FUNCTION CALL: add new task to the proper collections
-    	
+
 
     }
 
