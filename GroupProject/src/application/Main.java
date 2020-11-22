@@ -29,7 +29,7 @@ public class Main extends Application {
 		TextModel.importData();				//import all data to respective files
 		TextModel.importEvents();
 		TextModel.importCompleted();
-		//MainModel.checkDates();
+		//MainModel.checkQueueDates();
 		launch(args);
 		TextModel.saveToFiles();			//after launching save everything into respective files
 	}

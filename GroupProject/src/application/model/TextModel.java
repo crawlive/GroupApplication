@@ -179,10 +179,10 @@ public class TextModel{
 	public static Task convertData(String[] data){
 		Task temp = new Task();
 		temp.type(data[0]);
-		temp.name(data[0]);
-		temp.course(data[0]);
-		temp.date(data[0]);
-
+		temp.name(data[1]);
+		temp.course(data[2]);
+		temp.date(data[3]);
+		temp.placement(Integer.parseInt(data[4]));
 		return temp;
 	}
 }

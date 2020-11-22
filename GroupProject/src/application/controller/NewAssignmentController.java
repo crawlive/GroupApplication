@@ -5,6 +5,7 @@ package application.controller;
 
 import java.io.IOException;
 
+import application.model.MainModel;
 import application.model.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -32,6 +33,8 @@ public class NewAssignmentController {
     private TextField courseField;		//COURSE
     									//WE NEED TO GRAB THE DATE FIELD	//MICHAELS TASK
     @FXML
+    private CheckBox meetingBox;		//MEETING TYPE
+    @FXML
     private Button submitButton;
 
 
@@ -57,9 +60,12 @@ public class NewAssignmentController {
     	if(examBox.isSelected()) {
     		temp.type("e");
     	}
-    	//THERESA'S TASKS:
-    	//FUNCTION CALL:if type e then throw to arr list (events should print name and the due date)
-    	//FUNCTION CALL:add to hashmap data (all types are added to hashmapping)
+    	if(meetingBox.isSelected()){
+    		temp.type("m");
+    	}
+   
+    	MainModel.addNewTask(temp);	//FUNCTION CALL: add new task to the proper collections
+    	
 
     }
 
@@ -70,6 +76,7 @@ public class NewAssignmentController {
     		homeworkBox.setSelected(false);
     		quizBox.setSelected(false);
     		examBox.setSelected(false);
+    		meetingBox.setSelected(false);
     	}
     }
     @FXML
@@ -78,6 +85,7 @@ public class NewAssignmentController {
     		notesBox.setSelected(false);
     		quizBox.setSelected(false);
     		examBox.setSelected(false);
+    		meetingBox.setSelected(false);
     	}
     }
     @FXML
@@ -86,6 +94,7 @@ public class NewAssignmentController {
     		notesBox.setSelected(false);
     		homeworkBox.setSelected(false);
     		examBox.setSelected(false);
+    		meetingBox.setSelected(false);
     	}
     }
     @FXML
@@ -94,6 +103,16 @@ public class NewAssignmentController {
     		notesBox.setSelected(false);
     		homeworkBox.setSelected(false);
     		quizBox.setSelected(false);
+    		meetingBox.setSelected(false);
+    	}
+    }
+    @FXML
+    void handleMeeting(ActionEvent event) {
+    	if(meetingBox.isSelected()){
+    		notesBox.setSelected(false);
+    		homeworkBox.setSelected(false);
+    		quizBox.setSelected(false);
+    		examBox.setSelected(false);
     	}
     }
 

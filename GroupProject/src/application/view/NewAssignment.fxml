@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
-<?import javafx.scene.control.*?>
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="500.0" prefWidth="500.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.NewAssignmentController">
+<AnchorPane prefHeight="500.0" prefWidth="500.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.NewAssignmentController">
    <children>
       <Label layoutX="20.0" layoutY="95.0" text="Name:" />
       <Label layoutX="16.0" layoutY="184.0" prefHeight="23.0" prefWidth="60.0" text="Course:" />
@@ -25,12 +31,17 @@
             <Font size="12.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="quizBox" layoutX="274.0" layoutY="278.0" mnemonicParsing="false" onAction="#handleQuiz" text="Quiz">
+      <CheckBox fx:id="quizBox" layoutX="261.0" layoutY="281.0" mnemonicParsing="false" onAction="#handleQuiz" text="Quiz">
          <font>
             <Font size="12.0" />
          </font>
       </CheckBox>
-      <CheckBox fx:id="examBox" layoutX="345.0" layoutY="278.0" mnemonicParsing="false" onAction="#handleExam" text="Exam">
+      <CheckBox fx:id="examBox" layoutX="336.0" layoutY="281.0" mnemonicParsing="false" onAction="#handleExam" text="Exam">
+         <font>
+            <Font size="12.0" />
+         </font>
+      </CheckBox>
+      <CheckBox fx:id="meetingBox" layoutX="403.0" layoutY="281.0" mnemonicParsing="false" onAction="#handleMeeting" text="Meeting">
          <font>
             <Font size="12.0" />
          </font>
@@ -51,15 +62,17 @@
       </MenuButton>
       <DatePicker layoutX="80.0" layoutY="368.0" prefHeight="31.0" prefWidth="170.0" />
       <TextField fx:id="courseField" layoutX="94.0" layoutY="179.0" prefHeight="33.0" prefWidth="251.0" promptText="Select a Course" />
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="335.0" layoutY="13.0" mnemonicParsing="false" onAction="#close" style="-fx-background-color: none;">
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="435.0" layoutY="13.0" mnemonicParsing="false" onAction="#close" prefHeight="38.0" prefWidth="40.0" style="-fx-background-color: none;">
          <graphic>
-            <StackPane style="-fx-background-color: none;" />
+            <StackPane prefHeight="31.0" prefWidth="39.0" style="-fx-background-color: none;">
+               <children>
+                  <ImageView>
+                     <image>
+                        <Image url="@Images/x-btn.png" />
+                     </image>
+                  </ImageView>
+               </children></StackPane>
          </graphic>
       </Button>
-      <ImageView layoutX="449.0" layoutY="18.0">
-         <image>
-            <Image url="@Images/x-btn.png" />
-         </image>
-      </ImageView>
    </children>
 </AnchorPane>
