@@ -4,6 +4,8 @@
  */
 package application.model;
 
+import java.util.Date;
+
 public class Task {
 	String type; 		//notes, hw, quiz, exam
 	String name;		//title
@@ -12,6 +14,7 @@ public class Task {
 	int month;			//Date string is parsed into integers for sort comparison
 	int day;
 	int year;
+	Date completedDate; //Date completed for queue
 
 	//---------------------Setters for the Task Class-------------------//
 	public void type(String type){
@@ -37,6 +40,10 @@ public class Task {
 		this.month = Integer.parseInt(tokeArr[0]);
 		this.day = Integer.parseInt(tokeArr[1]);
 		this.year = Integer.parseInt(tokeArr[2]);
+	}
+
+	public void completedDate(){
+		this.completedDate = new Date();	//grabs the current date
 	}
 
 	public String toString() {

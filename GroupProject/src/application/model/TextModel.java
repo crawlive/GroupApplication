@@ -147,7 +147,7 @@ public class TextModel{
 
 		Iterator<Task> iterator = MainModel.completedQueue.iterator(); 	//queue iterator
 		while(iterator.hasNext()){							//while items in queue
-			temp = MainModel.completedQueue.remove();		//dequeue each task
+			temp = MainModel.completedQueue.poll();			//dequeue each task
 			line = temp.toString();							//set the line from the task
 			iWriter.write(line);							//write the line
 		}
