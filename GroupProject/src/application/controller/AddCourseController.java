@@ -6,6 +6,8 @@ package application.controller;
 
 import java.io.IOException;
 import java.util.ResourceBundle;
+
+import application.model.MainModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -49,10 +51,14 @@ public class AddCourseController {
     @FXML // fx:id="submitNewCourse"
     private Button submitNewCourse; // Value injected by FXMLLoader
 
+    @FXML
+    void initialize(){
+    	//create existing courses using MainModel.courses arraylist
+    }
 
     @FXML
     void createdNewCourseName(ActionEvent event) {
-
+    	MainModel.courses.add(courseName.getText());		//adds the course name to the arraylist
     }
 
     @FXML

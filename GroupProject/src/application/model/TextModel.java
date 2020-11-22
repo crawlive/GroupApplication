@@ -30,7 +30,6 @@ public class TextModel{
 	public static void importData(){
 		Scanner scan;
 		Task temp;
-		int i = 0;											//iterator tracker
 		File file = new File(dataFile);						//file pointer
 		if(file.length() != 0){								//if the file is not empty
 			try {
@@ -41,8 +40,10 @@ public class TextModel{
 					line = scan.nextLine();					//grab the line
 					String[] lineArr = line.split(",");		//parse the line
 					temp = convertData(lineArr);			//convert the data to a task variable
-					MainModel.taskMap.put(i, temp);			//add the task to the map(in this case in order)
-					i += 1;
+					MainModel.taskMap.put(temp.placement, temp);	//add the task to the map(according to placement number)
+					if(MainModel.courses.contains(temp.course) == false){	//populate the course array
+						MainModel.courses.add(temp.course);
+					}
 				}
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();

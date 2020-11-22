@@ -25,20 +25,20 @@ public class NewAssignmentController {
 	@FXML
 	private Stage modal, window;
     @FXML
-    private CheckBox notesBox;			//NOTES TYPE
+    private TextField nameField;			//NAME
     @FXML
-    private CheckBox quizBox;			//QUIZ TYPE
+    private CheckBox notesBox;				//NOTES TYPE
     @FXML
-    private CheckBox examBox;			//EXAM TYPE
+    private CheckBox quizBox;				//QUIZ TYPE
     @FXML
-    private CheckBox homeworkBox;		//HW TYPE
+    private CheckBox examBox;				//EXAM TYPE
     @FXML
-    private TextField nameField;		//NAME
+    private CheckBox homeworkBox;			//HW TYPE
     @FXML
-    private ChoiceBox<String> courseBox;		//COURSE
-    									//WE NEED TO GRAB THE DATE FIELD	//MICHAELS TASK
+    private CheckBox meetingBox;			//MEETING TYPE
     @FXML
-    private CheckBox meetingBox;		//MEETING TYPE
+    private ChoiceBox<String> courseBox;	//COURSE
+    										//WE NEED TO GRAB THE DATE FIELD	//MICHAELS TASK
     @FXML
     private Button submitButton;
 

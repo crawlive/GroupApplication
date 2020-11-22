@@ -7,7 +7,7 @@ package application.model;
 import java.util.Date;
 
 public class Task {
-	String type; 		//notes, hw, quiz, exam [n, h, q, e or m]
+	String type; 		//notes, hw, quiz, exam, meeting [n, h, q, e or m]
 	String name;		//title
 	String course;		//course name
 	String date;		//due date

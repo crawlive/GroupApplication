@@ -35,7 +35,7 @@ public class MainModel{
 			int size = taskMap.size();							//indices are zero based (see importData)
 			taskMap.put(size, newTask);							//add the task to the end of the map
 		}
-		if(newTask.type.equals("e") == true) {					//if the task is an exam
+		if((newTask.type.equals("e") == true) || (newTask.type.equals("m") == true)) {					//if the task is an exam
 			events.add(newTask);								//add the task to the array list
 		}
 	}
