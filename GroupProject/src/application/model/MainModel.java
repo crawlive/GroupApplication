@@ -9,12 +9,12 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
+//import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.Map;
+//import java.util.Map;
 import java.util.Queue;
-import java.util.Set;
-import java.util.TreeMap;
+//import java.util.Set;
+//import java.util.TreeMap;
 
 public class MainModel{
 
@@ -26,6 +26,57 @@ public class MainModel{
 	//-------------------------------TASK HASHMAPING -------------------------------//
 
 	/*
+     * deleteCourse
+     *
+     * remove specified course from all collections
+     */
+	public static void deleteCourse(String name){
+		deleteAssignments(name);	//remove all associated assignments from the taskMap
+		removeCourseEvents(name);	//remove the course from the events array list
+		removeCourseCompleted(name);//remove the course from the completed queue
+
+	}
+
+	/*
+     * removeCourseCompleted
+     *
+     * find the key for the task that contains the given string and remove it from the events arraylist
+     */
+    public static void removeCourseCompleted(String name) {
+    	for(int i = 0; i < events.size(); i++) {
+    		if(events.get(i).course.equals(name)) {			//need to find a way to find a value in a queue
+    			events.remove(i);
+    		}
+        }
+     }
+
+	/*
+     * removeCourseEvents
+     *
+     * find the key for the task that contains the given string and remove it from the events arraylist
+     */
+    public static void removeCourseEvents(String name) {
+    	for(int i = 0; i < events.size(); i++) {
+    		if(events.get(i).course.equals(name)) {
+    			events.remove(i);
+    		}
+        }
+     }
+
+	/*
+     * deleteAssignments
+     *
+     * find the key for the task that contains the given string and remove it from the taskMap
+     */
+    public static void deleteAssignments(String name) {
+    	for(int index : taskMap.keySet()) {
+    		if(taskMap.get(index).course.equals(name)) {
+    			taskMap.remove(index);
+    		}
+        }
+     }
+
+    /*
      * addData
      *
      * add a new task to the proper collections
@@ -56,7 +107,7 @@ public class MainModel{
      * sortHashMap
      *
      * sorts the hash map by index			----------------------------WORK IN PROGRESS
-     */
+     *
 	public static void sortHashMap(){
 		Map<Integer, Task> map = new TreeMap<Integer, Task>(taskMap);
 		Set<Map.Entry<Integer, Task>> set = map.entrySet();
@@ -67,7 +118,7 @@ public class MainModel{
 			System.out.println(me.getValue());
 		}
 
-	}
+	}*/
 
 	/*
      * checkDay
