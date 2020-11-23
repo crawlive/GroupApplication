@@ -4,6 +4,8 @@
 package application.controller;
 
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 import application.model.MainModel;
 import application.model.Task;
@@ -14,6 +16,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -38,7 +41,8 @@ public class NewAssignmentController {
     private CheckBox meetingBox;			//MEETING TYPE
     @FXML
     private ChoiceBox<String> courseBox;	//COURSE
-    										//WE NEED TO GRAB THE DATE FIELD	//MICHAELS TASK
+    @FXML
+    private DatePicker dateField;										//WE NEED TO GRAB THE DATE FIELD	//MICHAELS TASK
     @FXML
     private Button submitButton;
 
@@ -56,7 +60,13 @@ public class NewAssignmentController {
     	//grab all the variables from the fields
     	temp.name(nameField.getText());
     	temp.course(courseBox.getValue());
-    	//temp.date(/*FIX ME*/);											//MICHAELS TASK
+    		
+    	LocalDate date = dateField.getValue();
+    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
+    	String formattedString = date.format(formatter);
+    	System.out.println("DATE: " + formattedString);
+    	temp.date(formattedString);	
+    	
     	//HANDLE THE TYPE
     	if(notesBox.isSelected()) {
     		temp.type("n");
