@@ -5,15 +5,16 @@
 package application.controller;
 
 import java.io.IOException;
+
+import application.model.MainModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class EditCourseController {
-	//my vars
-	String deleteCourse;
 
 	@FXML
 	private Stage modal, window;
@@ -46,7 +47,16 @@ public class EditCourseController {
     private Button deleteCourseButton; // Value injected by FXMLLoader
 
     @FXML // fx:id="courseToDelete"
-    private TextField courseToDelete; // Value injected by FXMLLoader
+    private TextField newCourseName; // Value injected by FXMLLoader
+
+    @FXML
+    private Label courseArea; //Course Name
+
+    @FXML
+    void initialize(){
+    	//String name = /*FINISH ME*/
+    	courseArea.setText("Applications");		//Set the textArea to the courseName
+    }
 
     @FXML
     void clickedRed(ActionEvent event) {
@@ -92,18 +102,30 @@ public class EditCourseController {
 
     @FXML
     void clickedSubmit(ActionEvent event) {
+    	String oldName = courseArea.getText();
+    	String newName = newCourseName.getText();
+    	newName = newName.replace("\n", "");
+    	for (int index: MainModel.taskMap.keySet()){
+            int key = index;
+            String value = MainModel.taskMap.get(index).toString();
+            System.out.println("KEY: " + key + " " + "Value: " + value);
+    	}
+    	MainModel.changeCourseName(oldName, newName);		//edit the name
+    	//TESTING PRINT STATEMENTS
+    	for (int index: MainModel.taskMap.keySet()){
+            int key = index;
+            String value = MainModel.taskMap.get(index).toString();
+            System.out.println("KEY: " + key + " " + "Value: " + value);
+    	}
     	//change color of course (last color pressed is new color)
-
 
     }
 
+    //if pressed, look for course named the same and remove it
     @FXML
     void deleteCourse(ActionEvent event) {
-    	System.out.println("Delete Course");
-    	deleteCourse = courseToDelete.getText();
-    	System.out.println("Course Name: " + deleteCourse);
-    	//if pressed, look for course named the same and remove it
-
+    	String name = courseArea.getText();
+    	MainModel.deleteCourse(name);
     }
 
 

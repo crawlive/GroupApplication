@@ -22,7 +22,7 @@ import javafx.stage.Stage;
 
 public class NewAssignmentController {
 
-	//static ObservableList<String> courseList = FXCollections.observableArrayList(MainModel.courses);
+	//course list for the drop down box
 	ObservableList<String> courseList = FXCollections.observableArrayList(MainModel.courses);
 	//FXML VARIABLES
 	@FXML
@@ -55,18 +55,18 @@ public class NewAssignmentController {
     //Methods
     @FXML
     void submitAssignment(ActionEvent event) {
-    	System.out.println("Submitting Assignment");  //REMOVE
     	Task temp = new Task();
     	//grab all the variables from the fields
     	temp.name(nameField.getText());
     	temp.course(courseBox.getValue());
-    		
+
+    	//format/grab the date properly
     	LocalDate date = dateField.getValue();
-    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
+    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/LLLL/yyyy");
     	String formattedString = date.format(formatter);
     	System.out.println("DATE: " + formattedString);
-    	temp.date(formattedString);	
-    	
+    	temp.date(formattedString);
+
     	//HANDLE THE TYPE
     	if(notesBox.isSelected()) {
     		temp.type("n");

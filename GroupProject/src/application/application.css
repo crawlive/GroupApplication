@@ -110,3 +110,10 @@
 #notes_textarea .content {
     -fx-background-color: white;
 }
+
+#courseArea{
+	-fx-text-fill: #219653;
+	-fx-font-family: Poppins;
+	-fx-font-size: 24px;
+	-fx-alignment: center;
+}
