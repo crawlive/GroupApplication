@@ -9,12 +9,16 @@ import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Iterator;
 //import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Map;
+import java.util.Map.Entry;
 //import java.util.Map;
 import java.util.Queue;
 //import java.util.Set;
 //import java.util.TreeMap;
+import java.util.Set;
 
 public class MainModel{
 
@@ -98,12 +102,12 @@ public class MainModel{
     public static void changeAssignments(String newName, String name) {
     	Task temp = new Task();
     	Task temp2 = new Task();
-    	for(int i = 0; i < taskMap.size(); i++) {				//iterate through taskMap
+    	for(int i = 0; i < taskMap.size(); i++) {	//iterate through taskMap
     		temp = taskMap.get(i);					//grab cur value at index
     		if(temp.course.equals(name)) {			//if task in course
     			temp2 = temp;
-    			temp2.course(newName);					//change the name
-    			taskMap.replace(i, temp2);	//replace with the new element
+    			temp2.course(newName);				//change the name
+    			taskMap.replace(i, temp2);			//replace with the new element
     		}
         }
      }
@@ -115,10 +119,10 @@ public class MainModel{
      * remove specified course from all collections
      */
 	public static void deleteCourse(String name){
-		removeCourseEvents(name);	//remove the course from the events array list
-		removeCourseCompleted(name);//remove the course from the completed queue
-		removeCourse(name);			//remove the course from the course array list
-		//removeCourseAssignments(name);	//remove all associated assignments from the taskMap
+		removeCourseAssignments(name);	//remove all associated assignments from the taskMap
+		removeCourseEvents(name);		//remove the course from the events array list
+		removeCourseCompleted(name);	//remove the course from the completed queue
+		removeCourse(name);				//remove the course from the course array list
 	}
 
 	/*
@@ -176,25 +180,41 @@ public class MainModel{
         }
      }
 
-	/*----------------------DOES NOT WORK (REST WORK THIS FUNCTION MESSES
-	 *--------------------------------- UP THE REST OF REMOVE-----------------------------
-     * removeCourseAssignments
+	/*
+	 * removeCourseAssignments
      *
      * find the key for the task that contains the given string and remove it from the taskMap
      */
     public static void removeCourseAssignments(String name) {
-    	Task temp = new Task();
-    	for(int i = 0; i < taskMap.size(); i++) {			//iterate through taskMap
-    		temp = taskMap.get(i);						//grab cur value at index
-    		if(temp.course.contains(name) != true) {		//if task is NOT in course
-    			taskMap.replace(i, temp);
-    		}
-    		else{
-    			taskMap.remove(i);
-    		}
-        }
-     }
+    	taskMap.entrySet().removeIf(entry->(name.equals(entry.getValue().course)));	//using lambda expression to remove
+    																				//values that contain the course
+    	updateKeys();
+    }
 
+    /*
+     * updateKeys
+     *
+     * update the taskMap to host the keys in order
+     */
+    public static void updateKeys() {
+    	Set<Entry<Integer, Task>> set = taskMap.entrySet();				//create an iteration set
+    	Iterator<Entry<Integer, Task>> iterator = set.iterator();		//iterator
+    	Task curValue = null;											//task value holder
+    	int place, curKey, i = 0;										//placement, current key, where task needs to be
+    	while(iterator.hasNext()) {										//iterate through taskMap
+    		@SuppressWarnings("rawtypes")
+			Map.Entry me = (Map.Entry)iterator.next();					//grab the current set entry
+    		curValue = (Task)me.getValue();								//grab the entry's task
+    		place = curValue.placement;									//grab the task's placement
+    		curKey = (Integer)me.getKey();								//grab the current entry key
+    		if(place != i){												//if the current placement != i
+    			curValue.placement = i;									//set it to i
+    			taskMap.put(i, curValue);								//add updated task to the taskMap
+    			taskMap.remove(curKey);									//remove the old task at the old position
+    		}
+    		i++;														//increment i
+    	}
+    }
 
     /*
      * addData

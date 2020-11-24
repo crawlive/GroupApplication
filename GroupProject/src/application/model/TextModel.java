@@ -109,9 +109,20 @@ public class TextModel{
 		BufferedWriter iWriter = new BufferedWriter(ifw);	//buff pointer
 
 		//iterate through the taskMap until end
-		for(int i = 0; i < MainModel.taskMap.size(); i++){
+		int size = MainModel.taskMap.size();
+		for(int i = 0; i < size; i++){
+			
+			//System.out.println(size);
+			//System.out.println(i);
+			
 			temp = MainModel.taskMap.get(i);				//grab each task in order
+
+			//System.out.println(temp.toString());
+			
 			line = temp.toString();							//set the line
+			
+			//System.out.println(line);
+			
 			iWriter.write(line);							//write the line
 		}
 		iWriter.close();									//close pointers
@@ -141,7 +152,6 @@ public class TextModel{
 		String line;
 		FileWriter ifw = new FileWriter(completedFile);		//file writer pointer
 		BufferedWriter iWriter = new BufferedWriter(ifw);	//buff pointer
-		int i = 0;
 		Iterator<Task> iterator = MainModel.completedQueue.iterator(); 	//queue iterator
 		while(iterator.hasNext()){							//while items in queue
 			temp = MainModel.completedQueue.poll();			//dequeue each task
@@ -150,7 +160,6 @@ public class TextModel{
 		}
 		iWriter.close();									//close pointers
 		line="";											//special safety net
-		i++;
 	}
 
 	public static void saveToFiles(){
