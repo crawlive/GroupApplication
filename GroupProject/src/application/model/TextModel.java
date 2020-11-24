@@ -141,7 +141,7 @@ public class TextModel{
 		String line;
 		FileWriter ifw = new FileWriter(completedFile);		//file writer pointer
 		BufferedWriter iWriter = new BufferedWriter(ifw);	//buff pointer
-
+		int i = 0;
 		Iterator<Task> iterator = MainModel.completedQueue.iterator(); 	//queue iterator
 		while(iterator.hasNext()){							//while items in queue
 			temp = MainModel.completedQueue.poll();			//dequeue each task
@@ -150,6 +150,7 @@ public class TextModel{
 		}
 		iWriter.close();									//close pointers
 		line="";											//special safety net
+		i++;
 	}
 
 	public static void saveToFiles(){

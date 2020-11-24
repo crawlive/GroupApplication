@@ -115,10 +115,10 @@ public class MainModel{
      * remove specified course from all collections
      */
 	public static void deleteCourse(String name){
-		deleteAssignments(name);	//remove all associated assignments from the taskMap
 		removeCourseEvents(name);	//remove the course from the events array list
 		removeCourseCompleted(name);//remove the course from the completed queue
 		removeCourse(name);			//remove the course from the course array list
+		//removeCourseAssignments(name);	//remove all associated assignments from the taskMap
 	}
 
 	/*
@@ -127,12 +127,15 @@ public class MainModel{
      * find the key for the task that contains the given string and remove it from the events arraylist
      */
     public static void removeCourse(String name) {
-    	for(int i = 0; i < courses.size(); i++) {
-    		if(courses.get(i).equals(name)) {
-    			courses.remove(i);
+    	String temp;
+    	for(int i = 0; i < courses.size(); i++) {	//iterate through the course arr list
+    		temp = courses.get(i);					//grab cur value at index
+    		if(temp.contains(name)) {				//if the value is found
+    			courses.remove(i);					//remove it
     		}
         }
     }
+
 
 	/*
      * removeCourseCompleted
@@ -145,7 +148,7 @@ public class MainModel{
         Task element = null;								//temp element
         for (int i = 0; i < size; i++) {					//iterate throught the queue
         	element = completedQueue.peek();				//peek head
-            if (element.course.equals(name)) {				//if the element's course name == name
+            if (element.course.contains(name)) {			//if the element's course name == name
                 element = completedQueue.remove();			//remove it from the queue
             } else {
                 temp.add(completedQueue.remove());			//otherwise remove and add it to the temp queue
@@ -164,25 +167,34 @@ public class MainModel{
      * find the key for the task that contains the given string and remove it from the events arraylist
      */
     public static void removeCourseEvents(String name) {
-    	for(int i = 0; i < events.size(); i++) {
-    		if(events.get(i).course.equals(name)) {
-    			events.remove(i);
+    	Task temp = null;
+    	for(int i = 0; i < events.size(); i++) {	//iterate through the course arr list
+    		temp = events.get(i);					//grab cur value at index
+    		if(temp.course.contains(name)) {		//if the value is found
+    			events.remove(i);					//remove it
     		}
         }
      }
 
-	/*
-     * deleteAssignments
+	/*----------------------DOES NOT WORK (REST WORK THIS FUNCTION MESSES
+	 *--------------------------------- UP THE REST OF REMOVE-----------------------------
+     * removeCourseAssignments
      *
      * find the key for the task that contains the given string and remove it from the taskMap
      */
-    public static void deleteAssignments(String name) {
-    	for(int index : taskMap.keySet()) {
-    		if(taskMap.get(index).course.equals(name)) {
-    			taskMap.remove(index);
+    public static void removeCourseAssignments(String name) {
+    	Task temp = new Task();
+    	for(int i = 0; i < taskMap.size(); i++) {			//iterate through taskMap
+    		temp = taskMap.get(i);						//grab cur value at index
+    		if(temp.course.contains(name) != true) {		//if task is NOT in course
+    			taskMap.replace(i, temp);
+    		}
+    		else{
+    			taskMap.remove(i);
     		}
         }
      }
+
 
     /*
      * addData

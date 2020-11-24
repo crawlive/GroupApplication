@@ -100,31 +100,33 @@ public class EditCourseController {
 
     }
 
+    /*
+     * clickedSubmit
+     *
+     * grabs the data inputted into the Edit Course fields and replaces and/or changes the color of the course
+     */
     @FXML
     void clickedSubmit(ActionEvent event) {
     	String oldName = courseArea.getText();
     	String newName = newCourseName.getText();
-    	newName = newName.replace("\n", "");
-    	for (int index: MainModel.taskMap.keySet()){
-            int key = index;
-            String value = MainModel.taskMap.get(index).toString();
-            System.out.println("KEY: " + key + " " + "Value: " + value);
-    	}
-    	MainModel.changeCourseName(oldName, newName);		//edit the name
-    	//TESTING PRINT STATEMENTS
-    	for (int index: MainModel.taskMap.keySet()){
-            int key = index;
-            String value = MainModel.taskMap.get(index).toString();
-            System.out.println("KEY: " + key + " " + "Value: " + value);
+    	if(newName.isEmpty() == false){							//if a value is input for a new course name
+    		newName = newName.replace("\n", "");				//remove the \n and
+    		MainModel.changeCourseName(oldName, newName);		//edit the name
     	}
     	//change color of course (last color pressed is new color)
 
     }
 
+    /*
+     * deleteCourse
+     *
+     * Deletes the course and all related mentions in every collection
+     */
     //if pressed, look for course named the same and remove it
     @FXML
     void deleteCourse(ActionEvent event) {
     	String name = courseArea.getText();
+    	name = name.replace("\n", "");				//remove the \n and
     	MainModel.deleteCourse(name);
     }
 
@@ -147,3 +149,11 @@ public class EditCourseController {
     }
 
 }
+
+//TESTING PRINTS
+/*/TESTING PRINT STATEMENTS
+for (int index: MainModel.taskMap.keySet()){
+    int key = index;
+    String value = MainModel.taskMap.get(index).toString();
+    System.out.println("KEY: " + key + " " + "Value: " + value);
+}*/
