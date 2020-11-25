@@ -17,6 +17,11 @@ public class Task {
 	int placement;
 	Date completedDate; //Date completed for queue
 
+	//---------------------Getters for the Task Class-------------------//
+	public String getDate(){
+		return date;
+	}
+
 	//---------------------Setters for the Task Class-------------------//
 	public void type(String type){
 		this.type = type;

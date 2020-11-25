@@ -6,7 +6,7 @@ package application.controller;
 
 import java.io.IOException;
 
-import application.model.MainModel;
+import application.model.EditCourseModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -14,7 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class EditCourseController {
+public class EditCourseController{
 
 	@FXML
 	private Stage modal, window;
@@ -111,7 +111,7 @@ public class EditCourseController {
     	String newName = newCourseName.getText();
     	if(newName.isEmpty() == false){							//if a value is input for a new course name
     		newName = newName.replace("\n", "");				//remove the \n and
-    		MainModel.changeCourseName(oldName, newName);		//edit the name
+    		EditCourseModel.changeCourseName(oldName, newName);		//edit the name
     	}
     	//change color of course (last color pressed is new color)
 
@@ -127,7 +127,7 @@ public class EditCourseController {
     void deleteCourse(ActionEvent event) {
     	String name = courseArea.getText();
     	name = name.replace("\n", "");				//remove the \n and
-    	MainModel.deleteCourse(name);
+    	EditCourseModel.deleteCourse(name);
     }
 
 
