@@ -117,3 +117,25 @@
 	-fx-font-size: 24px;
 	-fx-alignment: center;
 }
+
+/*** List Cells (for task and event items) ***/
+.smallCourseIcon {
+	-fx-pref-width: 58px;
+	-fx-pref-height: 58px;
+	-fx-background-radius: 50%;
+	-fx-background-color: red;
+	-fx-font-size: 22px;
+	-fx-text-fill: #F2F2F2;
+}
+.cellHeader {
+	-fx-font-size: 18px;
+}
+.cellSubHeader {
+	-fx-font-size: 14px;
+	-fx-text-fill: #828282;
+}
+
+.cellDate {
+	-fx-font-size: 18px;
+	-fx-text-fill: red;
+}
