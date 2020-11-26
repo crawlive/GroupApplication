@@ -20,6 +20,10 @@ public class Task {
 	/*
 	 * Constructor
 	 */
+	public Task() {
+		// empty constructor
+	}
+	
 	public Task(String name, String course, String date, String type) {
 		name(name);
 		course(course);
