@@ -2,7 +2,6 @@ package application.controller;
 
 import application.model.Task;
 import javafx.geometry.HPos;
-import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
@@ -40,7 +39,6 @@ public class EventCell extends ListCell<Task> {
 		
 		// adjust spacing
 		gridPane.setHgap(10);
-		gridPane.setPadding(new Insets(5, 5, 5, 5));
 		
 		// column configurations
 		ColumnConstraints col1 = new ColumnConstraints();

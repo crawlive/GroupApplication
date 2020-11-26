@@ -150,6 +150,14 @@ public class FrontPageController implements Initializable {
     	        new Task("event 2", "course 2", "12/12/12", "type 2")
     			);
 		
+		if (events.size() > 0) {
+			noEventsMsg.setVisible(false);
+			noEventsMsg.setManaged(false);
+		} else {
+			noEventsMsg.setVisible(true);
+			noEventsMsg.setManaged(true);
+		}
+		
 		// add observable list to list view
 		todoListView.setItems(tasks);
 		eventsListView.setItems(events);

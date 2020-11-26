@@ -111,7 +111,7 @@
                                           <Insets left="25.0" right="25.0" />
                                        </padding>
                                        <children>
-                                          <ListView fx:id="todoListView" VBox.vgrow="ALWAYS" />
+                                          <ListView id="todo_list_view" fx:id="todoListView" VBox.vgrow="ALWAYS" />
                                        </children>
                                     </VBox>
                                  </children>
@@ -140,7 +140,7 @@
                                           <VBox minHeight="100.0" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
                                              <children>
                                                 <Label fx:id="noEventsMsg" text="Currently no upcomming events" textFill="#4f4f4f" wrapText="true" />
-                                                <ListView fx:id="eventsListView" minHeight="0.0" prefHeight="0.0" VBox.vgrow="ALWAYS" />
+                                                <ListView id="events_list_view" fx:id="eventsListView" minHeight="0.0" prefHeight="0.0" VBox.vgrow="ALWAYS" />
                                              </children>
                                              <padding>
                                                 <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />

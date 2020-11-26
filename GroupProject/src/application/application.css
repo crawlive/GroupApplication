@@ -118,7 +118,34 @@
 	-fx-alignment: center;
 }
 
-/*** List Cells (for task and event items) ***/
+/*** List View + Cells (for task and event items) ***/
+
+/* remove border */
+ListView, .split-pane {
+	-fx-background-insets: 0; 
+	-fx-padding: 0;
+}
+
+/* remove horizontal scrollbar */
+#events_list_view .scroll-bar:horizontal .increment-arrow,
+#events_list_view .scroll-bar:horizontal .decrement-arrow,
+#events_list_view .scroll-bar:horizontal .increment-button,
+#events_list_view .scroll-bar:horizontal .decrement-button {
+    -fx-padding:0;
+}
+
+/* remove list cell backgrounds */
+ListView .list-cell:even {
+	-fx-background-color: none;
+}
+ListView .list-cell:odd {
+	-fx-background-color: none;
+}
+
+#todo_list_view {
+	-fx-padding: 20px 0 0 0;
+}
+
 .smallCourseIcon {
 	-fx-pref-width: 58px;
 	-fx-pref-height: 58px;
@@ -129,6 +156,7 @@
 }
 .cellHeader {
 	-fx-font-size: 18px;
+	-fx-text-fill: black;
 }
 .cellSubHeader {
 	-fx-font-size: 14px;

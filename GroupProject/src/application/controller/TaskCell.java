@@ -41,7 +41,7 @@ public class TaskCell extends ListCell<Task>{
 		
 		// adjust spacing
 		gridPane.setHgap(10);
-		gridPane.setPadding(new Insets(5, 5, 5, 5));
+		gridPane.setPadding(new Insets(0, 0, 20, 0));
 		
 		// column configurations
 		ColumnConstraints col1 = new ColumnConstraints();
