@@ -35,11 +35,9 @@ public class TaskCell extends ListCell<Task>{
 	/*
 	 * configureGrid()
 	 * 
-	 * Configure grid layout / styling
+	 * Configure grid layout
 	 */
 	private void configureGrid() {
-		// attach stylesheet
-		gridPane.getStylesheets().add("application.css");
 		
 		// adjust spacing
 		gridPane.setHgap(10);
@@ -121,10 +119,11 @@ public class TaskCell extends ListCell<Task>{
 	private void addContent(Task task) {
 		setText(null);
 		courseIcon.setText("AP");
-		taskLbl.setText("task");
-		courseLbl.setText("course");
-		typeLbl.setText("type");
-		dateLbl.setText("date");
+		taskLbl.setText(task.getName());
+		courseLbl.setText(task.getCourse());
+		typeLbl.setText(task.getType());
+		dateLbl.setText(task.getDate());
+		setGraphic(gridPane);
 	}
 	
 }

@@ -4,14 +4,23 @@
 package application.controller;
 
 import application.Main;
+import application.model.Task;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.layout.AnchorPane;
@@ -19,14 +28,20 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Callback;
 
-public class FrontPageController {
+public class FrontPageController implements Initializable {
 
     @FXML
     private ToggleGroup todo_date_toggle;
 
     @FXML
     private Button courseBtn;
+    
+    @FXML
+    private ListView<Task> todoListView;
+    
+    private ObservableList<Task> tasks = FXCollections.observableArrayList();;
 
 
     /*
@@ -116,4 +131,21 @@ public class FrontPageController {
 
         return modal;
     }
+
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		// dummy data
+		tasks.addAll(
+    			new Task("task 1", "course 1", "12/12/12", "type 1"),
+    	        new Task("task 2", "course 2", "12/12/12", "type 2")
+    			);
+		
+		// add observable list to list view
+		todoListView.setItems(tasks);
+		
+    	// customize the list view cell
+    	todoListView.setCellFactory(taskListView -> new TaskCell());
+		
+	}
 }

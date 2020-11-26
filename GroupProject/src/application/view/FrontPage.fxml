@@ -110,6 +110,9 @@
                                        <padding>
                                           <Insets left="25.0" right="25.0" />
                                        </padding>
+                                       <children>
+                                          <ListView fx:id="todoListView" VBox.vgrow="ALWAYS" />
+                                       </children>
                                     </VBox>
                                  </children>
                                  <StackPane.margin>
