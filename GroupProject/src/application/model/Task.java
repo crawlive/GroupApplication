@@ -17,24 +17,91 @@ public class Task {
 	int placement;
 	Date completedDate; //Date completed for queue
 
+	/*
+	 * Constructor
+	 */
+	public Task(String name, String course, String date, String type) {
+		name(name);
+		course(course);
+		date(date);
+		type(type);
+	}
+	
+	
 	//---------------------Getters for the Task Class-------------------//
-	public String getDate(){
+	
+	/**
+	 * getName()
+	 * 
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * getCourse()
+	 * 
+	 * @return the course
+	 */
+	public String getCourse() {
+		return course;
+	}
+
+	/**
+	 * getDate()
+	 * 
+	 * @return the date
+	 */
+	public String getDate() {
 		return date;
+	}
+	
+	/**
+	 * getType()
+	 * 
+	 * @return the type
+	 */
+	public String getType() {
+		return type;
 	}
 
 	//---------------------Setters for the Task Class-------------------//
+	
+	/**
+	 * type()
+	 * 
+	 * @param type the type to set
+	 */
 	public void type(String type){
 		this.type = type;
 	}
 
+	/**
+	 * name()
+	 * 
+	 * @param name the name to set 
+	 */
 	public void name(String name){
 		this.name = name;
 	}
 
+	
+	/**
+	 * course()
+	 * 
+	 * @param course the course to set
+	 */
 	public void course(String course){
 		this.course = course;
 	}
 
+	
+	/**
+	 * date()
+	 * 
+	 * @param date the date to set
+	 */
 	public void date(String date){
 		this.date = date;
 		parseDate();
