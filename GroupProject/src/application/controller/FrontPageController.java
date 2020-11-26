@@ -19,7 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ListCell;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.effect.ColorAdjust;
@@ -28,7 +28,6 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.util.Callback;
 
 public class FrontPageController implements Initializable {
 
@@ -39,10 +38,16 @@ public class FrontPageController implements Initializable {
     private Button courseBtn;
     
     @FXML
+    private Label noEventsMsg; // Text that shows when there are no events
+    
+    @FXML
     private ListView<Task> todoListView;
     
+    @FXML
+    private ListView<Task> eventsListView;
+    
     private ObservableList<Task> tasks = FXCollections.observableArrayList();;
-
+    private ObservableList<Task> events = FXCollections.observableArrayList();;
 
     /*
      * openAddTask
@@ -140,12 +145,17 @@ public class FrontPageController implements Initializable {
     			new Task("task 1", "course 1", "12/12/12", "type 1"),
     	        new Task("task 2", "course 2", "12/12/12", "type 2")
     			);
+		events.addAll(
+    			new Task("event 1", "course 1", "12/12/12", "type 1"),
+    	        new Task("event 2", "course 2", "12/12/12", "type 2")
+    			);
 		
 		// add observable list to list view
 		todoListView.setItems(tasks);
+		eventsListView.setItems(events);
 		
     	// customize the list view cell
     	todoListView.setCellFactory(taskListView -> new TaskCell());
-		
+    	eventsListView.setCellFactory(taskListView -> new EventCell());
 	}
 }

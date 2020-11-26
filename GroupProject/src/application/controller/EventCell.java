@@ -37,8 +37,6 @@ public class EventCell extends ListCell<Task> {
 	 * Configure grid layout / styling
 	 */
 	private void configureGrid() {
-		// attach stylesheet
-		gridPane.getStylesheets().add("application.css");
 		
 		// adjust spacing
 		gridPane.setHgap(10);
@@ -117,9 +115,10 @@ public class EventCell extends ListCell<Task> {
 	private void addContent(Task task) {
 		setText(null);
 		courseIcon.setText("AP");
-		taskLbl.setText("task");
-		courseLbl.setText("course");
-		dateLbl.setText("date");
+		taskLbl.setText(task.getName());
+		courseLbl.setText(task.getCourse());
+		dateLbl.setText(task.getDate());
+		setGraphic(gridPane);
 	}
 	
 }
