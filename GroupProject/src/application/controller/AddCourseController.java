@@ -7,6 +7,7 @@ package application.controller;
 import java.io.IOException;
 import java.util.ResourceBundle;
 
+import application.model.AddCourseModel;
 import application.model.MainModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -14,9 +15,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class AddCourseController {
+public class AddCourseController extends AddCourseModel{
 	//variables
-	String newCourseName;
+	String newCourseName, colorChosen;
 
 	@FXML
 	private Stage modal, window;
@@ -63,50 +64,51 @@ public class AddCourseController {
 
     @FXML
     void clickedRed(ActionEvent event) {
-    	System.out.println("Selected red");
+    	colorChosen = "red";
 
     }
 
     @FXML
     void clickedPeach(ActionEvent event) {
-    	System.out.println("Selected peach");
+    	colorChosen = "peach";
 
     }
 
     @FXML
     void clickedOrange(ActionEvent event) {
-    	System.out.println("Selected orange");
-
+    	colorChosen = "orange";
     }
 
     @FXML
     void clickedYellow(ActionEvent event) {
-    	System.out.println("Selected yellow");
+    	colorChosen = "yellow";
 
     }
 
     @FXML
     void clickedGreen(ActionEvent event) {
-    	System.out.println("Selected green");
+    	colorChosen = "green";
 
     }
 
     @FXML
     void clickedBlue(ActionEvent event) {
-    	System.out.println("Selected blue");
+    	colorChosen = "blue";
 
     }
 
     @FXML
     void clickedPurple(ActionEvent event) {
-    	System.out.println("Selected purple");
+    	colorChosen = "purple";
     }
 
     @FXML
     void clickedSubmit(ActionEvent event) {
-    	System.out.println("Created New Course");
     	newCourseName = courseName.getText();
-    	System.out.println("Course Name: " + newCourseName);
+    	boolean courseCreated = addCourse(newCourseName);
+    	if(courseCreated == true){
+        	//createCourseButton(name, colorChosen); //located in AddCourseModel
+    	}
     }
 
 

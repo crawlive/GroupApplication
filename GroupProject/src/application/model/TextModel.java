@@ -16,9 +16,19 @@ public class TextModel{
 	public static String dataFile = ".\\src\\application\\dataFiles\\data.txt";				//holds data for todo and date
 	public static String eventFile = ".\\src\\application\\dataFiles\\events.txt";			//holds the tasks that go in event list
 	public static String completedFile = ".\\src\\application\\dataFiles\\completed.txt";	//holds the tasks that have been completed
+	public static String courseFile = ".\\src\\application\\dataFiles\\courses.txt";		//holds the strings that go in courses list
 
 
 	//-------------IMPORTING DATA FUNCTIONS----------------//
+
+	public static void importFiles(){
+		importData();				//import all data to respective files
+		importEvents();
+		importCompleted();
+		importCourses();
+	}
+
+
 	/*
      * import*
      *
@@ -93,6 +103,24 @@ public class TextModel{
 		}
 	}
 
+	//Imports from events txt file to the events arraylist
+	public static void importCourses(){
+		Scanner scan;
+		File file = new File(courseFile);					//file pointer
+		if(file.length() != 0){								//if the file is not empty
+			try {
+				scan = new Scanner(file);					//scan pointer
+				String line;
+				while(scan.hasNextLine()) {					//while there is a next line
+					line = scan.nextLine();					//grab the line
+					MainModel.courses.add(line);			//add the task to the end of arraylist
+				}
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
 	//-------------SAVING DATA FUNCTIONS----------------//
 	/*
      * save*
@@ -111,18 +139,8 @@ public class TextModel{
 		//iterate through the taskMap until end
 		int size = MainModel.taskMap.size();
 		for(int i = 0; i < size; i++){
-			
-			//System.out.println(size);
-			//System.out.println(i);
-			
 			temp = MainModel.taskMap.get(i);				//grab each task in order
-
-			//System.out.println(temp.toString());
-			
 			line = temp.toString();							//set the line
-			
-			//System.out.println(line);
-			
 			iWriter.write(line);							//write the line
 		}
 		iWriter.close();									//close pointers
@@ -162,6 +180,21 @@ public class TextModel{
 		line="";											//special safety net
 	}
 
+	public static void saveCourses() throws IOException{
+		String line;
+		FileWriter ifw = new FileWriter(courseFile);		//file writer pointer
+		BufferedWriter iWriter = new BufferedWriter(ifw);	//buff pointer
+
+		//iterate through the taskMap until end
+		for(int i = 0; i < MainModel.courses.size(); i++){
+			line = MainModel.courses.get(i);				//grab each course
+			line = line + "\n";								//add a new line char
+			iWriter.write(line);							//write the line
+		}
+		iWriter.close();									//close pointers
+		line="";											//special safety net
+	}
+
 	public static void saveToFiles(){
 		try{
 			saveData();
@@ -179,6 +212,13 @@ public class TextModel{
 		}
 		try{
 			saveCompleted();
+		}
+		catch(IOException e){
+			System.out.println("Completed File problems");
+			e.printStackTrace();
+		}
+		try{
+			saveCourses();
 		}
 		catch(IOException e){
 			System.out.println("Completed File problems");
