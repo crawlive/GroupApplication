@@ -183,31 +183,17 @@ public class MainModel{
 	}
 
 	/*
-	 * sortHashByDate
+	 * getSortedDateArray
 	 *
-	 * sorts the hash map by date
-
-	public static HashMap<Integer, Task> sortHashByDate(){
-		List list = new LinkedList(taskMap.entrySet());
-		// Defined Custom Comparator here
-		Collections.sort(list, new Comparator() {
-		public int compare(Object o1, Object o2) {
-				return ((Comparable)((Map.Entry)(o1)).getValue()).compareTo(((Map.Entry)(o2)).getValue());
-	    	}
-	 	});
-
-		// Here I am copying the sorted list in HashMap
-		// using LinkedHashMap to preserve the insertion order
-		LinkedHashMap<Integer, Task> sortedHashMap = new LinkedHashMap<Integer, Task>();
-		for (@SuppressWarnings("rawtypes")Iterator it = list.iterator(); it.hasNext();) {
-			@SuppressWarnings("rawtypes")
-	        Map.Entry entry = (Map.Entry) it.next();
-	        sortedHashMap.put((Integer)entry.getKey(), (Task)entry.getValue());
-	    }
-		return sortedHashMap;
-
+	 * Sorts the hash map values by date and returns it as a sorted array list
+	 */
+	public static ArrayList<Task> getSortedDateArray() {
+		ArrayList<Task> taskList = new ArrayList<Task>();
+		taskList.addAll(taskMap.values());
+		taskList.sort(Comparator.comparing(Task::getYmd));
+		return taskList;
+		
 	}
-*/
 
 	//-------------------------------COMPLETED QUEUE -------------------------------//
 	/*

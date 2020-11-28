@@ -222,8 +222,7 @@ public class FrontPageController implements Initializable {
 		listByDate = FXCollections.observableArrayList();
 
 		// dummy data
-		listByDate.addAll(new Task("task 1", "this is sorted by date", "12/12/12", "type 1"),
-				new Task("task 2", "course 2", "12/12/12", "type 2"));
+		listByDate.addAll(MainModel.getSortedDateArray());
 
 		// add observable list to list view
 		dateListView.setItems(listByDate);
