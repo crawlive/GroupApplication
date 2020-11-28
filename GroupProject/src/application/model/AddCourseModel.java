@@ -2,6 +2,8 @@ package application.model;
 
 public class AddCourseModel extends MainModel{
 
+	public static String courseAbb;
+
 	/*
      * addCourse
      *
@@ -28,8 +30,7 @@ public class AddCourseModel extends MainModel{
      */
 	public static void createCourseButton(String name, String color){
 		colors.add(color);
-		String courseAbb = findAbbreviation(name);						//find the name that will be in the circle
-		//FINISH ME
+		courseAbb = findAbbreviation(name);
 	}
 
 	/*

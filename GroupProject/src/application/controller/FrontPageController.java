@@ -45,12 +45,13 @@ public class FrontPageController implements Initializable {
     private TitledPane todoPane, completedPane;
     
     @FXML
-    private ListView<Task> todoListView, completedListView, dateListView, eventsListView;
+    private ListView<Task> todoListView, completedListView, dateListView, eventsListView, courseView;
     
     private ObservableList<Task> todoList;
     private ObservableList<Task> completedTasks;
     private ObservableList<Task> listByDate;
     private ObservableList<Task> events;
+    private ObservableList<Task> courses;
 
   //------------- SCENE CHANGES ----------------//
     
@@ -259,6 +260,32 @@ public class FrontPageController implements Initializable {
     	eventsListView.setCellFactory(eventsListView -> new EventCell());
     	
 		if (events.size() > 0) {
+			noEventsMsg.setVisible(false);
+			noEventsMsg.setManaged(false);
+		} else {
+			noEventsMsg.setVisible(true);
+			noEventsMsg.setManaged(true);
+		}
+    	
+    }
+    
+    /*
+     * loadCourseView
+     * 
+     * Load/display the list view for events
+     */
+    void loadCourseView() {
+    	courses = FXCollections.observableArrayList();
+    	// dummy data
+		//courses.addAll(new Task("AP"));
+		
+		// add observable list to list view
+		courseView.setItems(events);
+		
+    	// customize the list view cells
+		courseView.setCellFactory(courseView -> new CourseCell());
+    	
+		if (courses.size() > 0) {
 			noEventsMsg.setVisible(false);
 			noEventsMsg.setManaged(false);
 		} else {
