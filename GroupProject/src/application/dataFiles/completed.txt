@@ -1,4 +1,3 @@
-h,NULL,Applications,00/00/0000,1
-q,NULL,Applications,00/00/0000,2
-e,NULL,Applications,00/00/0000,3
-m,NULL,Test,00/00/0000,4
+h,Lab 8,Applications,11/27/2020,1
+q,Quiz 8,Applications,11/29/2020,2
+e,Exam 2,Applications,11/23/2020,3
