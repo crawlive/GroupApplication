@@ -2,6 +2,8 @@ package application.model;
 
 public class AddCourseModel extends MainModel{
 
+	public static String courseAbb;
+
 	/*
      * addCourse
      *
@@ -27,8 +29,8 @@ public class AddCourseModel extends MainModel{
      * Takes the name of the new course and creates the button for the new course
      */
 	public static void createCourseButton(String name, String color){
-		//String courseAbb = findAbbreviation(name);						//find the name that will be in the circle
-		//FINISH ME
+		colors.add(color);
+		courseAbb = findAbbreviation(name);
 	}
 
 	/*
@@ -37,7 +39,13 @@ public class AddCourseModel extends MainModel{
      * Takes a string and returns the abbreviation string
      */
 	public static String findAbbreviation(String name){
-		String abbreviation = name.replaceAll("\\B.|\\P{L}", "").toUpperCase(); //only letters which are at the beginning of a word
+		String abbreviation;
+		if(name.contains(" ")){
+			abbreviation = name.replaceAll("\\B.|\\P{L}", "").toUpperCase(); //only letters which are at the beginning of a word
+		}
+		else{
+			abbreviation = name.substring(0,2);
+		}
 		System.out.println("code " + abbreviation );
 		return abbreviation;
 	}
