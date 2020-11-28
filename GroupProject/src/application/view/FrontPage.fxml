@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Rectangle?>
+
+<StackPane id="root" maxHeight="1024.0" maxWidth="1440.0" prefHeight="780.0" prefWidth="1024.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.FrontPageController">
+   <children>
+      <HBox>
+         <children>
+            <VBox id="NavPane" alignment="TOP_CENTER" maxWidth="-Infinity" minWidth="-Infinity" spacing="15.0">
+               <children>
+                  <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#openAddTask" styleClass="menuButton">
+                     <graphic>
+                        <StackPane prefHeight="150.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="50.0" fitWidth="45.0">
+                                 <image>
+                                    <Image url="@../view/images/add-task-icon.png" />
+                                 </image>
+                                 <StackPane.margin>
+                                    <Insets left="7.0" top="7.0" />
+                                 </StackPane.margin>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                     </graphic>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#openAddCourse" styleClass="menuButton">
+                     <graphic>
+                        <StackPane prefHeight="150.0" prefWidth="200.0">
+                           <children>
+                              <ImageView fitHeight="50.0" fitWidth="40.0">
+                                 <image>
+                                    <Image url="@../view/images/add-course-icon.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </StackPane>
+                     </graphic>
+                  </Button>
+                  <Line endX="-50.0" startX="-100.0" stroke="#27ae60" strokeWidth="3.0" />
+                  <Button fx:id="courseBtn" mnemonicParsing="false" onAction="#openEditCourse" style="-fx-background-color: #FB634F;" styleClass="menuButton" text="AP" />
+               </children>
+               <padding>
+                  <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+               </padding>
+            </VBox>
+            <VBox maxHeight="1024.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <HBox id="main-header">
+                     <children>
+                        <Label id="Title" stylesheets="@../application.css" text="Assignment Tracker" HBox.hgrow="ALWAYS" />
+                     </children>
+                  </HBox>
+                  <HBox id="notes_save" VBox.vgrow="ALWAYS">
+                     <children>
+                        <StackPane id="TaskPane" minWidth="300.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <VBox id="events_card" alignment="TOP_CENTER" styleClass="card">
+                                 <children>
+                                    <HBox alignment="CENTER" styleClass="card-header">
+                                       <children>
+                                          <VBox HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <Label styleClass="boxLabels" text="Assignments/Tasks" />
+                                                <HBox VBox.vgrow="NEVER">
+                                                   <children>
+                                                      <ToggleButton id="toggle_todo_btn" mnemonicParsing="false" onAction="#toggleTodo" selected="true" styleClass="toggle-btn" text="ToDo">
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                         <toggleGroup>
+                                                            <ToggleGroup fx:id="todo_date_toggle" />
+                                                         </toggleGroup>
+                                                      </ToggleButton>
+                                                      <ToggleButton id="toggle_date_btn" mnemonicParsing="false" onAction="#toggleDate" styleClass="toggle-btn" text="Date" toggleGroup="$todo_date_toggle">
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </ToggleButton>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                          <Button id="add-btn" mnemonicParsing="false" onAction="#openAddTask" prefHeight="50.0" prefWidth="50.0" text="+" />
+                                       </children>
+                                    </HBox>
+                                    <VBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
+                                       <children>
+                                        <TitledPane fx:id="todoPane" animated="false" maxHeight="1.7976931348623157E308" styleClass="titledPane" text="Todo" VBox.vgrow="NEVER">
+                                             <content>
+                                                <ListView id="todo_list_view" fx:id="todoListView" />
+                                             </content>
+                                          </TitledPane>
+                                        <TitledPane fx:id="completedPane" animated="false" maxHeight="1.7976931348623157E308" styleClass="titledPane" text="Completed" VBox.vgrow="ALWAYS">
+                                             <content>
+                                                <ListView id="completed_list_view" fx:id="completedListView" />
+                                             </content>
+                                          </TitledPane>
+                                          <ListView id="date_list_view" fx:id="dateListView" VBox.vgrow="ALWAYS" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                                 <StackPane.margin>
+                                    <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                 </StackPane.margin>
+                              </VBox>
+                           </children>
+                        </StackPane>
+                        <VBox prefWidth="350.0">
+                           <children>
+                              <StackPane minWidth="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <VBox id="events_card" alignment="TOP_CENTER" styleClass="card">
+                                       <children>
+                                          <HBox styleClass="card-header">
+                                             <children>
+                                                <VBox HBox.hgrow="ALWAYS">
+                                                   <children>
+                                                      <Label styleClass="boxLabels" text="Events" />
+                                                      <Label styleClass="boxSubLabels" text="Exams, meetings, etc." />
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                          <VBox minHeight="100.0" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <Label fx:id="noEventsMsg" text="Currently no upcomming events" textFill="#4f4f4f" wrapText="true" />
+                                                <ListView id="events_list_view" fx:id="eventsListView" minHeight="0.0" prefHeight="0.0" VBox.vgrow="ALWAYS" />
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                             </padding>
+                                          </VBox>
+                                       </children>
+                                       <StackPane.margin>
+                                          <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                       </StackPane.margin>
+                                    </VBox>
+                                 </children>
+                              </StackPane>
+                              <StackPane id="todo-btn" minWidth="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <VBox id="events_card" alignment="TOP_CENTER" styleClass="card">
+                                       <children>
+                                          <HBox styleClass="card-header">
+                                             <children>
+                                                <VBox HBox.hgrow="ALWAYS">
+                                                   <children>
+                                                      <Label styleClass="boxLabels" text="Notes" />
+                                                      <Label styleClass="boxSubLabels" text="Reminders, etc" />
+                                                   </children>
+                                                </VBox>
+                                                <Button fx:id="notes_save" mnemonicParsing="false" onAction="#saveNotes" text="Save" />
+                                             </children>
+                                          </HBox>
+                                          <TextArea id="notes_textarea" fx:id="notes_textarea" promptText="Write notes here!" wrapText="true" VBox.vgrow="ALWAYS">
+                                             <cursor>
+                                                <Cursor fx:constant="TEXT" />
+                                             </cursor>
+                                          </TextArea>
+                                       </children>
+                                       <StackPane.margin>
+                                          <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+                                       </StackPane.margin>
+                                    </VBox>
+                                 </children>
+                              </StackPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</StackPane>

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="225.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.AddCourseController">
+<AnchorPane prefHeight="225.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.AddCourseController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#6fcf97" height="65.0" stroke="BLACK" strokeType="INSIDE" width="400.0" />
       <Label layoutX="14.0" layoutY="14.0" text="New Course">
@@ -43,37 +43,37 @@
                   <Insets left="12.0" right="12.0" top="15.0" />
                </HBox.margin>
             </Label>
-            <Button fx:id="red" mnemonicParsing="false" onAction="#clickedRed" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: E40D0D;">
+            <Button fx:id="red" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: E40D0D;">
                <HBox.margin>
                   <Insets right="18.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="peach" mnemonicParsing="false" onAction="#clickedPeach" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: FB634F;">
+            <Button fx:id="peach" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: FB634F;">
                <HBox.margin>
                   <Insets right="18.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="orange" mnemonicParsing="false" onAction="#clickedOrange" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: FF4D00;">
+            <Button fx:id="orange" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: FF4D00;">
                <HBox.margin>
                   <Insets right="18.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="yellow" mnemonicParsing="false" onAction="#clickedYellow" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: F8D520;">
+            <Button fx:id="yellow" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: F8D520;">
                <HBox.margin>
                   <Insets right="18.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="green" mnemonicParsing="false" onAction="#clickedGreen" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #116936;">
+            <Button fx:id="green" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #116936;">
                <HBox.margin>
                   <Insets right="18.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="blue" mnemonicParsing="false" onAction="#clickedBlue" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #305a8c;">
+            <Button fx:id="blue" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #305a8c;">
                <HBox.margin>
                   <Insets right="18.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="purple" mnemonicParsing="false" onAction="#clickedPurple" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #9B51E0;">
+            <Button fx:id="purple" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #9B51E0;">
                <HBox.margin>
                   <Insets right="15.0" top="10.0" />
                </HBox.margin>
@@ -95,5 +95,18 @@
             <Insets top="10.0" />
          </padding>
       </VBox>
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="335.0" layoutY="17.0" mnemonicParsing="false" onAction="#close" style="-fx-background-color: none;">
+         <graphic>
+            <StackPane style="-fx-background-color: none;">
+               <children>
+                  <ImageView>
+                     <image>
+                        <Image url="@Images/x-btn.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </StackPane>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>
