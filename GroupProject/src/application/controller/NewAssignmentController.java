@@ -20,10 +20,10 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class NewAssignmentController {
+public class NewAssignmentController extends MainModel{
 
 	//course list for the drop down box
-	ObservableList<String> courseList = FXCollections.observableArrayList(MainModel.courses);
+	ObservableList<String> courseList = FXCollections.observableArrayList(courses);
 	//FXML VARIABLES
 	@FXML
 	private Stage modal, window;
@@ -84,7 +84,7 @@ public class NewAssignmentController {
     		temp.type("m");
     	}
 
-    	MainModel.addNewTask(temp);	//FUNCTION CALL: add new task to the proper collections
+    	addNewTask(temp);	//FUNCTION CALL: add new task to the proper collections
 
 
     }

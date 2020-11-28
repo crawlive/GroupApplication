@@ -14,8 +14,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class EditCourseController{
+public class EditCourseController extends EditCourseModel{
 
+	String colorChosen;
 	@FXML
 	private Stage modal, window;
 
@@ -60,45 +61,44 @@ public class EditCourseController{
 
     @FXML
     void clickedRed(ActionEvent event) {
-    	System.out.println("Selected red");
+    	colorChosen = "red";
 
     }
 
     @FXML
     void clickedPeach(ActionEvent event) {
-    	System.out.println("Selected peach");
+    	colorChosen = "peach";
 
     }
 
     @FXML
     void clickedOrange(ActionEvent event) {
-    	System.out.println("Selected orange");
-
+    	colorChosen = "orange";
     }
 
     @FXML
     void clickedYellow(ActionEvent event) {
-    	System.out.println("Selected yellow");
+    	colorChosen = "yellow";
 
     }
 
     @FXML
     void clickedGreen(ActionEvent event) {
-    	System.out.println("Selected green");
+    	colorChosen = "green";
 
     }
 
     @FXML
     void clickedBlue(ActionEvent event) {
-    	System.out.println("Selected blue");
+    	colorChosen = "blue";
 
     }
 
     @FXML
     void clickedPurple(ActionEvent event) {
-    	System.out.println("Selected purple");
-
+    	colorChosen = "purple";
     }
+
 
     /*
      * clickedSubmit
@@ -109,11 +109,11 @@ public class EditCourseController{
     void clickedSubmit(ActionEvent event) {
     	String oldName = courseArea.getText();
     	String newName = newCourseName.getText();
-    	if(newName.isEmpty() == false){							//if a value is input for a new course name
-    		newName = newName.replace("\n", "");				//remove the \n and
-    		EditCourseModel.changeCourseName(oldName, newName);		//edit the name
+    	if(newName.isEmpty() == false){					//if a value is input for a new course name
+    		newName = newName.replace("\n", "");		//remove the \n and
+    		changeCourseName(oldName, newName);			//edit the name
     	}
-    	//change color of course (last color pressed is new color)
+    	//changeCourseColor(colorChosen);				//change the color of course
 
     }
 
@@ -127,7 +127,7 @@ public class EditCourseController{
     void deleteCourse(ActionEvent event) {
     	String name = courseArea.getText();
     	name = name.replace("\n", "");				//remove the \n and
-    	EditCourseModel.deleteCourse(name);
+    	deleteCourse(name);
     }
 
 
