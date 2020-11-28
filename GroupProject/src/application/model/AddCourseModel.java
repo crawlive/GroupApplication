@@ -27,6 +27,7 @@ public class AddCourseModel extends MainModel{
      * Takes the name of the new course and creates the button for the new course
      */
 	public static void createCourseButton(String name, String color){
+		colors.add(color);
 		//String courseAbb = findAbbreviation(name);						//find the name that will be in the circle
 		//FINISH ME
 	}
