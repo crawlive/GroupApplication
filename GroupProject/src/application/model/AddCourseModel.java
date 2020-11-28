@@ -1,5 +1,10 @@
 package application.model;
 
+import java.io.IOException;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+
 public class AddCourseModel extends MainModel{
 
 	public static String courseAbb;
@@ -32,6 +37,37 @@ public class AddCourseModel extends MainModel{
 		colors.add(color);
 		courseAbb = findAbbreviation(name);
 	}
+	
+	/*
+     * getCourse
+     *
+     * Closes modal and removes effect from the front page window
+     */
+    protected String getColor(int lastClicked) {
+    	String colorPicked = "";
+    	if(lastClicked == 1){
+    		colorPicked = "red";
+    	}
+    	if(lastClicked == 2){
+    		colorPicked = "peach";
+    	}
+    	if(lastClicked == 3){
+    		colorPicked = "orange";
+    	}
+    	if(lastClicked == 4){
+    		colorPicked = "yellow";
+    	}
+    	if(lastClicked == 5){
+    		colorPicked = "green";
+    	}
+    	if(lastClicked == 6){
+    		colorPicked = "blue";
+    	}
+    	if(lastClicked == 7){
+    		colorPicked = "purple";
+    	}
+		return colorPicked;
+    }
 
 	/*
      * findAbbreviation
@@ -44,7 +80,7 @@ public class AddCourseModel extends MainModel{
 			abbreviation = name.replaceAll("\\B.|\\P{L}", "").toUpperCase(); //only letters which are at the beginning of a word
 		}
 		else{
-			abbreviation = name.substring(0,2);
+			abbreviation = name.substring(0,2).toUpperCase();
 		}
 		System.out.println("code " + abbreviation );
 		return abbreviation;

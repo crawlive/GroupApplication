@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -14,7 +21,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="427.0" prefWidth="401.0" styleClass="../application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.EditCourseController">
+<AnchorPane prefHeight="427.0" prefWidth="401.0" styleClass="../application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.EditCourseController">
    <children>
       <Rectangle fill="#6fcf97" height="65.0" stroke="BLACK" strokeType="INSIDE" width="401.0" />
       <Label layoutX="14.0" layoutY="14.0" text="Edit Course">
@@ -44,37 +51,37 @@
                   <Insets left="12.0" right="10.0" top="17.0" />
                </HBox.margin>
             </Label>
-            <Button fx:id="red" mnemonicParsing="false" onAction="#clickedRed" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: e40d0d;">
+            <Button fx:id="red" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: e40d0d;">
                <HBox.margin>
                   <Insets right="18.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="peach" mnemonicParsing="false" onAction="#clickedPeach" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: fb634f;">
+            <Button fx:id="peach" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: fb634f;">
                <HBox.margin>
                   <Insets right="18.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="orange" mnemonicParsing="false" onAction="#clickedOrange" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: f2994a;">
+            <Button fx:id="orange" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: f2994a;">
                <HBox.margin>
                   <Insets right="18.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="yellow" mnemonicParsing="false" onAction="#clickedYellow" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: f8d520;">
+            <Button fx:id="yellow" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: f8d520;">
                <HBox.margin>
                   <Insets right="18.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="green" mnemonicParsing="false" onAction="#clickedGreen" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #116936;">
+            <Button fx:id="green" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #116936;">
                <HBox.margin>
                   <Insets right="18.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="blue" mnemonicParsing="false" onAction="#clickedBlue" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #305a8c;">
+            <Button fx:id="blue" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #305a8c;">
                <HBox.margin>
                   <Insets right="18.0" top="10.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="purple" mnemonicParsing="false" onAction="#clickedPurple" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #9B51E0;">
+            <Button fx:id="purple" mnemonicParsing="false" prefHeight="30.0" prefWidth="30.0" style="-fx-background-color: #9B51E0;">
                <HBox.margin>
                   <Insets right="18.0" top="10.0" />
                </HBox.margin>
