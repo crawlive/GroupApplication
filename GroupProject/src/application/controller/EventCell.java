@@ -17,16 +17,22 @@ public class EventCell extends ListCell<Task> {
 	private Label courseLbl = new Label();
 	private Label dateLbl = new Label();
 	
+	private FrontPageController parentController;
 	
 	/*
 	 * Constructor
 	 * 
 	 * Creates cell instance with grid and labels configured
 	 */
-	public EventCell() {
+	public EventCell(FrontPageController controller) {
+		setParentController(controller);
 		configureGrid();
 		configureItems();
 		addItemsToGrid();
+	}
+	
+	public void setParentController(FrontPageController parentController) {
+	    this.parentController = parentController;
 	}
 
 	

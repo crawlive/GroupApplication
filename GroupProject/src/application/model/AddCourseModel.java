@@ -43,7 +43,7 @@ public class AddCourseModel extends MainModel{
      *
      * Closes modal and removes effect from the front page window
      */
-    protected String getColor(int lastClicked) {
+    public static String getColor(int lastClicked) {
     	String colorPicked = "";
     	if(lastClicked == 1){
     		colorPicked = "red";

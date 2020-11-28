@@ -10,6 +10,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
@@ -17,6 +18,7 @@ import javafx.scene.control.ListCell;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
+import javafx.stage.Stage;
 
 public class TaskCell extends ListCell<Task>{
 	
@@ -29,19 +31,27 @@ public class TaskCell extends ListCell<Task>{
 	private Label dateLbl = new Label();
 	private CheckBox checkCompleted = new CheckBox();
 	
+	private FrontPageController parentController;
+	private boolean isComplete;
 	
 	/*
 	 * Constructor
 	 * 
 	 * Creates cell instance with grid and labels configured
 	 */
-	public TaskCell() {
+	public TaskCell(FrontPageController controller, boolean isComplete) {
+		this.isComplete=isComplete;
+		setParentController(controller);
 		configureGrid();
 		configureItems();
 		addItemsToGrid();
 		configureCheckboxHandler();
 	}
 
+	
+	public void setParentController(FrontPageController parentController) {
+	    this.parentController = parentController;
+	}
 	
 	/*
 	 * configureGrid()
@@ -139,6 +149,9 @@ public class TaskCell extends ListCell<Task>{
 		typeLbl.setText(task.getType());
 		dateLbl.setText(task.getDate());
 		checkCompleted.setIndeterminate(false);
+		if(isComplete) {
+			checkCompleted.setSelected(true);	
+		}
 		checkCompleted.setSelected(false);
 		setGraphic(gridPane);
 	}
@@ -156,9 +169,10 @@ public class TaskCell extends ListCell<Task>{
 		        if (event.getSource() instanceof CheckBox) {
 		            if(checkCompleted.isSelected()) {
 		            	System.out.println("move task to completed");
-		            	//MainModel.addToQueue(task);
+		            	MainModel.addToQueue(task);
 		            } else {
 		            	// TODO: move task to todo list
+		            	MainModel.removeFromQueue(task);
 		            	System.out.println("move task to todo list");
 		            }
 		            refreshListViews();
@@ -175,23 +189,7 @@ public class TaskCell extends ListCell<Task>{
 	 * Uses the FrontPageController to refresh the todo list.
 	 */
 	private void refreshListViews() {
-		// get the controller from loading the front page fxml
-		//FXMLLoader fpLoader = new FXMLLoader(getClass().getResource("/view/FrontPage.fxml"));
-		//fpLoader.load();
-		//FXMLLoader fpLoader = new FXMLLoader();
-		//fpLoader.setLocation(Main.class.getResource("view/FrontPage.fxml"));
-		/*
-		 try {
-		 
-			fpLoader.load();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		*/
-		//FrontPageController fpController = fpLoader.getController();
-		//fpController.loadTodoView();
-		
+		this.parentController.loadTodoView();
 	}
 	
 }

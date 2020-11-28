@@ -34,6 +34,15 @@ import javafx.stage.StageStyle;
 public class FrontPageController implements Initializable {
 
 	@FXML
+	private CourseCell courseCellController;
+	
+	@FXML
+	private TaskCell taskCellController;
+	
+	@FXML
+	private EventCell EvenCellController;
+	
+	@FXML
 	private ToggleGroup todo_date_toggle;
 
     @FXML
@@ -203,8 +212,8 @@ public class FrontPageController implements Initializable {
 		completedListView.setItems(completedTasks);
 
 		// customize the list view cells
-		todoListView.setCellFactory(todoListView -> new TaskCell());
-		completedListView.setCellFactory(completedListView -> new TaskCell());
+		todoListView.setCellFactory(todoListView -> new TaskCell(this, false));
+		completedListView.setCellFactory(completedListView -> new TaskCell(this, true));
 
 	}
 
@@ -229,7 +238,7 @@ public class FrontPageController implements Initializable {
 		dateListView.setItems(listByDate);
 
 		// customize the list view cells
-		dateListView.setCellFactory(dateListView -> new TaskCell());
+		dateListView.setCellFactory(dateListView -> new TaskCell(this, false));
 	}
 
 	/*
@@ -246,7 +255,7 @@ public class FrontPageController implements Initializable {
 		eventsListView.setItems(events);
 
 		// customize the list view cells
-		eventsListView.setCellFactory(eventsListView -> new EventCell());
+		eventsListView.setCellFactory(eventsListView -> new EventCell(this));
 
 		if (events.size() > 0) {
 			noEventsMsg.setVisible(false);
@@ -275,7 +284,7 @@ public class FrontPageController implements Initializable {
 		courseView.setItems(courses);
 		
     	// customize the list view cells
-		courseView.setCellFactory(courseView -> new CourseCell());
+		courseView.setCellFactory(courseView -> new CourseCell(this));
 		
     }
 
@@ -283,7 +292,6 @@ public class FrontPageController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		loadCourseView();
 		loadTodoView();
 		loadEventsView();
 	}

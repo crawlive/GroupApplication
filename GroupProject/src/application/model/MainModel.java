@@ -203,7 +203,26 @@ public class MainModel{
 		temp.completedDate();									//set the completed date to current date
 		completedQueue.add(temp);								//add it to the queue
 	}
-
+	
+	/*
+     * removeFromQueue
+     *
+     * removes the tasks from the hashmap and adds that task to a queue
+     */
+	public static void removeFromQueue(Task temp){
+		int found = 0;
+		for(Task t : MainModel.completedQueue){
+			if (t == temp) {
+				found = 1;
+				System.out.println("removing: " + temp.getName());
+			}
+		}
+		if(found==0) {
+			System.out.println("task not found for removal.");
+		}
+		//taskMap.put(size, newTask);	
+	}	
+	
 	/*
      * checkQueueDates
      *

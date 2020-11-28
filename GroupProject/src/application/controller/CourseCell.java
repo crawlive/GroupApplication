@@ -6,6 +6,7 @@ import javafx.scene.control.ListCell;
 
 public class CourseCell extends ListCell<String> {
 
+	private FrontPageController parentController;
 	private Button courseIcon = new Button();
 	
 	
@@ -14,10 +15,16 @@ public class CourseCell extends ListCell<String> {
 	 * 
 	 * Creates cell instance with style configured
 	 */
-	public CourseCell() {
+	public CourseCell(FrontPageController controller) {
+		setParentController(parentController);
 		courseIcon.getStyleClass().add("menuCourseIcon");
 	}
-
+	
+	
+	public void setParentController(FrontPageController parentController) {
+	    this.parentController = parentController;
+	}
+	
 
 	/*
 	 * udpateItem()
