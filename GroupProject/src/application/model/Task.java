@@ -11,6 +11,7 @@ public class Task {
 	String name;		//title
 	String course;		//course name
 	String date;		//due date
+	String ymd;			//date in YYYY/MM/DD format
 	int month;
 	int day;
 	int year;
@@ -62,6 +63,15 @@ public class Task {
 	}
 	
 	/**
+	 * getYmd()
+	 * 
+	 * @return the ymd (YYYY/MM/DD)
+	 */
+	public String getYmd() {
+		return ymd;
+	}
+	
+	/**
 	 * getType()
 	 * 
 	 * @return the type
@@ -109,6 +119,7 @@ public class Task {
 	public void date(String date){
 		this.date = date;
 		parseDate();
+		this.ymd = this.year + "/" + this.month + "/" + this.day;
 	}
 
 	public void parseDate(){
