@@ -124,17 +124,13 @@
 {
 	-fx-background-color: none;
 	-fx-border-width: 0;
-	-fx-padding: 10px 20px 0 20px;
  }
  
  .titled-pane > *.title
 {
 	-fx-background-radius: 0;
 	-fx-background-color: #E8E8E8;
-}
-
-#date_list_view {
-	-fx-padding: 10px 20px 0 20px;
+	-fx-effect: dropshadow(three-pass-box, #C5C5C5, 3, 5%, 0, 1);
 }
 
 /* remove border */
@@ -154,9 +150,11 @@ ListView, .split-pane {
 /* remove list cell backgrounds */
 ListView .list-cell:even {
 	-fx-background-color: none;
+	-fx-padding: 5px 20px;
 }
 ListView .list-cell:odd {
 	-fx-background-color: none;
+	-fx-padding: 0 20px;
 }
 
 .smallCourseIcon {
