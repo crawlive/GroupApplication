@@ -46,6 +46,10 @@
 	-fx-text-fill: #F2F2F2;
 }
 
+#course_list_view {
+	-fx-background-color: none;
+}
+
 /*** front page header***/
 #main-header {
 	-fx-padding: 25px 50px 0px 50px;
@@ -164,6 +168,15 @@ ListView .list-cell:even {
 ListView .list-cell:odd {
 	-fx-background-color: none;
 	-fx-padding: 0 20px;
+}
+
+#course_list_view .list-cell:even {
+	-fx-background-color: none;
+	-fx-padding: 0 0 15px 0;
+}
+#course_list_view .list-cell:odd {
+	-fx-background-color: none;
+	-fx-padding: 0 0 15px 0;
 }
 
 .smallCourseIcon {

@@ -61,6 +61,7 @@
                   </Button>
                   <Line endX="-50.0" startX="-100.0" stroke="#27ae60" strokeWidth="3.0" />
                   <Button fx:id="courseBtn" mnemonicParsing="false" onAction="#openEditCourse" style="-fx-background-color: #FB634F;" styleClass="menuButton" text="AP" />
+                  <ListView id="course_list_view" fx:id="courseView" prefWidth="0.0" VBox.vgrow="ALWAYS" />
                </children>
                <padding>
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />

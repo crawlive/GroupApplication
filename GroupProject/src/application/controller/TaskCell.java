@@ -1,8 +1,13 @@
 package application.controller;
 
+import java.io.IOException;
+
+import application.Main;
+import application.model.MainModel;
 import application.model.Task;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.scene.control.Button;
@@ -15,6 +20,7 @@ import javafx.scene.layout.Priority;
 
 public class TaskCell extends ListCell<Task>{
 	
+	private Task task;
 	private GridPane gridPane = new GridPane();
 	private Button courseIcon = new Button();
 	private Label taskLbl = new Label();
@@ -99,6 +105,8 @@ public class TaskCell extends ListCell<Task>{
 	protected void updateItem(Task task, boolean empty) {
 		super.updateItem(task, empty);
 		
+		this.task = task;
+		
 		if(empty || task == null) {
     		clearContent();
     	} else {
@@ -147,16 +155,13 @@ public class TaskCell extends ListCell<Task>{
 		    public void handle(ActionEvent event) {
 		        if (event.getSource() instanceof CheckBox) {
 		            if(checkCompleted.isSelected()) {
-		            	// TODO: move task to completed
 		            	System.out.println("move task to completed");
-		            	refreshTodoList();
-		            	refreshCompletedList();
+		            	//MainModel.addToQueue(task);
 		            } else {
 		            	// TODO: move task to todo list
 		            	System.out.println("move task to todo list");
-		            	refreshCompletedList();
-		            	refreshTodoList();
 		            }
+		            refreshListViews();
 		        }
 		    }
 		};
@@ -165,21 +170,27 @@ public class TaskCell extends ListCell<Task>{
 	}
 	
 	/*
-	 * refreshTodoList
+	 * refreshListViews
 	 * 
 	 * Uses the FrontPageController to refresh the todo list.
 	 */
-	private void refreshTodoList() {
-		
-	}
-	
-	
-	/*
-	 * refreshCompletedList
-	 * 
-	 * Uses the FrontPageController to refresh the todo list.
-	 */
-	private void refreshCompletedList() {
+	private void refreshListViews() {
+		// get the controller from loading the front page fxml
+		//FXMLLoader fpLoader = new FXMLLoader(getClass().getResource("/view/FrontPage.fxml"));
+		//fpLoader.load();
+		//FXMLLoader fpLoader = new FXMLLoader();
+		//fpLoader.setLocation(Main.class.getResource("view/FrontPage.fxml"));
+		/*
+		 try {
+		 
+			fpLoader.load();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		*/
+		//FrontPageController fpController = fpLoader.getController();
+		//fpController.loadTodoView();
 		
 	}
 	

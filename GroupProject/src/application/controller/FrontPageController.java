@@ -263,24 +263,20 @@ public class FrontPageController implements Initializable {
      * Load/display the list view for events
      */
     void loadCourseView() {
-    	/*
+    	
     	courses = FXCollections.observableArrayList();
-		courses.addAll(MainModel.courses);
 		
-		//int size = MainModel.courses.size();
-		//for (int i = 1; i < size; i++) {
-			//courses.add(MainModel.courses.get(i));
-		//}
-		courses.addAll(
-				"Apps", "Web Tech", "Comp Org"
-				);
+		int size = MainModel.courses.size();
+		for (int i = 1; i < size; i++) {
+			courses.add(MainModel.courses.get(i));
+		}
 		
 		// add observable list to list view
 		courseView.setItems(courses);
 		
     	// customize the list view cells
 		courseView.setCellFactory(courseView -> new CourseCell());
-		*/	
+		
     }
 
 	// -------------INITIALIZATION----------------//
