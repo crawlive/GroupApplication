@@ -37,8 +37,9 @@ public class AddCourseModel extends MainModel{
      * Takes a string and returns the abbreviation string
      */
 	public static String findAbbreviation(String name){
-		//FINISH ME
-		return null;
+		String abbreviation = name.replaceAll("\\B.|\\P{L}", "").toUpperCase(); //only letters which are at the beginning of a word
+		System.out.println("code " + abbreviation );
+		return abbreviation;
 	}
 
 }
