@@ -262,9 +262,6 @@ public class FrontPageController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		TextModel.importFiles();
-		//MainModel.checkQueueDates();
-		
 		loadTodoView();
 		loadEventsView();
 	}

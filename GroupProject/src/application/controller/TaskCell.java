@@ -21,7 +21,7 @@ public class TaskCell extends ListCell<Task>{
 	private Label courseLbl = new Label();
 	private Label typeLbl = new Label();
 	private Label dateLbl = new Label();
-	CheckBox checkCompleted = new CheckBox();
+	private CheckBox checkCompleted = new CheckBox();
 	
 	
 	/*
