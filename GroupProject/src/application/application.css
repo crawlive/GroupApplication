@@ -120,6 +120,23 @@
 
 /*** List View + Cells (for task and event items) ***/
 
+.titledPane > *.content 
+{
+	-fx-background-color: none;
+	-fx-border-width: 0;
+	-fx-padding: 10px 20px 0 20px;
+ }
+ 
+ .titled-pane > *.title
+{
+	-fx-background-radius: 0;
+	-fx-background-color: #E8E8E8;
+}
+
+#date_list_view {
+	-fx-padding: 10px 20px 0 20px;
+}
+
 /* remove border */
 ListView, .split-pane {
 	-fx-background-insets: 0; 
@@ -140,10 +157,6 @@ ListView .list-cell:even {
 }
 ListView .list-cell:odd {
 	-fx-background-color: none;
-}
-
-#todo_list_view {
-	-fx-padding: 20px 0 0 0;
 }
 
 .smallCourseIcon {
