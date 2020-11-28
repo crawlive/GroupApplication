@@ -1,70 +1,23 @@
 package application.controller;
 
 import application.model.AddCourseModel;
-import application.model.Task;
-import javafx.geometry.HPos;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Priority;
 
-public class CourseCell extends ListCell<Task> {
+public class CourseCell extends ListCell<String> {
 
-	private GridPane gridPane = new GridPane();
 	private Button courseIcon = new Button();
-	private Label courseLbl = new Label();
 	
 	
 	/*
 	 * Constructor
 	 * 
-	 * Creates cell instance with grid and labels configured
+	 * Creates cell instance with style configured
 	 */
 	public CourseCell() {
-		configureGrid();
-		configureItems();
-		addItemsToGrid();
+		courseIcon.getStyleClass().add("menuCourseIcon");
 	}
 
-	
-	/*
-	 * configureGrid()
-	 * 
-	 * Configure grid layout / styling
-	 */
-	private void configureGrid() {	
-		// adjust spacing
-		gridPane.setHgap(10);
-		// column configurations
-		ColumnConstraints col1 = new ColumnConstraints();
-	    gridPane.getColumnConstraints().addAll(col1);
-	    
-	    // right align labels
-		GridPane.setHalignment(courseLbl, HPos.LEFT);
-	}
-
-	
-	/*
-	 * configureItems()
-	 * 
-	 * Configure grid items, attach styling
-	 */
-	private void configureItems() {
-		courseIcon.getStyleClass().add("smallCourseIcon");
-		courseLbl.getStyleClass().add("cellSubHeader");
-	}
-	
-	/*
-	 * addItemsToGrid()
-	 * 
-	 * Adds fx items to grid
-	 */
-	private void addItemsToGrid() {
-		gridPane.add(courseIcon, 0, 0, 1, 2);
-		gridPane.add(courseLbl, 1, 1);
-	}
 
 	/*
 	 * udpateItem()
@@ -72,13 +25,13 @@ public class CourseCell extends ListCell<Task> {
 	 * Overrides default list cell visuals
 	 */
 	@Override
-	protected void updateItem(Task task, boolean empty) {
-		super.updateItem(task, empty);
+	protected void updateItem(String course, boolean empty) {
+		super.updateItem(course, empty);
 		
-		if(empty || task == null) {
+		if(empty || course == null) {
     		clearContent();
     	} else {
-    		addContent(task);
+    		addContent(course);
     	}
 	}
 
@@ -97,13 +50,14 @@ public class CourseCell extends ListCell<Task> {
 	/*
 	 * addContent
 	 * 
-	 * Add task data to cell by setting fx items
+	 * Add string data to cell by setting fx items
 	 */
-	private void addContent(Task task) {
+	private void addContent(String course) {
 		setText(null);
-		courseIcon.setText(AddCourseModel.courseAbb);
-		courseLbl.setText(task.getCourse());
-		setGraphic(gridPane);
+		courseIcon.setText(AddCourseModel.findAbbreviation(course));
+		// TODO: (@beth) change red to color based on course
+		courseIcon.setStyle("-fx-background-color: "+ "red" + ";");
+		setGraphic(courseIcon);
 	}
 	
 }

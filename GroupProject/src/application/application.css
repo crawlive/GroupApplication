@@ -37,6 +37,15 @@
 	-fx-text-fill: #F2F2F2;
 }
 
+.menuCourseIcon {
+	-fx-pref-height: 75px;
+	-fx-pref-width: 75px;
+	-fx-background-radius: 50%;
+	-fx-background-color: red;
+	-fx-font-size: 22px;
+	-fx-text-fill: #F2F2F2;
+}
+
 /*** front page header***/
 #main-header {
 	-fx-padding: 25px 50px 0px 50px;
