@@ -32,15 +32,6 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class FrontPageController implements Initializable {
-
-	@FXML
-	private CourseCell courseCellController;
-	
-	@FXML
-	private TaskCell taskCellController;
-	
-	@FXML
-	private EventCell EvenCellController;
 	
 	@FXML
 	private ToggleGroup todo_date_toggle;
@@ -200,7 +191,11 @@ public class FrontPageController implements Initializable {
 
 		int size = MainModel.taskMap.size();
 		for (int i = 1; i < size; i++) {
-			todoList.add(MainModel.taskMap.get(i));
+			Task curr = MainModel.taskMap.get(i);
+			
+			if (curr!=null) {
+				todoList.add(MainModel.taskMap.get(i));
+			}
 		}
 
 		for(Task t : MainModel.completedQueue){
@@ -294,5 +289,9 @@ public class FrontPageController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		loadTodoView();
 		loadEventsView();
+		//System.out.println("before: " + MainModel.taskMap.values());
+		//System.out.println("removing "+ MainModel.taskMap.get(1));
+		//MainModel.addToQueue(MainModel.taskMap.get(1));
+		//System.out.println("after: " + MainModel.taskMap.values());
 	}
 }

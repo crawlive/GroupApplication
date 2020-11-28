@@ -118,7 +118,7 @@ public class TaskCell extends ListCell<Task>{
 		this.task = task;
 		
 		if(empty || task == null) {
-    		clearContent();
+			clearContent();
     	} else {
     		addContent(task);
     	}
@@ -149,9 +149,9 @@ public class TaskCell extends ListCell<Task>{
 		typeLbl.setText(task.getType());
 		dateLbl.setText(task.getDate());
 		checkCompleted.setIndeterminate(false);
-		if(isComplete) {
-			checkCompleted.setSelected(true);	
-		}
+		//if(isComplete) {
+			//checkCompleted.setSelected(true);	
+		//}
 		checkCompleted.setSelected(false);
 		setGraphic(gridPane);
 	}
@@ -172,7 +172,7 @@ public class TaskCell extends ListCell<Task>{
 		            	MainModel.addToQueue(task);
 		            } else {
 		            	// TODO: move task to todo list
-		            	MainModel.removeFromQueue(task);
+		            	//MainModel.removeFromQueue(task);
 		            	System.out.println("move task to todo list");
 		            }
 		            refreshListViews();

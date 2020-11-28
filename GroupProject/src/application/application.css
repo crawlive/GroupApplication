@@ -163,7 +163,7 @@ ListView, .split-pane {
 /* remove list cell backgrounds */
 ListView .list-cell:even {
 	-fx-background-color: none;
-	-fx-padding: 5px 20px;
+	-fx-padding: 0 20px;
 }
 ListView .list-cell:odd {
 	-fx-background-color: none;
