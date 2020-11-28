@@ -18,7 +18,7 @@ import javafx.stage.Stage;
 public class AddCourseController extends AddCourseModel{
 	//variables
 	String newCourseName;
-  	String colorPicked = "";
+  	
   	int lastClicked = 1;
 
 	@FXML
@@ -58,27 +58,7 @@ public class AddCourseController extends AddCourseModel{
     	green.setOnAction(e->lastClicked=5);
     	blue.setOnAction(e->lastClicked=6);
     	purple.setOnAction(e->lastClicked=7);
-    	if(lastClicked == 1){
-    		colorPicked = "red";
-    	}
-    	if(lastClicked == 2){
-    		colorPicked = "peach";
-    	}
-    	if(lastClicked == 3){
-    		colorPicked = "orange";
-    	}
-    	if(lastClicked == 4){
-    		colorPicked = "yellow";
-    	}
-    	if(lastClicked == 5){
-    		colorPicked = "green";
-    	}
-    	if(lastClicked == 6){
-    		colorPicked = "blue";
-    	}
-    	if(lastClicked == 7){
-    		colorPicked = "purple";
-    	}
+    	String colorPicked = getColor(lastClicked);
     	if(courseCreated == true){
         	createCourseButton(newCourseName, colorPicked); //located in AddCourseModel
     	}

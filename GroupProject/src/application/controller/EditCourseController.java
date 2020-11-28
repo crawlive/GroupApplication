@@ -20,29 +20,11 @@ public class EditCourseController extends EditCourseModel{
 	@FXML
 	private Stage modal, window;
 
-    @FXML // fx:id="red"
-    private Button red; // Value injected by FXMLLoader
-
-    @FXML // fx:id="orange"
-    private Button orange; // Value injected by FXMLLoader
-
-    @FXML // fx:id="green"
-    private Button green; // Value injected by FXMLLoader
-
-    @FXML // fx:id="blue"
-    private Button blue; // Value injected by FXMLLoader
+	@FXML // fx:id="red, peach, orange, yellow, green, blue, purple"
+    private Button red, peach, orange, yellow, green, blue, purple; // Value injected by FXMLLoader
 
     @FXML // fx:id="submit"
     private Button submit; // Value injected by FXMLLoader
-
-    @FXML // fx:id="peach"
-    private Button peach; // Value injected by FXMLLoader
-
-    @FXML // fx:id="yellow"
-    private Button yellow; // Value injected by FXMLLoader
-
-    @FXML // fx:id="purple"
-    private Button purple; // Value injected by FXMLLoader
 
     @FXML // fx:id="deleteCourseButton"
     private Button deleteCourseButton; // Value injected by FXMLLoader
@@ -58,47 +40,6 @@ public class EditCourseController extends EditCourseModel{
     	//String name = /*FINISH ME*/
     	courseArea.setText("Applications");		//Set the textArea to the courseName
     }
-
-    @FXML
-    void clickedRed(ActionEvent event) {
-    	colorChosen = "red";
-
-    }
-
-    @FXML
-    void clickedPeach(ActionEvent event) {
-    	colorChosen = "peach";
-
-    }
-
-    @FXML
-    void clickedOrange(ActionEvent event) {
-    	colorChosen = "orange";
-    }
-
-    @FXML
-    void clickedYellow(ActionEvent event) {
-    	colorChosen = "yellow";
-
-    }
-
-    @FXML
-    void clickedGreen(ActionEvent event) {
-    	colorChosen = "green";
-
-    }
-
-    @FXML
-    void clickedBlue(ActionEvent event) {
-    	colorChosen = "blue";
-
-    }
-
-    @FXML
-    void clickedPurple(ActionEvent event) {
-    	colorChosen = "purple";
-    }
-
 
     /*
      * clickedSubmit
