@@ -30,6 +30,7 @@ public class MainModel{
 	public static ArrayList<Task> events = new ArrayList<Task>();
 	public static Queue<Task> completedQueue = new LinkedList<Task>();
 	public static ArrayList<String> courses = new ArrayList<String>(Arrays.asList("Select a Course"));
+	public static ArrayList<String> colors = new ArrayList<String>();
 
 	/*
      * sendAlert
@@ -185,7 +186,7 @@ public class MainModel{
 	 * sortHashByDate
 	 *
 	 * sorts the hash map by date
-	 */
+
 	public static HashMap<Integer, Task> sortHashByDate(){
 		List list = new LinkedList(taskMap.entrySet());
 		// Defined Custom Comparator here
@@ -206,7 +207,7 @@ public class MainModel{
 		return sortedHashMap;
 
 	}
-
+*/
 
 	//-------------------------------COMPLETED QUEUE -------------------------------//
 	/*
