@@ -21,6 +21,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TitledPane;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.layout.AnchorPane;
@@ -41,14 +42,18 @@ public class FrontPageController implements Initializable {
     private Label noEventsMsg; // Text that shows when there are no events
     
     @FXML
-    private ListView<Task> todoListView;
+    private TitledPane todoPane, completedPane;
     
     @FXML
-    private ListView<Task> eventsListView;
+    private ListView<Task> todoListView, completedListView, dateListView, eventsListView;
     
-    private ObservableList<Task> tasks = FXCollections.observableArrayList();;
-    private ObservableList<Task> events = FXCollections.observableArrayList();;
+    private ObservableList<Task> todoList;
+    private ObservableList<Task> completedTasks;
+    private ObservableList<Task> listByDate;
+    private ObservableList<Task> events;
 
+  //------------- SCENE CHANGES ----------------//
+    
     /*
      * openAddTask
      *
@@ -138,18 +143,121 @@ public class FrontPageController implements Initializable {
     }
 
 
-	@Override
-	public void initialize(URL arg0, ResourceBundle arg1) {
-		// dummy data
-		tasks.addAll(
+  //-------------LIST VIEW FUNCTIONS----------------//
+    
+    
+    /*
+     * toggleTodo
+     * 
+     * Action when date toggle button is clicked.
+     * Calls loadTodo view to load the todo list.
+     */
+    @FXML
+    void toggleTodo(ActionEvent event) {
+    	loadTodoView();
+    }
+    
+    
+    /*
+     * toggleDate
+     * 
+     * Action when the date toggle button is clicked.
+     * Calls loadTodo view to load the date list.
+     */
+    @FXML
+    void toggleDate(ActionEvent event) {
+    	loadDateView();
+    }
+    
+    
+    /*
+     * loadTodoView
+     * 
+     * Load/display the list view(s) for the upcoming week of tasks
+     * and completed tasks.
+     */
+    void loadTodoView() {
+    	dateListView.setVisible(false);
+		dateListView.setManaged(false);
+		
+		todoPane.setVisible(true);
+		todoPane.setManaged(true);
+		completedPane.setVisible(true);
+		completedPane.setManaged(true);
+    	
+    	todoList = FXCollections.observableArrayList();
+    	completedTasks = FXCollections.observableArrayList();
+    	
+    	// dummy data
+		todoList.addAll(
     			new Task("task 1", "course 1", "12/12/12", "type 1"),
     	        new Task("task 2", "course 2", "12/12/12", "type 2")
     			);
+		
+		completedTasks.addAll(
+    			new Task("completed task 1", "course 1", "12/12/12", "type 1"),
+    	        new Task("completed task 2", "course 2", "12/12/12", "type 2")
+    			);
+		
+		// add observable list to list view
+		todoListView.setItems(todoList);
+		completedListView.setItems(completedTasks);
+		
+		// customize the list view cells
+    	todoListView.setCellFactory(todoListView -> new TaskCell());
+    	completedListView.setCellFactory(completedListView -> new TaskCell());
+    	
+    }
+    
+    
+    /*
+     * loadDateView
+     * 
+     * Load/display the list view for tasks ordered by date
+     */
+    void loadDateView() {
+    	dateListView.setVisible(true);
+		dateListView.setManaged(true);
+		
+		todoPane.setVisible(false);
+		todoPane.setManaged(false);
+		completedPane.setVisible(false);
+		completedPane.setManaged(false);
+    	
+    	listByDate = FXCollections.observableArrayList();
+    	
+    	// dummy data
+    	listByDate.addAll(
+    			new Task("task 1", "this is sorted by date", "12/12/12", "type 1"),
+    	        new Task("task 2", "course 2", "12/12/12", "type 2")
+    			);
+		
+		// add observable list to list view
+		dateListView.setItems(listByDate);
+		
+		// customize the list view cells
+    	dateListView.setCellFactory(dateListView -> new TaskCell());
+    }
+    
+    
+    /*
+     * loadEventsView
+     * 
+     * Load/display the list view for events
+     */
+    void loadEventsView() {
+    	events = FXCollections.observableArrayList();
+    	// dummy data
 		events.addAll(
     			new Task("event 1", "course 1", "12/12/12", "type 1"),
     	        new Task("event 2", "course 2", "12/12/12", "type 2")
     			);
+		// add observable list to list view
+		eventsListView.setItems(events);
 		
+    	// customize the list view cells
+    	eventsListView.setCellFactory(eventsListView -> new EventCell());
+    	
 		if (events.size() > 0) {
 			noEventsMsg.setVisible(false);
 			noEventsMsg.setManaged(false);
@@ -157,13 +265,15 @@ public class FrontPageController implements Initializable {
 			noEventsMsg.setVisible(true);
 			noEventsMsg.setManaged(true);
 		}
-		
-		// add observable list to list view
-		todoListView.setItems(tasks);
-		eventsListView.setItems(events);
-		
-    	// customize the list view cell
-    	todoListView.setCellFactory(taskListView -> new TaskCell());
-    	eventsListView.setCellFactory(taskListView -> new EventCell());
+    	
+    }
+    
+    
+  //-------------INITIALIZATION----------------//
+    
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		loadTodoView();
+		loadEventsView();
 	}
 }

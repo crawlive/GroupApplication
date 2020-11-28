@@ -86,7 +86,7 @@
                                                 <Label styleClass="boxLabels" text="Assignments/Tasks" />
                                                 <HBox VBox.vgrow="NEVER">
                                                    <children>
-                                                      <ToggleButton id="toggle_todo_btn" mnemonicParsing="false" selected="true" styleClass="toggle-btn" text="ToDo">
+                                                      <ToggleButton id="toggle_todo_btn" mnemonicParsing="false" onAction="#toggleTodo" selected="true" styleClass="toggle-btn" text="ToDo">
                                                          <cursor>
                                                             <Cursor fx:constant="HAND" />
                                                          </cursor>
@@ -94,7 +94,7 @@
                                                             <ToggleGroup fx:id="todo_date_toggle" />
                                                          </toggleGroup>
                                                       </ToggleButton>
-                                                      <ToggleButton id="toggle_date_btn" mnemonicParsing="false" styleClass="toggle-btn" text="Date" toggleGroup="$todo_date_toggle">
+                                                      <ToggleButton id="toggle_date_btn" mnemonicParsing="false" onAction="#toggleDate" styleClass="toggle-btn" text="Date" toggleGroup="$todo_date_toggle">
                                                          <cursor>
                                                             <Cursor fx:constant="HAND" />
                                                          </cursor>
@@ -106,12 +106,19 @@
                                           <Button id="add-btn" mnemonicParsing="false" onAction="#openAddTask" prefHeight="50.0" prefWidth="50.0" text="+" />
                                        </children>
                                     </HBox>
-                                    <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
-                                       <padding>
-                                          <Insets left="25.0" right="25.0" />
-                                       </padding>
+                                    <VBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
                                        <children>
-                                          <ListView id="todo_list_view" fx:id="todoListView" VBox.vgrow="ALWAYS" />
+                                        <TitledPane fx:id="todoPane" animated="false" maxHeight="1.7976931348623157E308" styleClass="titledPane" text="Todo" VBox.vgrow="NEVER">
+                                             <content>
+                                                <ListView id="todo_list_view" fx:id="todoListView" />
+                                             </content>
+                                          </TitledPane>
+                                        <TitledPane fx:id="completedPane" animated="false" maxHeight="1.7976931348623157E308" styleClass="titledPane" text="Completed" VBox.vgrow="ALWAYS">
+                                             <content>
+                                                <ListView id="completed_list_view" fx:id="completedListView" />
+                                             </content>
+                                          </TitledPane>
+                                          <ListView id="date_list_view" fx:id="dateListView" VBox.vgrow="ALWAYS" />
                                        </children>
                                     </VBox>
                                  </children>
