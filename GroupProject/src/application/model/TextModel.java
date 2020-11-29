@@ -8,11 +8,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.Scanner;
-import java.util.Set;
-import java.util.Map.Entry;
-
 
 public class TextModel{
 	public static String dataFile = ".\\src\\application\\dataFiles\\data.txt";				//holds data for todo and date
