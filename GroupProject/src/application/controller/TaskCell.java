@@ -5,6 +5,7 @@ import java.io.IOException;
 import application.Main;
 import application.model.MainModel;
 import application.model.Task;
+import application.model.TextModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -148,11 +149,13 @@ public class TaskCell extends ListCell<Task>{
 		courseLbl.setText(task.getCourse());
 		typeLbl.setText(task.getType());
 		dateLbl.setText(task.getDate());
-		checkCompleted.setIndeterminate(false);
-		//if(isComplete) {
-			//checkCompleted.setSelected(true);	
-		//}
-		checkCompleted.setSelected(false);
+		//checkCompleted.setIndeterminate(false);
+		if(isComplete) {
+			checkCompleted.setSelected(true);	
+		}
+		else {
+			checkCompleted.setSelected(false);
+		}
 		setGraphic(gridPane);
 	}
 	
@@ -172,9 +175,10 @@ public class TaskCell extends ListCell<Task>{
 		            	MainModel.addToQueue(task);
 		            } else {
 		            	// TODO: move task to todo list
-		            	//MainModel.removeFromQueue(task);
-		            	System.out.println("move task to todo list");
+		            	MainModel.removeFromQueue(task);
+		            	System.out.println("moved task" + task + "to todo list");
 		            }
+		            //TextModel.saveToFiles();
 		            refreshListViews();
 		        }
 		    }

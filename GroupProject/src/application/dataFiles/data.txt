@@ -1,4 +1,10 @@
-h,NULL,Select a Course,00/00/0000,0
-h,Lab 8,Applications,11/27/2020,1
-q,Quiz 8,Applications,11/29/2020,2
-e,Exam 2,Applications,11/23/2020,3
+h,NULL,Select a Course,00/00/0000,NULL,0
+h,Lab 8,Applications,11/27/2020,NULL,1
+q,Quiz 8,Applications,11/29/2020,NULL,2
+e,Exam 2,Applications,11/23/2020,NULL,3
+h,Lab 9,Applications,11/27/2020,NULL,4
+q,Quiz 9,Applications,11/29/2020,NULL,5
+e,Exam 3,Applications,11/23/2020,NULL,6
+h,Lab 10,Applications,11/27/2020,NULL,7
+q,Quiz 11,Applications,11/29/2020,NULL,8
+e,Exam ,Applications,11/23/2020,NULL,9

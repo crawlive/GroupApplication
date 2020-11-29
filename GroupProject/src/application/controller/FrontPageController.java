@@ -191,16 +191,15 @@ public class FrontPageController implements Initializable {
 
 		int size = MainModel.taskMap.size();
 		for (int i = 1; i < size; i++) {
-			Task curr = MainModel.taskMap.get(i);
-			
-			if (curr!=null) {
-				todoList.add(MainModel.taskMap.get(i));
-			}
+			todoList.add(MainModel.taskMap.get(i));
 		}
 
-		for(Task t : MainModel.completedQueue){
-			completedTasks.add(t);
-		}
+		// note completed queue is added in reverse order
+		completedTasks.addAll(MainModel.getSortedCompletedArray());
+		
+		//for(Task t : MainModel.completedQueue){
+			//completedTasks.add(t);
+		//}
 		
 		// add observable list to list view
 		todoListView.setItems(todoList);
@@ -289,9 +288,5 @@ public class FrontPageController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		loadTodoView();
 		loadEventsView();
-		//System.out.println("before: " + MainModel.taskMap.values());
-		//System.out.println("removing "+ MainModel.taskMap.get(1));
-		//MainModel.addToQueue(MainModel.taskMap.get(1));
-		//System.out.println("after: " + MainModel.taskMap.values());
 	}
 }

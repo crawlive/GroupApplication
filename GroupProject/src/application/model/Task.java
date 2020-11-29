@@ -4,6 +4,7 @@
  */
 package application.model;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Task {
@@ -16,7 +17,8 @@ public class Task {
 	int day;
 	int year;
 	int placement;
-	Date completedDate; //Date completed for queue
+	String completedDate; //Date completed for queue
+	String completedYmd;
 
 	/*
 	 * Constructor
@@ -69,6 +71,15 @@ public class Task {
 	 */
 	public String getYmd() {
 		return ymd;
+	}
+	
+	/**
+	 * getCompletedYmd()
+	 * 
+	 * @return the completed date in ymd format
+	 */
+	public String getCompletedYmd() {
+	    return this.completedYmd;
 	}
 	
 	/**
@@ -131,7 +142,34 @@ public class Task {
 	}
 
 	public void completedDate(){
-		this.completedDate = new Date();	//grabs the current date
+		Date newDate = new Date();	//grabs the current date
+		SimpleDateFormat formatter = new SimpleDateFormat("mm/dd/YYYY");  
+	    String formattedDate = formatter.format(newDate);
+		this.completedDate = formattedDate;
+		
+		String regex = "[/]";
+		String[] tokeArr = formattedDate.split(regex);
+		int mm = Integer.parseInt(tokeArr[0]);
+		int dd = Integer.parseInt(tokeArr[1]);
+		int yyyy = Integer.parseInt(tokeArr[2]);
+		
+		completedYmd = yyyy + "/" + mm + "/" + dd;
+	}
+	
+	public void setCompletedDate(String date){
+		this.completedDate = date;
+		
+		if(date.equals("NULL")) {
+			this.completedYmd = 0000 + "/" + 00 + "/" + 00;
+		} else {
+			System.out.println("DATE:" + date);
+			String regex = "[/]";
+			String[] tokeArr = completedDate.split(regex);
+			int mm = Integer.parseInt(tokeArr[0]);
+			int dd = Integer.parseInt(tokeArr[1]);
+			int yyyy = Integer.parseInt(tokeArr[2]);
+			this.completedYmd = yyyy + "/" + mm + "/" + dd;
+		}
 	}
 
 	public void placement(int placement){
