@@ -1,0 +1,4 @@
+- install github
+- download notes documents
+- print Apps mock final exam
+- email app professor about JUnit Testing
