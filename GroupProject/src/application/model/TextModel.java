@@ -95,7 +95,7 @@ public class TextModel{
 					line = scan.nextLine();					//grab the line
 					String[] lineArr = line.split(",");		//parse the line
 					temp = convertData(lineArr);			//convert the data to a task variable
-					MainModel.completedQueue.add(temp);		//queue the task to the head
+					MainModel.completedList.add(temp);		//queue the task to the head
 				}
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
@@ -217,8 +217,8 @@ public class TextModel{
 		BufferedWriter iWriter = new BufferedWriter(ifw);	//buff pointer
 
 		//iterate through the taskMap until end
-		for(int i = 0; i < MainModel.completedQueue.size(); i++){
-			temp = MainModel.completedQueue.get(i);			//grab each task in order
+		for(int i = 0; i < MainModel.completedList.size(); i++){
+			temp = MainModel.completedList.get(i);			//grab each task in order
 			line = temp.toString();							//set the line
 			iWriter.write(line);							//write the line
 		}

@@ -1,6 +1,5 @@
 package application.controller;
 
-import application.model.AddCourseModel;
 import application.model.Task;
 import javafx.geometry.HPos;
 import javafx.scene.control.Button;
@@ -120,8 +119,7 @@ public class EventCell extends ListCell<Task> {
 	 */
 	private void addContent(Task task) {
 		setText(null);
-		courseIcon.setText(AddCourseModel.findAbbreviation(task.getCourse()));
-		// TODO: set course icon color based on course
+		courseIcon.setText("AP");
 		taskLbl.setText(task.getName());
 		courseLbl.setText(task.getCourse());
 		dateLbl.setText(task.getDate());
