@@ -176,12 +176,12 @@ public class MainModel {
 	 * add a new task to the proper collections
 	 */
 	public static void addNewTask(Task newTask) {
-		if (newTask.type.equals("m") == false) { // if the task is not a meeting add the task normally
+		if (newTask.type.equals("Meeting") == false) { // if the task is not a meeting add the task normally
 			int size = taskMap.size(); // indices are zero based (see importData)
 			newTask.placement=size;
 			taskMap.put(size, newTask); // add the task to the end of the map
 		}
-		if ((newTask.type.equals("e") == true) || (newTask.type.equals("m") == true)) { // if the task is an exam
+		if ((newTask.type.equals("Exam") == true) || (newTask.type.equals("Meeting") == true)) { // if the task is an exam
 			events.add(newTask); // add the task to the array list
 		}
 	}

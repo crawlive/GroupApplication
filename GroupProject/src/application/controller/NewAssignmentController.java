@@ -76,19 +76,19 @@ public class NewAssignmentController extends MainModel{
 
     	//HANDLE THE TYPE
     	if(notesBox.isSelected()) {
-    		temp.type("n");
+    		temp.type("Notes");
     	}
     	if(homeworkBox.isSelected()) {
-    		temp.type("h");
+    		temp.type("Homework");
     	}
     	if(quizBox.isSelected()) {
-    		temp.type("q");
+    		temp.type("Quiz");
     	}
     	if(examBox.isSelected()) {
-    		temp.type("e");
+    		temp.type("Exam");
     	}
     	if(meetingBox.isSelected()){
-    		temp.type("m");
+    		temp.type("Meeting");
     	}
 
     	addNewTask(temp);	//FUNCTION CALL: add new task to the proper collections

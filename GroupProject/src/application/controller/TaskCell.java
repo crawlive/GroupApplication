@@ -166,12 +166,10 @@ public class TaskCell extends ListCell<Task>{
 		    public void handle(ActionEvent event) {
 		        if (event.getSource() instanceof CheckBox) {
 		            if(checkCompleted.isSelected()) {
-		            	System.out.println("move task to completed");
 		            	MainModel.addToQueue(task);
 		            } else {
 		            	// TODO: move task to todo list
 		            	MainModel.removeFromQueue(task);
-		            	System.out.println("moved task" + task + "to todo list");
 		            }
 		            //TextModel.saveToFiles();
 		            refreshListViews();

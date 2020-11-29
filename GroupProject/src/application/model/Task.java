@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Task {
-	String type; 		//notes, hw, quiz, exam, meeting [n, h, q, e or m]
+	String type; 		//notes, hw, quiz, exam, meeting [Notes, Homework, Quiz, Exam or Meeting]
 	String name;		//title
 	String course;		//course name
 	String date;		//due date

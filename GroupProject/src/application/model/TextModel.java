@@ -122,6 +122,7 @@ public class TextModel{
 					if(MainModel.courses.contains(course) == true){
 						index = MainModel.courses.indexOf(course);
 						MainModel.colors.add(index, color);
+						System.out.println(MainModel.courses);
 					}
 					else{
 						MainModel.courses.add(course);			//add the course to the end of arraylist
@@ -131,9 +132,6 @@ public class TextModel{
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
-			System.out.println(MainModel.courses);
-
-			System.out.println(MainModel.colors);
 		}
 	}
 
