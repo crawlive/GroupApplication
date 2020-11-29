@@ -6,7 +6,6 @@ package application.model;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Calendar;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
@@ -267,27 +266,6 @@ public class MainModel {
 		}
 	}
 
-	/*
-	 * checkQueueDates
-	 *
-	 * check to see if any of the elements in the queue have been in the queue
-	 * longer than 40 days
-	 
-	public static void checkQueueDates() { // FINISH AFTER LISTVIEW
-		if (completedQueue.isEmpty() == false) {
-			Task temp = completedQueue.peek();
-			Calendar fortyDaysAgoCal = Calendar.getInstance();
-			fortyDaysAgoCal.add(Calendar.DAY_OF_MONTH, -40);
-			Date fortyDaysAgo = fortyDaysAgoCal.getTime();
-
-			if (temp.completedDate.before(fortyDaysAgo) == false) {
-				completedQueue.remove();
-				// remove from list view as well
-				checkQueueDates(); // recursive call to continue checking
-									// until the if is false match up
-			}
-		}
-	}*/
 
 	// -------------------------------EVENTS/COURSES
 	// ARRAYLIST-------------------------------//

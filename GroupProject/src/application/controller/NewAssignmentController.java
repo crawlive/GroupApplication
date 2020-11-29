@@ -24,6 +24,13 @@ public class NewAssignmentController extends MainModel{
 
 	//course list for the drop down box
 	ObservableList<String> courseList = FXCollections.observableArrayList(courses);
+
+	FrontPageController parentController;
+
+	public void setParentController(FrontPageController parentController) {
+        this.parentController = parentController;
+    }
+
 	//FXML VARIABLES
 	@FXML
 	private Stage modal, window;
@@ -59,12 +66,12 @@ public class NewAssignmentController extends MainModel{
     	//grab all the variables from the fields
     	temp.name(nameField.getText());
     	temp.course(courseBox.getValue());
-
+    	temp.setCompletedDate("NULL");
+    	temp.setCompletedYmd();
     	//format/grab the date properly
     	LocalDate date = dateField.getValue();
-    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/LLLL/yyyy");
+    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
     	String formattedString = date.format(formatter);
-    	System.out.println("DATE: " + formattedString);
     	temp.date(formattedString);
 
     	//HANDLE THE TYPE
@@ -85,7 +92,8 @@ public class NewAssignmentController extends MainModel{
     	}
 
     	addNewTask(temp);	//FUNCTION CALL: add new task to the proper collections
-
+    	parentController.loadTodoView();
+    	parentController.loadEventsView();
 
     }
 
@@ -153,5 +161,8 @@ public class NewAssignmentController extends MainModel{
     	this.modal = modal;
     	this.window = window;
     }
+
+
+
 
 }

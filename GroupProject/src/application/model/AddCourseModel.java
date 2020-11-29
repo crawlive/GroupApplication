@@ -1,10 +1,5 @@
 package application.model;
 
-import java.io.IOException;
-
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-
 public class AddCourseModel extends MainModel{
 
 	public static String courseAbb;

@@ -85,7 +85,7 @@ public class FrontPageController implements Initializable {
 
 		NewAssignmentController controller = loader.getController();
 		controller.passStages(modal, window);
-
+		controller.setParentController(this);
 		modal.show();
 
 	}
@@ -221,8 +221,8 @@ public class FrontPageController implements Initializable {
 			}
 		}
 
-		completedTasks.addAll(MainModel.getSortedCompletedArray());	
-		
+		completedTasks.addAll(MainModel.getSortedCompletedArray());
+
 		// add observable list to list view
 		todoListView.setItems(todoList);
 		completedListView.setItems(completedTasks);
@@ -272,9 +272,9 @@ public class FrontPageController implements Initializable {
 	 */
 	void loadEventsView() {
 		events = FXCollections.observableArrayList();
-		
+
 		events.addAll(MainModel.getSortedEvents());
-		
+
 		// add observable list to list view
 		eventsListView.setItems(events);
 
@@ -330,5 +330,6 @@ public class FrontPageController implements Initializable {
 		loadTodoView();
 		loadEventsView();
 		loadCourseView();
+		loadNotesView();
 	}
 }
