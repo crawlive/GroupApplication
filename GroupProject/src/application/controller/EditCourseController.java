@@ -45,7 +45,7 @@ public class EditCourseController extends EditCourseModel{
     
     @FXML
     void initialize(){
-    	String name = CourseCell.finalName;			//grab the name from the course button - course buttons need to be finished and working
+    	String name = CourseCell.finalName;			//grab the name from the course button
     	courseArea.setText(name);		//Set the textArea to the courseName
     	updateColor = AddCourseModel.getColor(courseArea.getText());
     }
@@ -62,13 +62,9 @@ public class EditCourseController extends EditCourseModel{
     	if(newName.isEmpty() == false){					//if a value is input for a new course name
     		newName = newName.replace("\n", "");		//remove the \n and
     		changeCourseName(oldName, newName);			//edit the name
+    		updateColor(newName, updateColor);
     	}
-    	//System.out.println("Color was updated to - " + updateColor);
-		//System.out.println("Course name was updated - " + newName);
-		updateColor(oldName, updateColor);
-		//System.out.println("after " + courses);
-		//System.out.println("after " + colors);
-    	//changeCourseColor(colorChosen);				//change the color of course
+    	updateColor(oldName, updateColor);
     	refreshListView();
     }
     @FXML

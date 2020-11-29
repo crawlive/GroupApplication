@@ -27,7 +27,8 @@
 	-fx-background-color: #6FCF97;
 }
 
-.menuButton{
+
+ .menuButton{
 	-fx-pref-height: 75px;
 	-fx-pref-width: 75px;
 	-fx-background-radius: 50%;
@@ -36,6 +37,8 @@
 	-fx-font-size: 24px;
 	-fx-text-fill: #F2F2F2;
 }
+
+
 
 .menuCourseIcon {
 	-fx-pref-height: 75px;
@@ -231,7 +234,7 @@ ListView .list-cell { /* default */
 	-fx-pref-height: 58px;
 	-fx-background-radius: 50%;
 	-fx-background-color: red;
-	-fx-font-size: 22px;
+	-fx-font-size: 20px;
 	-fx-text-fill: #F2F2F2;
 }
 .cellHeader {
