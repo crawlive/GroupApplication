@@ -103,11 +103,6 @@
             <Insets top="10.0" />
          </padding>
       </VBox>
-      <HBox layoutY="211.0" prefHeight="30.0" prefWidth="400.0">
-         <padding>
-            <Insets left="20.0" top="15.0" />
-         </padding>
-      </HBox>
       <HBox layoutX="1.0" layoutY="308.0" prefHeight="45.0" prefWidth="400.0">
          <children>
             <Label text="Delete Course">

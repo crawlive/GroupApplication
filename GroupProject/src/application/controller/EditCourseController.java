@@ -6,6 +6,7 @@ package application.controller;
 
 import java.io.IOException;
 
+import application.model.AddCourseModel;
 import application.model.EditCourseModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,8 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class EditCourseController extends EditCourseModel{
-	String colorChosen;
-	String finalColor;
+	String updateColor;
 	
 	@FXML
 	private Stage modal, window;
@@ -47,6 +47,7 @@ public class EditCourseController extends EditCourseModel{
     void initialize(){
     	String name = CourseCell.finalName;			//grab the name from the course button - course buttons need to be finished and working
     	courseArea.setText(name);		//Set the textArea to the courseName
+    	updateColor = AddCourseModel.getColor(courseArea.getText());
     }
 
     /*
@@ -56,43 +57,34 @@ public class EditCourseController extends EditCourseModel{
      */
     @FXML
     void clickedSubmit(ActionEvent event) {
-    	System.out.println("before " + courses);
-		System.out.println("before " + colors);
     	String oldName = courseArea.getText();
     	String newName = newCourseName.getText();
     	if(newName.isEmpty() == false){					//if a value is input for a new course name
     		newName = newName.replace("\n", "");		//remove the \n and
     		changeCourseName(oldName, newName);			//edit the name
-    		System.out.println(finalColor);
-    		System.out.println(newName);
-    		updateColor(newName, finalColor);
-    		System.out.println("after " + courses);
-    		System.out.println("after " + colors);
     	}
+    	//System.out.println("Color was updated to - " + updateColor);
+		//System.out.println("Course name was updated - " + newName);
+		updateColor(oldName, updateColor);
+		//System.out.println("after " + courses);
+		//System.out.println("after " + colors);
     	//changeCourseColor(colorChosen);				//change the color of course
     	refreshListView();
     }
-    
     @FXML
-    void clickedRed(ActionEvent event) { finalColor = "e40d0d";}
-
+    void clickedRed(ActionEvent event) { updateColor = "e40d0d";}
     @FXML
-    void clickedPeach(ActionEvent event) { finalColor = "FB634F";}
-
+    void clickedPeach(ActionEvent event) { updateColor = "FB634F";}
     @FXML
-    void clickedOrange(ActionEvent event) { finalColor = "FF4D00";}
-
+    void clickedOrange(ActionEvent event) { updateColor = "FF4D00";}
     @FXML
-    void clickedYellow(ActionEvent event) { finalColor = "F8D520";}
-
+    void clickedYellow(ActionEvent event) { updateColor = "F8D520";}
     @FXML
-    void clickedGreen(ActionEvent event) { finalColor = "#116936";}
-
+    void clickedGreen(ActionEvent event) { updateColor = "#116936";}
     @FXML
-    void clickedBlue(ActionEvent event) { finalColor = "#305a8c";}
-
+    void clickedBlue(ActionEvent event) { updateColor = "#305a8c";}
     @FXML
-    void clickedPurple(ActionEvent event) { finalColor = "#9B51E0";}
+    void clickedPurple(ActionEvent event) { updateColor = "#9B51E0";}
     
     /*
      * refreshListView

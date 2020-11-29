@@ -59,27 +59,23 @@ public class AddCourseController extends AddCourseModel{
     	if(courseCreated == true){
         	createCourseButton(newCourseName, finalColor); //located in AddCourseModel
     	}
+    	System.out.println(courses);
+    	System.out.println(colors);
     	refreshListView();
     }
     
     @FXML
     void clickedRed(ActionEvent event) { finalColor = "e40d0d";}
-
     @FXML
     void clickedPeach(ActionEvent event) { finalColor = "FB634F";}
-
     @FXML
     void clickedOrange(ActionEvent event) { finalColor = "FF4D00";}
-
     @FXML
     void clickedYellow(ActionEvent event) { finalColor = "F8D520";}
-
     @FXML
     void clickedGreen(ActionEvent event) { finalColor = "#116936";}
-
     @FXML
     void clickedBlue(ActionEvent event) { finalColor = "#305a8c";}
-
     @FXML
     void clickedPurple(ActionEvent event) { finalColor = "#9B51E0";}
 
