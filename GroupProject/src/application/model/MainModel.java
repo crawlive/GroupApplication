@@ -149,22 +149,13 @@ public class MainModel {
 	 * update the taskMap to host the keys in order of their occurrence in the set
 	 */
 	public static void updateKeys() {
-		Set<Entry<Integer, Task>> set = taskMap.entrySet(); // create an iteration set
-		Iterator<Entry<Integer, Task>> iterator = set.iterator(); // iterator
-		Task curValue = null; // task value holder
-		int place, curKey, i = 0; // placement, current key, where task needs to be
-		while (iterator.hasNext()) { // iterate through taskMap
-			@SuppressWarnings("rawtypes")
-			Map.Entry me = (Map.Entry) iterator.next(); // grab the current set entry
-			curValue = (Task) me.getValue(); // grab the entry's task
-			place = curValue.placement; // grab the task's placement
-			curKey = (Integer) me.getKey(); // grab the current entry key
-			if (place != i) { // if the current placement != i
-				curValue.placement = i; // set it to i
-				taskMap.put(i, curValue); // add updated task to the taskMap
-				taskMap.remove(curKey); // remove the old task at the old position
-			}
-			i++; // increment i
+		ArrayList<Task> indexArr = new ArrayList<Task>();
+		indexArr.addAll(taskMap.values()); 
+		indexArr.sort(Comparator.comparing(Task::getDate));
+		taskMap.clear();
+		for (Task task : indexArr) {
+			task.placement = indexArr.indexOf(task);
+			taskMap.put(indexArr.indexOf(task), task);
 		}
 	}
 
@@ -174,10 +165,16 @@ public class MainModel {
 	 * add a new task to the proper collections
 	 */
 	public static void addNewTask(Task newTask) {
+		ArrayList<Task> sortedArr = new ArrayList<Task>();
 		if (newTask.type.equals("Meeting") == false) { // if the task is not a meeting add the task normally
-			int size = taskMap.size(); // indices are zero based (see importData)
-			newTask.placement=size;
-			taskMap.put(size, newTask); // add the task to the end of the map
+			sortedArr.addAll(taskMap.values()); 
+			sortedArr.add(newTask);
+			sortedArr.sort(Comparator.comparing(Task::getDate));
+			taskMap.clear();
+			for (Task task : sortedArr) {
+				task.placement = sortedArr.indexOf(task);
+				taskMap.put(sortedArr.indexOf(task), task);
+			}
 		}
 		if ((newTask.type.equals("Exam") == true) || (newTask.type.equals("Meeting") == true)) { // if the task is an exam
 			events.add(newTask); // add the task to the array list
@@ -239,9 +236,19 @@ public class MainModel {
 	 * removes the tasks from the hashmap and adds that task to a the completed array list
 	 */
 	public static void addToCompleted(Task temp) {
-		taskMap.remove(temp.placement); // remove the task from the hashmap
-		temp.completedDate(); // set the completed date to current date
-		completedList.add(temp); // add it to the queue
+		updateKeys();
+		for (int key : taskMap.keySet()) {
+			if (taskMap.get(key).getName() == temp.getName()) {
+				taskMap.remove(key); // remove the task from the hashmap
+				if(!temp.completedDate.equals("NULL")) {
+					temp.setCompletedYmd();		//if completed before null it out
+				}
+				temp.completedDate(); // set the completed date to current date
+				completedList.add(temp); // add it to the list
+				break;
+			}
+		}
+		updateKeys();
 	}
 
 	/*
@@ -250,12 +257,9 @@ public class MainModel {
 	 * removes the tasks from the arrayList and adds that task to a the task map
 	 */
 	public static void removeFromCompleted(Task temp) {
-		for (Task t : MainModel.completedList) {
-			if (t == temp) {
-				MainModel.completedList.remove(temp);
-				addNewTask(temp);
-			}
-		}
+		MainModel.completedList.remove(temp);
+		addNewTask(temp);
+		updateKeys();
 	}
 
 

@@ -8,7 +8,10 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.Map.Entry;
 
 
 public class TextModel{
@@ -121,7 +124,6 @@ public class TextModel{
 					if(MainModel.courses.contains(course) == true){
 						index = MainModel.courses.indexOf(course);
 						MainModel.colors.add(index, color);
-						System.out.println(MainModel.courses);
 					}
 					else{
 						MainModel.courses.add(course);			//add the course to the end of arraylist
@@ -153,7 +155,6 @@ public class TextModel{
 					notes += "\n";
 
 				}
-				//System.out.print(notes);
 				scan.close();
 
 				return notes;
@@ -182,9 +183,8 @@ public class TextModel{
 		BufferedWriter iWriter = new BufferedWriter(ifw);	//buff pointer
 
 		//iterate through the taskMap until end
-		int size = MainModel.taskMap.size();
-		for(int i = 0; i < size; i++){
-			temp = MainModel.taskMap.get(i);				//grab each task in order
+		for (int key : MainModel.taskMap.keySet()) {
+			temp = MainModel.taskMap.get(key);				//grab each task in order
 			line = temp.toString();							//set the line
 			iWriter.write(line);							//write the line
 		}

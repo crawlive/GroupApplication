@@ -100,6 +100,16 @@ public class Task {
 		return type;
 	}
 
+	/**
+	 * getPlacement()
+	 *
+	 * @return the type
+	 */
+	public int getPlacement() {
+		return placement;
+	}
+
+		
 	//---------------------Setters for the Task Class-------------------//
 
 	/**
@@ -155,9 +165,6 @@ public class Task {
 		SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/YYYY");
 	    String formattedDate = formatter.format(newDate);
 		this.completedDate = formattedDate;
-
-		System.out.println(newDate);
-		System.out.println(formattedDate);
 
 		String regex = "[/]";
 		String[] tokeArr = formattedDate.split(regex);

@@ -16,8 +16,7 @@ public class EventCell extends ListCell<Task> {
 	private Label taskLbl = new Label();
 	private Label courseLbl = new Label();
 	private Label dateLbl = new Label();
-	
-	@SuppressWarnings("unused")
+
 	private FrontPageController parentController;
 	
 	/*

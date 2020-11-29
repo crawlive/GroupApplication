@@ -170,7 +170,7 @@ public class TaskCell extends ListCell<Task>{
 		            } else {
 		            	MainModel.removeFromCompleted(task);
 		            }
-		            //TextModel.saveToFiles();
+			        //MainModel.updateKeys();											//update the keys in the taskMap
 		            refreshListViews();
 		        }
 		    }
