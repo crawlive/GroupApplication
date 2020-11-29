@@ -128,7 +128,6 @@ public class CourseCell extends ListCell<String> {
 					Stage modal = initModal(modalPane, window);
 					EditCourseController controller = loader.getController();
 					controller.passStages(modal, window);
-					controller.setParentController(getParentController());
 
 					// TODO: use EditCourse controller too pass in course info for edit
 					// ...

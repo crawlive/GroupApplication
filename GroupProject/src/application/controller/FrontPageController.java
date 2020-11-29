@@ -191,8 +191,7 @@ public class FrontPageController implements Initializable {
 	 * tasks.
 	 */
 	void loadTodoView() {
-	
-		System.out.println("loading todo view");
+		//System.out.println("loading todo view");
 		dateListView.setVisible(false);
 		dateListView.setManaged(false);
 
@@ -288,14 +287,15 @@ public class FrontPageController implements Initializable {
      * Load/display the list view for events
      */
     void loadCourseView() {
-
+    	//System.out.println("TOP OF LOADCOURSEVIEW");
     	courses = FXCollections.observableArrayList();
 
 		int size = MainModel.courses.size();
 		for (int i = 1; i < size; i++) {
 			courses.add(MainModel.courses.get(i));
 		}
-
+		
+		//System.out.println("in loadCourseView " + MainModel.courses);
 		// add observable list to list view
 		courseView.setItems(courses);
 
@@ -320,6 +320,7 @@ public class FrontPageController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		currentView = "todo";
+		EditCourseController.setParentController(this);
 		loadTodoView();
 		loadEventsView();
 		loadCourseView();

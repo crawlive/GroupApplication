@@ -36,10 +36,11 @@ public class EditCourseController extends EditCourseModel{
     @FXML
     private Label courseArea; //Course Name
 
-    FrontPageController parentController;
+    public static FrontPageController parentController;
 
-	public void setParentController(FrontPageController parentController) {
-        this.parentController = parentController;
+	public static void setParentController(FrontPageController parentController) {
+        EditCourseController.parentController = parentController;
+        //System.out.println("PARENT CONTROLLER " + parentController.getCurrentView());
     }
     
     @FXML
@@ -51,41 +52,47 @@ public class EditCourseController extends EditCourseModel{
     /*
      * clickedSubmit
      *
-     * grabs the data inputted into the Edit Course fields and replaces and/or changes the color of the course
+     * grabs the data inputed into the Edit Course fields and replaces and/or changes the color of the course
      */
     @FXML
     void clickedSubmit(ActionEvent event) {
+    	System.out.println("before " + courses);
+		System.out.println("before " + colors);
     	String oldName = courseArea.getText();
     	String newName = newCourseName.getText();
     	if(newName.isEmpty() == false){					//if a value is input for a new course name
     		newName = newName.replace("\n", "");		//remove the \n and
     		changeCourseName(oldName, newName);			//edit the name
+    		System.out.println(finalColor);
+    		System.out.println(newName);
+    		updateColor(newName, finalColor);
+    		System.out.println("after " + courses);
+    		System.out.println("after " + colors);
     	}
     	//changeCourseColor(colorChosen);				//change the color of course
-
     	refreshListView();
-    	
     }
+    
     @FXML
-    void clickedRed(ActionEvent event) { finalColor = "red";}
+    void clickedRed(ActionEvent event) { finalColor = "e40d0d";}
 
     @FXML
-    void clickedPeach(ActionEvent event) { finalColor = "peach";}
+    void clickedPeach(ActionEvent event) { finalColor = "FB634F";}
 
     @FXML
-    void clickedOrange(ActionEvent event) { finalColor = "orange";}
+    void clickedOrange(ActionEvent event) { finalColor = "FF4D00";}
 
     @FXML
-    void clickedYellow(ActionEvent event) { finalColor = "yellow";}
+    void clickedYellow(ActionEvent event) { finalColor = "F8D520";}
 
     @FXML
-    void clickedGreen(ActionEvent event) { finalColor = "green";}
+    void clickedGreen(ActionEvent event) { finalColor = "#116936";}
 
     @FXML
-    void clickedBlue(ActionEvent event) { finalColor = "blue";}
+    void clickedBlue(ActionEvent event) { finalColor = "#305a8c";}
 
     @FXML
-    void clickedPurple(ActionEvent event) { finalColor = "purple";}
+    void clickedPurple(ActionEvent event) { finalColor = "#9B51E0";}
     
     /*
      * refreshListView
@@ -93,7 +100,8 @@ public class EditCourseController extends EditCourseModel{
      * refreshes the list views on front page appropriately
      */
     void refreshListView() {
-    	if(parentController.getCurrentView() == "todo") {
+    	System.out.println(parentController.getCurrentView());
+    	if(parentController.getCurrentView().equals("todo")) {
     		parentController.loadTodoView();
     	}
     	else { // view == "date"
@@ -114,6 +122,9 @@ public class EditCourseController extends EditCourseModel{
     	String name = courseArea.getText();
     	name = name.replace("\n", "");				//remove the \n and
     	deleteCourse(name);
+    	System.out.println(courses);
+		System.out.println(colors);
+    	refreshListView();
     }
 
 

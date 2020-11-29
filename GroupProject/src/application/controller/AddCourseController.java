@@ -58,7 +58,6 @@ public class AddCourseController extends AddCourseModel{
     	System.out.println(finalColor + " "+ newCourseName);
     	if(courseCreated == true){
         	createCourseButton(newCourseName, finalColor); //located in AddCourseModel
-        	//getColor(newCourseName);
     	}
     	refreshListView();
     }
@@ -91,7 +90,8 @@ public class AddCourseController extends AddCourseModel{
      * refreshes the list views on front page appropriately
      */
     void refreshListView() {
-    	if(parentController.getCurrentView() == "todo") {
+    	System.out.println(parentController.getCurrentView());
+    	if(parentController.getCurrentView().equals("todo")) {
     		parentController.loadTodoView();
     	}
     	else { // view == "date"

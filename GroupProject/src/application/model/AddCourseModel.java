@@ -34,9 +34,9 @@ public class AddCourseModel extends MainModel{
 	}
 	
 	/*
-     * getCourse
+     * getColor
      *
-     * Closes modal and removes effect from the front page window
+     * 
      */
     public static String getColor(String course) {
     	int index = courses.indexOf(course);

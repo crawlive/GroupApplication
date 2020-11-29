@@ -44,6 +44,15 @@ public class EditCourseModel extends MainModel{
     		}
         }
 	}
+	/*
+     * changeCourse
+     *
+     * change specified course from all collections to the new name
+     */
+	public static void updateColor(String course, String color){
+		int index = courses.indexOf(course);
+    	colors.set(index, color);
+	}
 
 	/*
      * changeCourseEvents
@@ -104,6 +113,7 @@ public class EditCourseModel extends MainModel{
     		temp = courses.get(i);					//grab cur value at index
     		if(temp.contains(name)) {				//if the value is found
     			courses.remove(i);					//remove it
+    			colors.remove(i);
     		}
         }
     }
