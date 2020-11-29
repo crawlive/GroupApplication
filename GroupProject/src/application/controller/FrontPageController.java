@@ -115,28 +115,6 @@ public class FrontPageController implements Initializable {
 	}
 
 	/*
-	 * openEditCourse
-	 *
-	 * Opens edit course scene for a particular course when user clicks an existing
-	 * course button
-	 */
-	@FXML
-	void openEditCourse(ActionEvent event) throws IOException {
-		FXMLLoader loader = new FXMLLoader();
-		loader.setLocation(Main.class.getResource("view/EditCourse.fxml"));
-
-		AnchorPane modalPane = loader.load();
-		Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		Stage modal = initModal(modalPane, window);
-
-		EditCourseController controller = loader.getController();
-		controller.passStages(modal, window);
-		controller.setParentController(this);
-
-		modal.show();
-	}
-
-	/*
 	 * initModal
 	 *
 	 * Initializes a new modal to appear over a darkened version of the current
