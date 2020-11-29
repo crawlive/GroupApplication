@@ -197,10 +197,14 @@ public class MainModel {
 	 * as a sorted array list
 	 */
 	public static ArrayList<Task> getSortedDateArray() {
-		ArrayList<Task> taskList = new ArrayList<Task>();
-		taskList.addAll(taskMap.values());
-		taskList.sort(Comparator.comparing(Task::getYmd));
-		return taskList;
+		ArrayList<Task> sortedList = new ArrayList<Task>();
+		sortedList.addAll(taskMap.values());
+		
+		for(Task t : MainModel.completedQueue){
+			sortedList.add(t);;
+		}
+		sortedList.sort(Comparator.comparing(Task::getYmd));
+		return sortedList;
 	}
 	
 	/*

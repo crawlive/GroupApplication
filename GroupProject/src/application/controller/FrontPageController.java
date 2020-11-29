@@ -248,13 +248,21 @@ public class FrontPageController implements Initializable {
 		completedPane.setManaged(false);
 
 		listByDate = FXCollections.observableArrayList();
-		listByDate.addAll(MainModel.getSortedDateArray());
+		
+		int size = MainModel.getSortedDateArray().size();
+		for (int i = 1; i < size; i++) {
+			Task curr = MainModel.getSortedDateArray().get(i);
+
+			if (curr!=null) {
+				listByDate.add(MainModel.getSortedDateArray().get(i));
+			}
+		}
 
 		// add observable list to list view
 		dateListView.setItems(listByDate);
 
 		// customize the list view cells
-		dateListView.setCellFactory(dateListView -> new TaskCell(this, false));
+		dateListView.setCellFactory(dateListView -> new DateTaskCell());
 	}
 
 	/*
