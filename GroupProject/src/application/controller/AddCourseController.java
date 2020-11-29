@@ -36,6 +36,12 @@ public class AddCourseController extends AddCourseModel{
     @FXML // fx:id="submitNewCourse"
     private Button submitNewCourse; // Value injected by FXMLLoader
 
+    FrontPageController parentController;
+
+	public void setParentController(FrontPageController parentController) {
+        this.parentController = parentController;
+    }
+    
     @FXML
     void initialize(){
     	//create existing courses using MainModel.courses arraylist
@@ -62,8 +68,28 @@ public class AddCourseController extends AddCourseModel{
     	if(courseCreated == true){
         	createCourseButton(newCourseName, colorPicked); //located in AddCourseModel
     	}
+    	
+    	refreshListView();
+    	
     }
 
+    
+    /*
+     * refreshListView
+     * 
+     * refreshes the list views on front page appropriately
+     */
+    void refreshListView() {
+    	if(parentController.getCurrentView() == "todo") {
+    		parentController.loadTodoView();
+    	}
+    	else { // view == "date"
+    		parentController.loadDateView();
+    	}
+    	parentController.loadEventsView();
+    	parentController.loadCourseView();
+    }
+    
 
     /*
      * close
