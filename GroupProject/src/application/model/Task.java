@@ -152,9 +152,12 @@ public class Task {
 
 	public void completedDate(){
 		Date newDate = new Date();	//grabs the current date
-		SimpleDateFormat formatter = new SimpleDateFormat("mm/dd/YYYY");  
+		SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/YYYY");  
 	    String formattedDate = formatter.format(newDate);
 		this.completedDate = formattedDate;
+		
+		System.out.println(newDate);
+		System.out.println(formattedDate);
 		
 		String regex = "[/]";
 		String[] tokeArr = formattedDate.split(regex);
