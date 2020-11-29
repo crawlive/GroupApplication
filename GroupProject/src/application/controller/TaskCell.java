@@ -1,7 +1,6 @@
 package application.controller;
 
 
-import application.model.AddCourseModel;
 import application.model.MainModel;
 import application.model.Task;
 import javafx.event.ActionEvent;
@@ -139,8 +138,7 @@ public class TaskCell extends ListCell<Task>{
 	 */
 	private void addContent(Task task) {
 		setText(null);
-		courseIcon.setText(AddCourseModel.findAbbreviation(task.getCourse()));
-		// TODO: set course icon color based on course
+		courseIcon.setText("AP");
 		taskLbl.setText(task.getName());
 		courseLbl.setText(task.getCourse());
 		typeLbl.setText(task.getType());
@@ -168,21 +166,9 @@ public class TaskCell extends ListCell<Task>{
 		    public void handle(ActionEvent event) {
 		        if (event.getSource() instanceof CheckBox) {
 		            if(checkCompleted.isSelected()) {
-		            	// move task from todo list to completed
-		            	MainModel.addToQueue(task);
-		            	
-		            	// if exam remove from events
-		            	if(task.getType().equals("Exam")) {
-		            		MainModel.events.remove(task);
-		            	}
+		            	MainModel.addToCompleted(task);
 		            } else {
-		            	// move task from completed to todo list
-		            	MainModel.removeFromQueue(task);
-		            	
-		            	// if exam add back to events
-		            	if(task.getType().equals("Exam")) {
-		            		MainModel.events.add(task);
-		            	}
+		            	MainModel.removeFromCompleted(task);
 		            }
 		            //TextModel.saveToFiles();
 		            refreshListViews();
