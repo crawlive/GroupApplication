@@ -58,6 +58,8 @@ public class FrontPageController implements Initializable {
 
     @FXML
     private Button notes_save;
+    
+    private String currentView; // "todo" or "date"
 
 
     private ObservableList<Task> todoList;
@@ -86,6 +88,7 @@ public class FrontPageController implements Initializable {
 		NewAssignmentController controller = loader.getController();
 		controller.passStages(modal, window);
 		controller.setParentController(this);
+		
 		modal.show();
 
 	}
@@ -106,7 +109,8 @@ public class FrontPageController implements Initializable {
 
 		AddCourseController controller = loader.getController();
 		controller.passStages(modal, window);
-
+		controller.setParentController(this);
+		
 		modal.show();
 	}
 
@@ -127,6 +131,7 @@ public class FrontPageController implements Initializable {
 
 		EditCourseController controller = loader.getController();
 		controller.passStages(modal, window);
+		controller.setParentController(this);
 
 		// TODO: use EditCourse controller too pass in course info for edit
 		// ...
@@ -166,6 +171,7 @@ public class FrontPageController implements Initializable {
 	@FXML
 	void toggleTodo(ActionEvent event) {
 		loadTodoView();
+		currentView = "todo";
 	}
 
 	/*
@@ -176,9 +182,19 @@ public class FrontPageController implements Initializable {
 	 */
 	@FXML
 	void toggleDate(ActionEvent event) {
+		currentView = "date";
 		loadDateView();
 	}
 
+	/**
+	 * toggleDate
+	 *
+	 * @return the current list view displayed ("todo" or "date")
+	 */
+	public String getCurrentView() {
+		return currentView;
+	}
+	
 	/*
 	 * saveNotes
 	 *
@@ -200,6 +216,7 @@ public class FrontPageController implements Initializable {
 	 * tasks.
 	 */
 	void loadTodoView() {
+	
 		System.out.println("loading todo view");
 		dateListView.setVisible(false);
 		dateListView.setManaged(false);
@@ -327,6 +344,7 @@ public class FrontPageController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		currentView = "todo";
 		loadTodoView();
 		loadEventsView();
 		loadCourseView();

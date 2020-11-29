@@ -35,6 +35,12 @@ public class EditCourseController extends EditCourseModel{
     @FXML
     private Label courseArea; //Course Name
 
+    FrontPageController parentController;
+
+	public void setParentController(FrontPageController parentController) {
+        this.parentController = parentController;
+    }
+    
     @FXML
     void initialize(){
     	//String name = /*FINISH ME*/
@@ -56,6 +62,24 @@ public class EditCourseController extends EditCourseModel{
     	}
     	//changeCourseColor(colorChosen);				//change the color of course
 
+    	refreshListView();
+    	
+    }
+    
+    /*
+     * refreshListView
+     * 
+     * refreshes the list views on front page appropriately
+     */
+    void refreshListView() {
+    	if(parentController.getCurrentView() == "todo") {
+    		parentController.loadTodoView();
+    	}
+    	else { // view == "date"
+    		parentController.loadDateView();
+    	}
+    	parentController.loadEventsView();
+    	parentController.loadCourseView();
     }
 
     /*

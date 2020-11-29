@@ -92,9 +92,22 @@ public class NewAssignmentController extends MainModel{
     	}
 
     	addNewTask(temp);	//FUNCTION CALL: add new task to the proper collections
-    	parentController.loadTodoView();
+    	refreshListView();
+    }
+    
+    /*
+     * refreshListView
+     * 
+     * refreshes the list views on front page appropriately
+     */
+    void refreshListView() {
+    	if(parentController.getCurrentView() == "todo") {
+    		parentController.loadTodoView();
+    	}
+    	else { // view == "date"
+    		parentController.loadDateView();
+    	}
     	parentController.loadEventsView();
-
     }
 
     // METHODS TO HANDLE CHECK BOXES
