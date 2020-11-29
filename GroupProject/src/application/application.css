@@ -160,7 +160,6 @@ ListView, .split-pane {
     -fx-padding:0;
 }
 
-/* remove/set list cell backgrounds */
 ListView .list-cell { /* default */
 	-fx-background-color: none;
 	-fx-padding: 15px 0;
@@ -171,8 +170,13 @@ ListView .list-cell { /* default */
 	-fx-padding: 15px 20px 0 20px;
 }
 
-#completed_list_view .list-cell {
+#completed_list_view {
 	-fx-background-color: #F0F0F0;
+	-fx-background-radius: 0 0 25px 25px;
+}
+
+#completed_list_view .list-cell {
+	-fx-background-color: none;
 	-fx-padding: 15px 20px 0 20px;
 }
 
@@ -182,7 +186,7 @@ ListView .list-cell { /* default */
 }
 
 #events_list_view {
-	-fx-background-radius: 25px;
+	-fx-background-radius: 0 0 25px 25px;
 }
 
 #events_list_view .list-cell {
