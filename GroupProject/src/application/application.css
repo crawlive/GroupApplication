@@ -202,6 +202,30 @@ ListView .list-cell { /* default */
 	-fx-padding: 15px 5px 0 10px;
 }
 
+.checkBox .box {
+	-fx-background-radius: 50%;
+	-fx-padding: 10px;
+	-fx-border-color: silver;
+	-fx-border-radius: 50%;
+	-fx-border-width: 2px;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: #219653;
+}
+
+.check-box:hover .mark {
+    -fx-background-color: #219653;
+}
+
+.check-box:selected:hover .mark {
+    -fx-background-color: grey;
+}
+
+.checkBox:hover .box {
+	-fx-background-color: #E3E3E3;
+}
+
 .smallCourseIcon {
 	-fx-pref-width: 58px;
 	-fx-pref-height: 58px;

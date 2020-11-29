@@ -79,6 +79,7 @@ public class TaskCell extends ListCell<Task>{
 	 * Configure grid items, attach styling
 	 */
 	private void configureItems() {
+		checkCompleted.getStyleClass().add("checkBox");
 		courseIcon.getStyleClass().add("smallCourseIcon");
 		taskLbl.getStyleClass().add("cellHeader");
 		courseLbl.getStyleClass().add("cellSubHeader");
