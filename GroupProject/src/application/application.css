@@ -199,7 +199,7 @@ ListView .list-cell { /* default */
 }
 
 #events_list_view .list-cell {
-	-fx-padding: 15px 5px 0 10px;
+	-fx-padding: 25px 20px 0 25px;
 }
 
 .checkBox .box {

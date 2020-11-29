@@ -128,9 +128,9 @@
                               </VBox>
                            </children>
                         </StackPane>
-                        <VBox prefWidth="350.0">
+                        <VBox prefWidth="450.0">
                            <children>
-                              <StackPane minWidth="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                              <StackPane minWidth="300.0" prefWidth="300.0" VBox.vgrow="ALWAYS">
                                  <children>
                                     <VBox id="events_card" alignment="TOP_CENTER" styleClass="card">
                                        <children>
@@ -160,9 +160,9 @@
                                     </VBox>
                                  </children>
                               </StackPane>
-                              <StackPane id="todo-btn" minWidth="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                              <StackPane id="todo-btn" minWidth="300.0" prefWidth="300.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <VBox id="events_card" alignment="TOP_CENTER" styleClass="card">
+                                    <VBox id="notes_card" alignment="TOP_CENTER" styleClass="card">
                                        <children>
                                           <HBox styleClass="card-header">
                                              <children>
