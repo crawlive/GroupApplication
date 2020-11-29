@@ -15,8 +15,9 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class EditCourseController extends EditCourseModel{
-
 	String colorChosen;
+	String finalColor;
+	
 	@FXML
 	private Stage modal, window;
 
@@ -65,6 +66,26 @@ public class EditCourseController extends EditCourseModel{
     	refreshListView();
     	
     }
+    @FXML
+    void clickedRed(ActionEvent event) { finalColor = "red";}
+
+    @FXML
+    void clickedPeach(ActionEvent event) { finalColor = "peach";}
+
+    @FXML
+    void clickedOrange(ActionEvent event) { finalColor = "orange";}
+
+    @FXML
+    void clickedYellow(ActionEvent event) { finalColor = "yellow";}
+
+    @FXML
+    void clickedGreen(ActionEvent event) { finalColor = "green";}
+
+    @FXML
+    void clickedBlue(ActionEvent event) { finalColor = "blue";}
+
+    @FXML
+    void clickedPurple(ActionEvent event) { finalColor = "purple";}
     
     /*
      * refreshListView

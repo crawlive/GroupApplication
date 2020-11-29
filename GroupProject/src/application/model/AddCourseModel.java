@@ -38,32 +38,12 @@ public class AddCourseModel extends MainModel{
      *
      * Closes modal and removes effect from the front page window
      */
-    public static String getColor(int lastClicked) {
-    	String colorPicked = "";
-    	if(lastClicked == 1){
-    		colorPicked = "red";
-    	}
-    	if(lastClicked == 2){
-    		colorPicked = "peach";
-    	}
-    	if(lastClicked == 3){
-    		colorPicked = "orange";
-    	}
-    	if(lastClicked == 4){
-    		colorPicked = "yellow";
-    	}
-    	if(lastClicked == 5){
-    		colorPicked = "green";
-    	}
-    	if(lastClicked == 6){
-    		colorPicked = "blue";
-    	}
-    	if(lastClicked == 7){
-    		colorPicked = "purple";
-    	}
-		return colorPicked;
+    public static String getColor(String course) {
+    	int index = courses.indexOf(course);
+    	String color = colors.get(index);
+    	return color;
     }
-
+    	
 	/*
      * findAbbreviation
      *
