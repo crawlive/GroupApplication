@@ -6,6 +6,7 @@ package application.controller;
 import application.Main;
 import application.model.MainModel;
 import application.model.Task;
+import application.model.TextModel;
 
 import java.io.IOException;
 import java.net.URL;
@@ -22,6 +23,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TitledPane;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.effect.ColorAdjust;
@@ -32,25 +34,32 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 public class FrontPageController implements Initializable {
-	
+
 	@FXML
 	private ToggleGroup todo_date_toggle;
 
     @FXML
     private Button courseBtn;
-    
+
     @FXML
     private Label noEventsMsg; // Text that shows when there are no events
-    
+
     @FXML
     private TitledPane todoPane, completedPane;
-    
+
     @FXML
     private ListView<Task> todoListView, completedListView, dateListView, eventsListView;
-    
+
     @FXML
     private ListView<String> courseView;
-    
+
+    @FXML
+    private TextArea notes_textarea;
+
+    @FXML
+    private Button notes_save;
+
+
     private ObservableList<Task> todoList;
     private ObservableList<Task> completedTasks;
     private ObservableList<Task> listByDate;
@@ -150,7 +159,7 @@ public class FrontPageController implements Initializable {
 
 	/*
 	 * toggleTodo
-	 * 
+	 *
 	 * Action when date toggle button is clicked. Calls loadTodo view to load the
 	 * todo list.
 	 */
@@ -161,7 +170,7 @@ public class FrontPageController implements Initializable {
 
 	/*
 	 * toggleDate
-	 * 
+	 *
 	 * Action when the date toggle button is clicked. Calls loadTodo view to load
 	 * the date list.
 	 */
@@ -171,8 +180,22 @@ public class FrontPageController implements Initializable {
 	}
 
 	/*
+	 * saveNotes
+	 *
+	 * Grab the string from the text area and save it to the notes.txt
+	 */
+	@FXML void saveNotes(ActionEvent event){
+		String notes = notes_textarea.getText();
+		try {
+			TextModel.updateNotes(notes);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/*
 	 * loadTodoView
-	 * 
+	 *
 	 * Load/display the list view(s) for the upcoming week of tasks and completed
 	 * tasks.
 	 */
@@ -192,7 +215,7 @@ public class FrontPageController implements Initializable {
 		int size = MainModel.taskMap.size();
 		for (int i = 1; i < size; i++) {
 			Task curr = MainModel.taskMap.get(i);
-			
+
 			if (curr!=null) {
 				todoList.add(MainModel.taskMap.get(i));
 			}
@@ -212,7 +235,7 @@ public class FrontPageController implements Initializable {
 
 	/*
 	 * loadDateView
-	 * 
+	 *
 	 * Load/display the list view for tasks ordered by date
 	 */
 	void loadDateView() {
@@ -236,7 +259,7 @@ public class FrontPageController implements Initializable {
 
 	/*
 	 * loadEventsView
-	 * 
+	 *
 	 * Load/display the list view for events
 	 */
 	void loadEventsView() {
@@ -257,28 +280,39 @@ public class FrontPageController implements Initializable {
 			noEventsMsg.setManaged(true);
 		}
     }
-    
+
     /*
      * loadCourseView
-     * 
+     *
      * Load/display the list view for events
      */
     void loadCourseView() {
-    	
+
     	courses = FXCollections.observableArrayList();
-		
+
 		int size = MainModel.courses.size();
 		for (int i = 1; i < size; i++) {
 			courses.add(MainModel.courses.get(i));
 		}
-		
+
 		// add observable list to list view
 		courseView.setItems(courses);
-		
+
     	// customize the list view cells
 		courseView.setCellFactory(courseView -> new CourseCell(this));
-		
+
     }
+
+    /*
+     * loadNotesView
+     *
+     * Load/display the list view for events
+     */
+    void loadNotesView() {
+    	String text = TextModel.importNotes();
+    	notes_textarea.setText(text);
+    }
+
 
 	// -------------INITIALIZATION----------------//
 

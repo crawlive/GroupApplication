@@ -17,6 +17,7 @@ public class TextModel{
 	public static String eventFile = ".\\src\\application\\dataFiles\\events.txt";			//holds the tasks that go in event list
 	public static String completedFile = ".\\src\\application\\dataFiles\\completed.txt";	//holds the tasks that have been completed
 	public static String courseFile = ".\\src\\application\\dataFiles\\courses.txt";		//holds the strings that go in courses list
+	public static String notesFile = ".\\\\src\\\\application\\\\dataFiles\\\\notes.txt";	//holds the strings that go in the notes area
 
 
 	//-------------IMPORTING DATA FUNCTIONS----------------//
@@ -136,6 +137,38 @@ public class TextModel{
 		}
 	}
 
+	/*
+     * importNotes
+     *
+     * Imports from notes txt file to a string and returns it
+     */
+	public static String importNotes() {
+		Scanner scan;
+		File file = new File(notesFile);
+		if(file.length() != 0) {
+			try {
+				scan = new Scanner(file);
+				String notes = scan.nextLine() + "\n";
+				String line;
+				while(scan.hasNextLine()) {
+					line = scan.nextLine();
+					notes += line;
+					notes += "\n";
+
+				}
+				//System.out.print(notes);
+				scan.close();
+
+				return notes;
+
+
+			} catch (FileNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
+		return null;
+	}
+
 	//-------------SAVING DATA FUNCTIONS----------------//
 	/*
      * save*
@@ -195,6 +228,7 @@ public class TextModel{
 		line="";											//special safety net
 	}
 
+	//Saves the courses data to the courses file in order
 	public static void saveCourses() throws IOException{
 		String line, course, color;
 		FileWriter ifw = new FileWriter(courseFile);		//file writer pointer
@@ -211,6 +245,19 @@ public class TextModel{
 		line="";											//special safety net
 
 	}
+
+	/*
+     * updateNotes
+     *
+     * Takes a string and writes it to notes.txt
+     */
+	public static void updateNotes(String s) throws IOException {
+		FileWriter ifw = new FileWriter(notesFile);			//file writer pointer
+		BufferedWriter iWriter = new BufferedWriter(ifw);	//buff pointer
+		iWriter.write(s);									//write the line
+		iWriter.close();									//close pointers
+	}
+
 
 	public static void saveToFiles(){
 		try{

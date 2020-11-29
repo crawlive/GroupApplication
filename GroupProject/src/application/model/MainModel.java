@@ -50,6 +50,21 @@ public class MainModel {
 			alert.setContentText("Course was successfully created!");
 			alert.showAndWait();
 		}
+		if(s.equals("ta")){
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("INFORMATION");
+			alert.setHeaderText("New Task Created");
+			alert.setContentText("Task was successfully created!");
+			alert.showAndWait();
+		}
+		if(s.equals("ec")){
+			Alert alert = new Alert(AlertType.INFORMATION);
+			alert.setTitle("INFORMATION");
+			alert.setHeaderText("Course Editted");
+			alert.setContentText("Course was successfully editted!");
+			alert.showAndWait();
+		}
+		
 	}
 
 	/*
