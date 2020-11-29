@@ -1,5 +1,6 @@
 package application.controller;
 
+import application.model.AddCourseModel;
 import application.model.Task;
 import javafx.geometry.HPos;
 import javafx.scene.control.Button;
@@ -119,7 +120,9 @@ public class EventCell extends ListCell<Task> {
 	 */
 	private void addContent(Task task) {
 		setText(null);
-		courseIcon.setText("AP");
+		courseIcon.setText(AddCourseModel.findAbbreviation(task.getCourse()));
+		String finalColor = AddCourseModel.getColor(task.getCourse());
+		courseIcon.setStyle("-fx-background-color: "+ finalColor + ";");
 		taskLbl.setText(task.getName());
 		courseLbl.setText(task.getCourse());
 		dateLbl.setText(task.getDate());

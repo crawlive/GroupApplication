@@ -118,7 +118,8 @@ public class DateTaskCell extends ListCell<Task>{
 	private void addContent(Task task) {
 		setText(null);
 		courseIcon.setText(AddCourseModel.findAbbreviation(task.getCourse()));
-		// TODO: (@beth) set course color
+		String finalColor = AddCourseModel.getColor(task.getCourse());
+		courseIcon.setStyle("-fx-background-color: "+ finalColor + ";");
 		taskLbl.setText(task.getName());
 		courseLbl.setText(task.getCourse());
 		typeLbl.setText(task.getType());
