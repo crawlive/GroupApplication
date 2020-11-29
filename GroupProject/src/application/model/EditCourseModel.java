@@ -7,11 +7,11 @@ public class EditCourseModel extends MainModel{
      *
      * find and rename all oldName with newName in all the collections
      */
-	public static void changeCourseName(String oldName, String newName){
+	public static void changeCourseName(String oldName, String newName, String updatedColor){
 		changeAssignments(newName, oldName);	//change all associated assignments from the taskMap
 		changeCourseEvents(newName, oldName);	//change the course from the events array list
 		changeCourseCompleted(newName, oldName);//remove the course from the completed queue
-		changeCourse(newName, oldName);			//remove the course from the course array list
+		changeCourse(newName, oldName, updatedColor);			//remove the course from the course array list
 	}
 
 	/*
@@ -35,12 +35,13 @@ public class EditCourseModel extends MainModel{
      *
      * change specified course from all collections to the new name
      */
-	public static void changeCourse(String newName, String name){
+	public static void changeCourse(String newName, String name, String color){
 		String temp;
 		for(int i = 0; i < courses.size(); i++) {	//iterate through the course arr list
 			temp = courses.get(i);					//grab cur value at index
     		if(temp.contains(name)) {				//if the value is found
     			courses.set(i, newName);			//set the new element
+    			colors.set(i, color);
     		}
         }
 	}
@@ -49,10 +50,10 @@ public class EditCourseModel extends MainModel{
      *
      * change specified course from all collections to the new name
      */
-	public static void updateColor(String course, String color){
-		int index = courses.indexOf(course);
-    	colors.set(index, color);
-	}
+//	public static void updateColor(String course, String color){
+//		int index = courses.indexOf(course);
+ //   	colors.set(index, color);
+//	}
 
 	/*
      * changeCourseEvents

@@ -16,7 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class EditCourseController extends EditCourseModel{
-	String updateColor;
+	String updatedColor;
 	
 	@FXML
 	private Stage modal, window;
@@ -47,7 +47,7 @@ public class EditCourseController extends EditCourseModel{
     void initialize(){
     	String name = CourseCell.finalName;			//grab the name from the course button
     	courseArea.setText(name);		//Set the textArea to the courseName
-    	updateColor = AddCourseModel.getColor(courseArea.getText());
+    	updatedColor = AddCourseModel.getColor(courseArea.getText());
     }
 
     /*
@@ -59,28 +59,28 @@ public class EditCourseController extends EditCourseModel{
     void clickedSubmit(ActionEvent event) {
     	String oldName = courseArea.getText();
     	String newName = newCourseName.getText();
+    	
     	if(newName.isEmpty() == false){					//if a value is input for a new course name
     		newName = newName.replace("\n", "");		//remove the \n and
-    		changeCourseName(oldName, newName);			//edit the name
-    		updateColor(newName, updateColor);
+    		changeCourseName(oldName, newName, updatedColor);			//edit the name
     	}
-    	updateColor(oldName, updateColor);
+    	changeCourseName(oldName, oldName, updatedColor);
     	refreshListView();
     }
     @FXML
-    void clickedRed(ActionEvent event) { updateColor = "e40d0d";}
+    void clickedRed(ActionEvent event) { updatedColor = "e40d0d";}
     @FXML
-    void clickedPeach(ActionEvent event) { updateColor = "FB634F";}
+    void clickedPeach(ActionEvent event) { updatedColor = "FB634F";}
     @FXML
-    void clickedOrange(ActionEvent event) { updateColor = "FF4D00";}
+    void clickedOrange(ActionEvent event) { updatedColor = "FF4D00";}
     @FXML
-    void clickedYellow(ActionEvent event) { updateColor = "F8D520";}
+    void clickedYellow(ActionEvent event) { updatedColor = "F8D520";}
     @FXML
-    void clickedGreen(ActionEvent event) { updateColor = "#116936";}
+    void clickedGreen(ActionEvent event) { updatedColor = "#116936";}
     @FXML
-    void clickedBlue(ActionEvent event) { updateColor = "#305a8c";}
+    void clickedBlue(ActionEvent event) { updatedColor = "#305a8c";}
     @FXML
-    void clickedPurple(ActionEvent event) { updateColor = "#9B51E0";}
+    void clickedPurple(ActionEvent event) { updatedColor = "#9B51E0";}
     
     /*
      * refreshListView
