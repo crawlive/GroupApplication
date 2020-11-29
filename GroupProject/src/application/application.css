@@ -133,12 +133,12 @@
 
 /*** List View + Cells (for task and event items) ***/
 
-.titledPane > *.content 
+.titledPane > *.content
 {
 	-fx-background-color: none;
 	-fx-border-width: 0;
  }
- 
+
  .titled-pane > *.title
 {
 	-fx-background-radius: 0;
@@ -148,7 +148,7 @@
 
 /* remove border */
 ListView, .split-pane {
-	-fx-background-insets: 0; 
+	-fx-background-insets: 0;
 	-fx-padding: 0;
 }
 
@@ -199,4 +199,13 @@ ListView .list-cell:odd {
 .cellDate {
 	-fx-font-size: 18px;
 	-fx-text-fill: red;
+}
+
+#notes_save{
+	-fx-background-color: #6FCF97;
+	-fx-background-image: url('.//view//Images//save.png');
+	-fx-background-repeat: no-repeat;
+	-fx-background-size: 20 20;
+	-fx-background-radius: 10px;
+	-fx-background-position: 50% 50%;
 }
