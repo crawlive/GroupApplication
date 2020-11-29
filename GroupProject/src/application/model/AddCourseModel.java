@@ -77,7 +77,6 @@ public class AddCourseModel extends MainModel{
 		else{
 			abbreviation = name.substring(0,2).toUpperCase();
 		}
-		System.out.println("code " + abbreviation );
 		return abbreviation;
 	}
 
