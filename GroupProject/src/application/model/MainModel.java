@@ -153,9 +153,14 @@ public class MainModel {
 		indexArr.addAll(taskMap.values()); 
 		indexArr.sort(Comparator.comparing(Task::getDate));
 		taskMap.clear();
+		events.clear();
 		for (Task task : indexArr) {
 			task.placement = indexArr.indexOf(task);
 			taskMap.put(indexArr.indexOf(task), task);
+
+			if ((task.type.equals("Exam")) || (task.type.equals("Meeting"))) { // if the task is an exam
+				events.add(task); // add the task to the array list
+			}
 		}
 	}
 
@@ -166,7 +171,7 @@ public class MainModel {
 	 */
 	public static void addNewTask(Task newTask) {
 		ArrayList<Task> sortedArr = new ArrayList<Task>();
-		if (newTask.type.equals("Meeting") == false) { // if the task is not a meeting add the task normally
+		//if (newTask.type.equals("Meeting") == false) { // if the task is not a meeting add the task normally
 			sortedArr.addAll(taskMap.values()); 
 			sortedArr.add(newTask);
 			sortedArr.sort(Comparator.comparing(Task::getDate));
@@ -175,7 +180,7 @@ public class MainModel {
 				task.placement = sortedArr.indexOf(task);
 				taskMap.put(sortedArr.indexOf(task), task);
 			}
-		}
+		//}
 		if ((newTask.type.equals("Exam") == true) || (newTask.type.equals("Meeting") == true)) { // if the task is an exam
 			events.add(newTask); // add the task to the array list
 		}
@@ -236,6 +241,7 @@ public class MainModel {
 	 * removes the tasks from the hashmap and adds that task to a the completed array list
 	 */
 	public static void addToCompleted(Task temp) {
+		// TODO: must update keys for event
 		updateKeys();
 		for (int key : taskMap.keySet()) {
 			if (taskMap.get(key).getName() == temp.getName()) {

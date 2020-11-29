@@ -186,7 +186,13 @@ public class TaskCell extends ListCell<Task>{
 	 * Uses the FrontPageController to refresh the todo list.
 	 */
 	private void refreshListViews() {
-		this.parentController.loadTodoView();
+		if (this.parentController.getCurrentView().equals("todo")) {
+			this.parentController.loadTodoView();
+		}
+		else {
+			this.parentController.loadDateView();
+		}
+		this.parentController.loadEventsView();
 	}
 	
 }
