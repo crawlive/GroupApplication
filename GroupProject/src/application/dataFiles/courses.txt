@@ -1,4 +1,2 @@
 Select a Course,red
-Math,#305a8c
-Science,FF4D00
-R R,
+Applications,red
