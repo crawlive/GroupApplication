@@ -22,6 +22,7 @@ import javafx.stage.StageStyle;
 
 public class CourseCell extends ListCell<String> {
 
+	public static String finalName;
 	private FrontPageController parentController;
 	private Button courseIcon = new Button();
 	
@@ -83,10 +84,28 @@ public class CourseCell extends ListCell<String> {
 	private void addContent(String course) {
 		setText(null);
 		courseIcon.setText(AddCourseModel.findAbbreviation(course));
-		// TODO: (@beth) change red to color based on course
 		String finalColor = AddCourseModel.getColor(course);
 		courseIcon.setStyle("-fx-background-color: "+ finalColor + ";");
 		setGraphic(courseIcon);
+	}
+	
+	private String getCourseName(String abbreviation) {
+		String courseName = "";
+		String courseAbbreviation = "";
+		int size = MainModel.courses.size();
+		for (int i = 1; i < size; i++) {
+			String course = MainModel.courses.get(i);
+			if(course.contains(" ")){
+				courseAbbreviation = course.replaceAll("\\B.|\\P{L}", "").toUpperCase(); //only letters which are at the beginning of a word
+			}
+			else{
+				courseAbbreviation = course.substring(0,2).toUpperCase();
+			}
+			if(abbreviation.equals(courseAbbreviation)){
+				courseName = course;
+			}
+		}
+		return courseName;
 	}
 	
 	
@@ -99,6 +118,8 @@ public class CourseCell extends ListCell<String> {
 		courseIcon.setOnAction(new EventHandler<ActionEvent>() {
 		    @Override public void handle(ActionEvent event) {
 		        try {
+		        	finalName = getCourseName(courseIcon.getText());
+		        	
 		        	FXMLLoader loader = new FXMLLoader();
 					loader.setLocation(Main.class.getResource("view/EditCourse.fxml"));
 

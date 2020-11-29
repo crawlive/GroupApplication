@@ -44,8 +44,8 @@ public class EditCourseController extends EditCourseModel{
     
     @FXML
     void initialize(){
-    	//String name = /*FINISH ME*/			//grab the name from the course button - course buttons need to be finished and working
-    	courseArea.setText("Applications");		//Set the textArea to the courseName
+    	String name = CourseCell.finalName;			//grab the name from the course button - course buttons need to be finished and working
+    	courseArea.setText(name);		//Set the textArea to the courseName
     }
 
     /*
