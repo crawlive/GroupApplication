@@ -84,7 +84,8 @@ public class CourseCell extends ListCell<String> {
 		setText(null);
 		courseIcon.setText(AddCourseModel.findAbbreviation(course));
 		// TODO: (@beth) change red to color based on course
-		courseIcon.setStyle("-fx-background-color: "+ "red" + ";");
+		String finalColor = AddCourseModel.getColor(course);
+		courseIcon.setStyle("-fx-background-color: "+ finalColor + ";");
 		setGraphic(courseIcon);
 	}
 	

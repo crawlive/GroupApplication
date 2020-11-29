@@ -18,8 +18,7 @@ import javafx.stage.Stage;
 public class AddCourseController extends AddCourseModel{
 	//variables
 	String newCourseName;
-  	
-  	int lastClicked = 1;
+	String finalColor;
 
 	@FXML
 	private Stage modal, window;
@@ -56,22 +55,34 @@ public class AddCourseController extends AddCourseModel{
     void clickedSubmit(ActionEvent event) {
     	newCourseName = courseName.getText();
     	boolean courseCreated = addCourse(newCourseName);
-    	//what color was selected
-    	red.setOnAction(e->lastClicked=1);
-    	peach.setOnAction(e->lastClicked=2);
-    	orange.setOnAction(e->lastClicked=3);
-    	yellow.setOnAction(e->lastClicked=4);
-    	green.setOnAction(e->lastClicked=5);
-    	blue.setOnAction(e->lastClicked=6);
-    	purple.setOnAction(e->lastClicked=7);
-    	String colorPicked = getColor(lastClicked);
+    	System.out.println(finalColor + " "+ newCourseName);
     	if(courseCreated == true){
-        	createCourseButton(newCourseName, colorPicked); //located in AddCourseModel
+        	createCourseButton(newCourseName, finalColor); //located in AddCourseModel
+        	//getColor(newCourseName);
     	}
-    	
     	refreshListView();
-    	
     }
+    
+    @FXML
+    void clickedRed(ActionEvent event) { finalColor = "e40d0d";}
+
+    @FXML
+    void clickedPeach(ActionEvent event) { finalColor = "FB634F";}
+
+    @FXML
+    void clickedOrange(ActionEvent event) { finalColor = "FF4D00";}
+
+    @FXML
+    void clickedYellow(ActionEvent event) { finalColor = "F8D520";}
+
+    @FXML
+    void clickedGreen(ActionEvent event) { finalColor = "#116936";}
+
+    @FXML
+    void clickedBlue(ActionEvent event) { finalColor = "#305a8c";}
+
+    @FXML
+    void clickedPurple(ActionEvent event) { finalColor = "#9B51E0";}
 
     
     /*
