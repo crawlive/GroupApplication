@@ -1,4 +1,0 @@
-Homework,Lab 8,Applications,11/27/2020,11/29/2020,1
-Quiz,TEST,Applications,11/29/2020,11/27/2020,10
-Exam,Exam 2,Applications,11/23/2020,11/21/2020,10
-Quiz,Quiz 8,Applications,11/29/2020,11/28/2020,10

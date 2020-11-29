@@ -11,21 +11,19 @@ import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.Map;
 import java.util.Map.Entry;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
-import java.util.Queue;
 import java.util.Set;
 
 public class MainModel {
 
 	public static HashMap<Integer, Task> taskMap = new HashMap<Integer, Task>(); // handles data from data.txt
 	public static ArrayList<Task> events = new ArrayList<Task>();
-	public static Queue<Task> completedQueue = new LinkedList<Task>();
+	public static ArrayList<Task> completedList = new ArrayList<Task>();
 	public static ArrayList<String> courses = new ArrayList<String>(Arrays.asList("Select a Course"));
 	public static ArrayList<String> colors = new ArrayList<String>();
 
@@ -199,7 +197,7 @@ public class MainModel {
 		ArrayList<Task> sortedList = new ArrayList<Task>();
 		sortedList.addAll(taskMap.values());
 		
-		for(Task t : MainModel.completedQueue){
+		for(Task t : MainModel.completedList){
 			sortedList.add(t);;
 		}
 		sortedList.sort(Comparator.comparing(Task::getYmd));
@@ -227,40 +225,34 @@ public class MainModel {
 	 */
 	public static ArrayList<Task> getSortedCompletedArray() {
 		ArrayList<Task> sortedList = new ArrayList<Task>();
-		
-		for(Task t : MainModel.completedQueue){
-			sortedList.add(t);;
-		}
-	
-		sortedList.sort(Comparator.comparing(Task::getCompletedYmd));
-		
+		sortedList.addAll(completedList);
+		sortedList.sort(Comparator.comparing(Task::getYmd));
 		Collections.reverse(sortedList);
-		
 		return sortedList;
 	}
 
 	// -------------------------------COMPLETED QUEUE
 	// -------------------------------//
 	/*
-	 * addToQueue
+	 * addToCompleted
 	 *
-	 * removes the tasks from the hashmap and adds that task to a queue
+	 * removes the tasks from the hashmap and adds that task to a the completed array list
 	 */
-	public static void addToQueue(Task temp) {
+	public static void addToCompleted(Task temp) {
 		taskMap.remove(temp.placement); // remove the task from the hashmap
 		temp.completedDate(); // set the completed date to current date
-		completedQueue.add(temp); // add it to the queue
+		completedList.add(temp); // add it to the queue
 	}
 
 	/*
-	 * removeFromQueue
+	 * removeFromCompleted
 	 *
-	 * removes the tasks from the hashmap and adds that task to a queue
+	 * removes the tasks from the arrayList and adds that task to a the task map
 	 */
-	public static void removeFromQueue(Task temp) {
-		for (Task t : MainModel.completedQueue) {
+	public static void removeFromCompleted(Task temp) {
+		for (Task t : MainModel.completedList) {
 			if (t == temp) {
-				MainModel.completedQueue.remove(temp);
+				MainModel.completedList.remove(temp);
 				addNewTask(temp);
 			}
 		}
