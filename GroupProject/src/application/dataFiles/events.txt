@@ -1,4 +1,4 @@
-e,Exam 2,Applications,11/23/2020,NULL,3
-m,Group Project Meet Up,Applications,11/27/2020,NULL,4
-e,Exam 3,Applications,11/23/2020,NULL,6
-e,Exam 1,Applications,11/23/2020,NULL,9
+e,Exam 2,NEW NAME,11/23/2020,NULL,3
+m,Group Project Meet Up,NEW NAME,11/27/2020,NULL,4
+e,Exam 3,NEW NAME,11/23/2020,NULL,6
+e,Exam 1,NEW NAME,11/23/2020,NULL,9

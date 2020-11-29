@@ -1,2 +1,0 @@
-Select a Course,red
-Applications,red
