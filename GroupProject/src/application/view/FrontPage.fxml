@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -16,7 +23,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Line?>
 
-<StackPane id="root" maxHeight="1024.0" maxWidth="1440.0" prefHeight="780.0" prefWidth="1024.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.FrontPageController">
+<StackPane id="root" maxHeight="1024.0" maxWidth="1440.0" prefHeight="780.0" prefWidth="1024.0" stylesheets="@../application.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.FrontPageController">
    <children>
       <HBox>
          <children>
@@ -143,7 +150,7 @@
                                                    <VBox.margin>
                                                       <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
                                                    </VBox.margin></Label>
-                                                <ListView id="events_list_view" fx:id="eventsListView" minHeight="0.0" minWidth="300.0" prefHeight="0.0" VBox.vgrow="ALWAYS" />
+                                                <ListView id="events_list_view" fx:id="eventsListView" minHeight="0.0" minWidth="-Infinity" prefHeight="0.0" VBox.vgrow="ALWAYS" />
                                              </children>
                                           </VBox>
                                        </children>

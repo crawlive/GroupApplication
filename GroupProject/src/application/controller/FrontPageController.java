@@ -264,8 +264,9 @@ public class FrontPageController implements Initializable {
 	 */
 	void loadEventsView() {
 		events = FXCollections.observableArrayList();
-		// dummy data
-		events.addAll(MainModel.getSortedCompletedArray());
+		
+		events.addAll(MainModel.getSortedEvents());
+		
 		// add observable list to list view
 		eventsListView.setItems(events);
 

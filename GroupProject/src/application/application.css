@@ -181,6 +181,14 @@ ListView .list-cell { /* default */
 	-fx-padding: 0 0 15px 0;
 }
 
+#events_list_view {
+	-fx-background-radius: 25px;
+}
+
+#events_list_view .list-cell {
+	-fx-padding: 15px 5px 0 10px;
+}
+
 .smallCourseIcon {
 	-fx-pref-width: 58px;
 	-fx-pref-height: 58px;
