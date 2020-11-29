@@ -191,15 +191,14 @@ public class FrontPageController implements Initializable {
 
 		int size = MainModel.taskMap.size();
 		for (int i = 1; i < size; i++) {
-			todoList.add(MainModel.taskMap.get(i));
+			Task curr = MainModel.taskMap.get(i);
+			
+			if (curr!=null) {
+				todoList.add(MainModel.taskMap.get(i));
+			}
 		}
 
-		// note completed queue is added in reverse order
-		completedTasks.addAll(MainModel.getSortedCompletedArray());
-		
-		//for(Task t : MainModel.completedQueue){
-			//completedTasks.add(t);
-		//}
+		completedTasks.addAll(MainModel.getSortedCompletedArray());	
 		
 		// add observable list to list view
 		todoListView.setItems(todoList);
@@ -243,8 +242,7 @@ public class FrontPageController implements Initializable {
 	void loadEventsView() {
 		events = FXCollections.observableArrayList();
 		// dummy data
-		events.addAll(new Task("event 1", "course 1", "12/12/12", "type 1"),
-				new Task("event 2", "course 2", "12/12/12", "type 2"));
+		events.addAll(MainModel.getSortedCompletedArray());
 		// add observable list to list view
 		eventsListView.setItems(events);
 

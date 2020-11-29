@@ -178,7 +178,7 @@ public class MainModel {
 	/*
 	 * getSortedDateArray
 	 *
-	 * orts the hash map values by date and returns it
+	 * Sorts the hash map values by date and returns it
 	 * as a sorted array list
 	 */
 	public static ArrayList<Task> getSortedDateArray() {
@@ -186,6 +186,18 @@ public class MainModel {
 		taskList.addAll(taskMap.values());
 		taskList.sort(Comparator.comparing(Task::getYmd));
 		return taskList;
+	}
+	
+	/*
+	 * getSortedEvents
+	 *
+	 * Sorts the events list and returns it
+	 */
+	public static ArrayList<Task> getSortedEvents() {
+		ArrayList<Task> sortedList = new ArrayList<Task>();
+		sortedList.addAll(events);
+		sortedList.sort(Comparator.comparing(Task::getYmd));
+		return sortedList;
 	}
 	
 	

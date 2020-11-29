@@ -1,4 +1,0 @@
-h,Lab 8,Applications,11/27/2020,1
-q,Quiz 8,Applications,11/29/2020,2
-q,TEST,Applications,11/29/2020,3
-e,Exam 2,Applications,11/23/2020,4
