@@ -1,8 +1,5 @@
 package application.model;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 public class EditCourseModel extends MainModel{
 
 	/*
@@ -20,26 +17,16 @@ public class EditCourseModel extends MainModel{
 	/*
      * changeCourseCompleted
      *
-     * find the key for the task that contains the given string and remove it from the events arraylist
+     * find the key for the task that contains the given string and remove it from the completed arraylist
      */
     public static void changeCourseCompleted(String newName, String name) {
-    	Queue<Task> temp = new LinkedList<Task>();			//temp queue
-        int size = completedQueue.size();					//size of regular queue
-        Task element = null;								//temp element
-        for (int i = 0; i < size; i++) {					//iterate through the queue
-        	element = completedQueue.remove();				//remove head
-            if (element.course.contains(name)) {			//if the element's course name == name
-                element.course(newName);					//change the name
-                temp.add(element);							//add updated element to the temp queue
-
-            } else {
-                temp.add(element);			//otherwise remove and add it to the temp queue
-            }
-        }
-        size = temp.size();
-        for (int i = 0; i < size; i++) {				//iterate through the queue
-        	element = temp.remove();					//grab head
-            completedQueue.add(element);				//add it the OG queue
+    	Task temp = new Task();
+    	for(int i = 0; i < completedList.size(); i++) {
+    		temp = completedList.get(i);			//grab cur value at index
+    		if(temp.course.contains(name)) {		//if the value is found
+    			temp.course(newName);				//change the name
+    			completedList.set(i, temp);			//set the new element
+    		}
         }
      }
 
@@ -125,24 +112,15 @@ public class EditCourseModel extends MainModel{
 	/*
      * removeCourseCompleted
      *
-     * find the key for the task that contains the given string and remove it from the events arraylist
+     * find the key for the task that contains the given string and remove it from the completed arraylist
      */
     public static void removeCourseCompleted(String name) {
-    	Queue<Task> temp = new LinkedList<Task>();			//temp queue
-        int size = completedQueue.size();					//size of regular queue
-        Task element = null;								//temp element
-        for (int i = 0; i < size; i++) {					//iterate throught the queue
-        	element = completedQueue.peek();				//peek head
-            if (element.course.contains(name)) {			//if the element's course name == name
-                element = completedQueue.remove();			//remove it from the queue
-            } else {
-                temp.add(completedQueue.remove());			//otherwise remove and add it to the temp queue
-            }
-        }
-        size = temp.size();
-        for (int i = 0; i < size; i++) {					//iterate throught the queue
-        	element = temp.remove();						//grab head
-            completedQueue.add(element);					//add it the OG queue
+    	Task temp = null;
+    	for(int i = 0; i < completedList.size(); i++) {	//iterate through the course arr list
+    		temp = completedList.get(i);				//grab cur value at index
+    		if(temp.course.contains(name)) {			//if the value is found
+    			completedList.remove(i);				//remove it
+    		}
         }
      }
 

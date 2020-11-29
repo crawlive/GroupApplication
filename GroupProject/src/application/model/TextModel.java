@@ -8,7 +8,6 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.Scanner;
 
 
@@ -96,7 +95,7 @@ public class TextModel{
 					line = scan.nextLine();					//grab the line
 					String[] lineArr = line.split(",");		//parse the line
 					temp = convertData(lineArr);			//convert the data to a task variable
-					MainModel.completedQueue.add(temp);		//queue the task to the head
+					MainModel.completedList.add(temp);		//queue the task to the head
 				}
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
@@ -210,16 +209,17 @@ public class TextModel{
 		line="";											//special safety net
 	}
 
-	//Saves the completedQueue data to the completed file in order
+	//Saves the completedList data to the completed file in order
 	public static void saveCompleted() throws IOException{
 		Task temp = new Task();
 		String line;
 		FileWriter ifw = new FileWriter(completedFile);		//file writer pointer
 		BufferedWriter iWriter = new BufferedWriter(ifw);	//buff pointer
-		Iterator<Task> iterator = MainModel.completedQueue.iterator(); 	//queue iterator
-		while(iterator.hasNext()){							//while items in queue
-			temp = MainModel.completedQueue.poll();			//dequeue each task
-			line = temp.toString();							//set the line from the task
+
+		//iterate through the taskMap until end
+		for(int i = 0; i < MainModel.completedList.size(); i++){
+			temp = MainModel.completedList.get(i);			//grab each task in order
+			line = temp.toString();							//set the line
 			iWriter.write(line);							//write the line
 		}
 		iWriter.close();									//close pointers
@@ -283,7 +283,7 @@ public class TextModel{
 			saveCourses();
 		}
 		catch(IOException e){
-			System.out.println("Completed File problems");
+			System.out.println("Courses File problems");
 			e.printStackTrace();
 		}
 	}
