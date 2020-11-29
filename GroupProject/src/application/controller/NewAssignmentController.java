@@ -24,6 +24,13 @@ public class NewAssignmentController extends MainModel{
 
 	//course list for the drop down box
 	ObservableList<String> courseList = FXCollections.observableArrayList(courses);
+
+	FrontPageController parentController;
+
+	public void setParentController(FrontPageController parentController) {
+        this.parentController = parentController;
+    }
+
 	//FXML VARIABLES
 	@FXML
 	private Stage modal, window;
@@ -85,7 +92,8 @@ public class NewAssignmentController extends MainModel{
     	}
 
     	addNewTask(temp);	//FUNCTION CALL: add new task to the proper collections
-
+    	parentController.loadTodoView();
+    	parentController.loadEventsView();
 
     }
 
@@ -153,5 +161,8 @@ public class NewAssignmentController extends MainModel{
     	this.modal = modal;
     	this.window = window;
     }
+
+
+
 
 }
