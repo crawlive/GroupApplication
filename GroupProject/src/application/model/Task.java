@@ -65,6 +65,15 @@ public class Task {
 	}
 	
 	/**
+	 * getCompletedDate()
+	 * 
+	 * @return the completed date
+	 */
+	public String getCompletedDate() {
+		return completedDate;
+	}
+	
+	/**
 	 * getYmd()
 	 * 
 	 * @return the ymd (YYYY/MM/DD)
@@ -162,7 +171,6 @@ public class Task {
 		if(date.equals("NULL")) {
 			this.completedYmd = 0000 + "/" + 00 + "/" + 00;
 		} else {
-			System.out.println("DATE:" + date);
 			String regex = "[/]";
 			String[] tokeArr = completedDate.split(regex);
 			int mm = Integer.parseInt(tokeArr[0]);
@@ -177,7 +185,7 @@ public class Task {
 	}
 
 	public String toString() {
-		String retString = type + "," + name + "," + course + "," + date + "," + placement +"\n";
+		String retString = type + "," + name + "," + course + "," + date + "," + completedDate + "," + placement +"\n";
 		return retString;
 	}
 

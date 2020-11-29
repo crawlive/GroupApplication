@@ -288,5 +288,6 @@ public class FrontPageController implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		loadTodoView();
 		loadEventsView();
+		loadCourseView();
 	}
 }

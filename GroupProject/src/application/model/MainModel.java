@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
@@ -191,19 +192,19 @@ public class MainModel {
 	/*
 	 * getSortedCompletedArray
 	 *
-	 * sorts the queue  by completion date returns it
+	 * sorts the queue by completion date (most recent first) returns it
 	 * as a sorted array list
 	 */
 	public static ArrayList<Task> getSortedCompletedArray() {
 		ArrayList<Task> sortedList = new ArrayList<Task>();
 		
 		for(Task t : MainModel.completedQueue){
-			//System.out.println(t.getCompletedYmd());
-			//sortedList.add(t);;
+			sortedList.add(t);;
 		}
+	
+		sortedList.sort(Comparator.comparing(Task::getCompletedYmd));
 		
-		//taskList.addAll(completedQueue);
-		//sortedList.sort(Comparator.comparing(Task::getCompletedYmd));
+		Collections.reverse(sortedList);
 		
 		return sortedList;
 	}

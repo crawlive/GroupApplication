@@ -1,3 +1,2 @@
-e,Exam 2,Applications,11/23/2020,3
-m,Group Project Meet Up,Applications,11/27/2020,4
-e,Exam 2,Applications,11/23/2020,10
+e,Exam 2,Applications,11/23/2020,NULL,3
+m,Group Project Meet Up,Applications,11/27/2020,NULL,4

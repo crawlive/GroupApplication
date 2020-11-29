@@ -251,8 +251,6 @@ public class TextModel{
 		temp.course(data[2]);
 		temp.date(data[3]);
 		temp.setCompletedDate(data[4]);
-		System.out.println("data[1]:" + data[1]);
-		System.out.println("data[4]:" + data[4]);
 		temp.placement(Integer.parseInt(data[5]));
 		return temp;
 	}

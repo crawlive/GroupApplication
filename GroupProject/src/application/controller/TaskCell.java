@@ -148,12 +148,13 @@ public class TaskCell extends ListCell<Task>{
 		taskLbl.setText(task.getName());
 		courseLbl.setText(task.getCourse());
 		typeLbl.setText(task.getType());
-		dateLbl.setText(task.getDate());
 		//checkCompleted.setIndeterminate(false);
 		if(isComplete) {
+			dateLbl.setText("completed: " + task.getCompletedDate());
 			checkCompleted.setSelected(true);	
 		}
 		else {
+			dateLbl.setText(task.getDate());
 			checkCompleted.setSelected(false);
 		}
 		setGraphic(gridPane);
