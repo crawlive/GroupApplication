@@ -322,5 +322,6 @@ public class FrontPageController implements Initializable {
 		loadTodoView();
 		loadEventsView();
 		loadCourseView();
+		loadNotesView();
 	}
 }

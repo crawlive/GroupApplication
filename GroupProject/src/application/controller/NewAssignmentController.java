@@ -59,12 +59,12 @@ public class NewAssignmentController extends MainModel{
     	//grab all the variables from the fields
     	temp.name(nameField.getText());
     	temp.course(courseBox.getValue());
-
+    	temp.setCompletedDate("NULL");
+    	temp.setCompletedYmd();
     	//format/grab the date properly
     	LocalDate date = dateField.getValue();
-    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/LLLL/yyyy");
+    	DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
     	String formattedString = date.format(formatter);
-    	System.out.println("DATE: " + formattedString);
     	temp.date(formattedString);
 
     	//HANDLE THE TYPE

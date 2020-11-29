@@ -7,4 +7,4 @@ q,Quiz 9,Applications,11/29/2020,NULL,5
 e,Exam 3,Applications,11/23/2020,NULL,6
 h,Lab 10,Applications,11/27/2020,NULL,7
 q,Quiz 11,Applications,11/29/2020,NULL,8
-e,Exam ,Applications,11/23/2020,NULL,9
+e,Exam 1,Applications,11/23/2020,NULL,9
