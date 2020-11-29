@@ -4,14 +4,12 @@ import java.io.IOException;
 
 import application.Main;
 import application.model.AddCourseModel;
-import application.model.MainModel;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.CheckBox;
 import javafx.scene.control.ListCell;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.layout.AnchorPane;
@@ -108,7 +106,7 @@ public class CourseCell extends ListCell<String> {
 					controller.passStages(modal, window);
 					controller.setParentController(getParentController());
 
-					// TODO: use EditCourse controller too pass in course info for edit
+					// TODO: use EditCourse controller to pass in course info for edit
 					// ...
 
 					modal.show();

@@ -1,6 +1,7 @@
 package application.controller;
 
 
+import application.model.AddCourseModel;
 import application.model.MainModel;
 import application.model.Task;
 import javafx.event.ActionEvent;
@@ -138,7 +139,8 @@ public class TaskCell extends ListCell<Task>{
 	 */
 	private void addContent(Task task) {
 		setText(null);
-		courseIcon.setText("AP");
+		courseIcon.setText(AddCourseModel.findAbbreviation(task.getCourse()));
+		// TODO: set course icon color based on course
 		taskLbl.setText(task.getName());
 		courseLbl.setText(task.getCourse());
 		typeLbl.setText(task.getType());
