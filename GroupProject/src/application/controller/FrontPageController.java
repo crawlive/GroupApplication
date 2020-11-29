@@ -133,9 +133,6 @@ public class FrontPageController implements Initializable {
 		controller.passStages(modal, window);
 		controller.setParentController(this);
 
-		// TODO: use EditCourse controller too pass in course info for edit
-		// ...
-
 		modal.show();
 	}
 
