@@ -1,4 +1,0 @@
-Homework,Homework 1,Systems Programming,11/01/2020,11/29/2020,1
-Quiz,Quiz 2,Operating Systems,11/04/2020,11/29/2020,1
-Homework,Homework 2,Systems Programming,11/08/2020,11/29/2020,1
-Homework,Homework 4,Operating Systems,11/08/2020,11/29/2020,1
