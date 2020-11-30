@@ -165,6 +165,9 @@
                <HBox.margin>
                   <Insets right="20.0" top="35.0" />
                </HBox.margin>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children></HBox>
       <Button alignment="CENTER" contentDisplay="CENTER" layoutX="336.0" layoutY="17.0" mnemonicParsing="false" onAction="#close" style="-fx-background-color: none;">
