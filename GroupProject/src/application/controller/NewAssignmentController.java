@@ -93,6 +93,7 @@ public class NewAssignmentController extends MainModel{
 
     	addNewTask(temp);	//FUNCTION CALL: add new task to the proper collections
     	refreshListView();
+    	sendAlert("ta");
     }
     
     /*

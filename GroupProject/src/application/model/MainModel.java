@@ -10,14 +10,10 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Map.Entry;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
-import java.util.Set;
 
 public class MainModel {
 
@@ -52,13 +48,6 @@ public class MainModel {
 			alert.setTitle("INFORMATION");
 			alert.setHeaderText("New Task Created");
 			alert.setContentText("Task was successfully created!");
-			alert.showAndWait();
-		}
-		if(s.equals("ec")){
-			Alert alert = new Alert(AlertType.INFORMATION);
-			alert.setTitle("INFORMATION");
-			alert.setHeaderText("Course Editted");
-			alert.setContentText("Course was successfully editted!");
 			alert.showAndWait();
 		}
 		
