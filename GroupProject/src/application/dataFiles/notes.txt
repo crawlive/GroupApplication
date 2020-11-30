@@ -1,4 +1,6 @@
-- install github
-- download notes documents
 - print Apps mock final exam
 - email app professor about JUnit Testing
+- dont forget to ask about extra credit ;)
+- print homework for Systems Programming
+- dont forget to get correct calculator
+- say goodmorning to peers
