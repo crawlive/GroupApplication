@@ -6,7 +6,7 @@ Assignment Tracker provides a todo list for students to track all their tasks an
 # Download Instructions
 Clone the repo from https://github.com/crawlive/GroupApplication.git into Eclipse as a new project and run the Main.java
 
-Default data files are provided in the src/application/datafiles folder.
+Default data files are provided in the src/application/datafiles folder and underneath the readme file.
 JavaFX and Scenebuilder are recommended to be downloaded on your computer.
 To view the UML connected document in the vpproject folder, download Visual Paradigm: https://www.visual-paradigm.com/download/
 
