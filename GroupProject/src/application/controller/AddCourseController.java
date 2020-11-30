@@ -14,11 +14,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import application.model.*;
-import javafx.stage.*;
-import java.util.*;
-import javafx.scene.control.*;
-import javafx.event.*;
 
 public class AddCourseController extends AddCourseModel{
 	//variables

@@ -14,9 +14,6 @@ import javafx.scene.control.ListCell;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
-import application.model.*;
-import javafx.scene.control.*;
-import javafx.scene.layout.*;
 
 public class TaskCell extends ListCell<Task>{
 	
