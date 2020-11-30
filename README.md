@@ -1,6 +1,5 @@
-# Assignment Tracker
-#### CS3443 - Application Programming Final Project 
-#### Team 14: Theresa Crawford, Vanessa Gerber, Taylor Kulawik, Bethany Salazar, Michael Stepp
+# Assignment Tracker | CS3443 - Application Programming Final Project
+### Team 14: Theresa Crawford, Vanessa Gerber, Taylor Kulawik, Bethany Salazar, Michael Stepp
 
 Assignment Tracker provides a todo list for students to track all their tasks and assignments in one place.
 
