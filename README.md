@@ -9,7 +9,7 @@ Clone the repo from https://github.com/crawlive/GroupApplication.git into Eclips
 Default data files are provided in the src/application/datafiles folder.
 
 # Functionality
-(All features function in the current version of this project.)
+All features function in the current version of this project.
 
 ### Add Course
 - Click the add course icon (bell with the plus sign) in the navigation menu to add a new course.
