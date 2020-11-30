@@ -12,7 +12,7 @@ To view the UML connected document in the vpproject folder, download Visual Para
 If you want to view the UML as a picture, check beneath the text files under the readme. 
 
 # Functionality
-All features function in the current version of this project.
+All features function in the current version of this project, except for a random bug that will occur when sorting the dates for the "Date" list view.
 
 ### Add Course
 - Click the add course icon (bell with the plus sign) in the navigation menu to add a new course.
