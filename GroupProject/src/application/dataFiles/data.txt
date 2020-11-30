@@ -1,4 +1,3 @@
-  
 Homework,NULL,Select a Course,00/00/0000,NULL,0
 Homework,Homework 3,Systems Programming,11/15/2020,NULL,1
 Homework,Homework 4,Systems Programming,11/22/2020,NULL,2
