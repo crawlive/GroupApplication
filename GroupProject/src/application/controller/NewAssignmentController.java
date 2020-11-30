@@ -19,6 +19,11 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
+import application.model.*;
+import javafx.collections.*;
+import javafx.stage.*;
+import javafx.scene.control.*;
+import javafx.event.*;
 
 public class NewAssignmentController extends MainModel{
 

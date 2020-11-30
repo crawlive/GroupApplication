@@ -32,6 +32,15 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.fxml.*;
+import javafx.scene.control.*;
+import application.model.*;
+import javafx.collections.*;
+import javafx.event.*;
+import javafx.stage.*;
+import javafx.scene.layout.*;
+import java.net.*;
+import java.util.*;
 
 public class FrontPageController implements Initializable {
 

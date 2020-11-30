@@ -3,3 +3,5 @@ Quiz,QUIZ 3,Applications,10/19/2020,11/29/2020,1
 Homework,LAB 4,Applications,10/22/2020,11/29/2020,1
 Notes,NOTES 2,Applications,10/23/2020,11/29/2020,1
 Exam,EXAM 1,Applications,10/07/2020,11/29/2020,1
+Notes,NOTES 3,Applications,10/23/2020,11/29/2020,1
+Quiz,QUIZ 4,Applications,10/26/2020,11/29/2020,1

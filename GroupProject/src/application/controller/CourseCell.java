@@ -18,6 +18,9 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.scene.control.*;
+import javafx.stage.*;
+import javafx.scene.layout.*;
 
 public class CourseCell extends ListCell<String> {
 
