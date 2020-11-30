@@ -268,7 +268,7 @@ public class FrontPageController implements Initializable {
 		eventsListView.setItems(events);
 
 		// customize the list view cells
-		eventsListView.setCellFactory(eventsListView -> new EventCell(this));
+		eventsListView.setCellFactory(eventsListView -> new EventCell());
 
 		if (events.size() > 0) {
 			noEventsMsg.setVisible(false);

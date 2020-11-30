@@ -248,7 +248,7 @@ ListView .list-cell { /* default */
 	-fx-pref-height: 58px;
 	-fx-background-radius: 50%;
 	-fx-background-color: red;
-	-fx-font-size: 20px;
+	-fx-font-size: 15px;
 	-fx-text-fill: #F2F2F2;
 }
 .cellHeader {
