@@ -1,2 +1,3 @@
-Exam,Exam 2,Applications,12/11/2020,NULL,6
-Exam,Final Exam,Applications,12/12/2020,NULL,7
+Exam,EXAM 1,Applications,10/07/2020,11/29/2020,1
+Exam,Exam 2,Applications,12/11/2020,11/29/2020,11
+Exam,Final Exam,Applications,12/12/2020,11/29/2020,12

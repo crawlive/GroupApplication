@@ -1,8 +1,13 @@
 Homework,NULL,Select a Course,00/00/0000,NULL,0
-Notes,NOTES 3,Applications,10/23/2020,11/29/2020,1
-Quiz,QUIZ 4,Applications,10/26/2020,11/29/2020,2
-Homework,LAB 5,Applications,10/29/2020,11/29/2020,3
-Notes,NOTES 4,Applications,11/02/2020,11/29/2020,4
-Quiz,QUIZ 5,Applications,11/02/2020,11/29/2020,5
-Exam,Exam 2,Applications,12/11/2020,NULL,6
-Exam,Final Exam,Applications,12/12/2020,NULL,7
+Exam,EXAM 1,Applications,10/07/2020,11/29/2020,1
+Homework,LAB 3,Applications,10/15/2020,11/29/2020,2
+Quiz,QUIZ 3,Applications,10/19/2020,11/29/2020,3
+Homework,LAB 4,Applications,10/22/2020,11/29/2020,4
+Notes,NOTES 3,Applications,10/23/2020,11/29/2020,5
+Notes,NOTES 2,Applications,10/23/2020,11/29/2020,6
+Quiz,QUIZ 4,Applications,10/26/2020,11/29/2020,7
+Homework,LAB 5,Applications,10/29/2020,11/29/2020,8
+Notes,NOTES 4,Applications,11/02/2020,11/29/2020,9
+Quiz,QUIZ 5,Applications,11/02/2020,11/29/2020,10
+Exam,Exam 2,Applications,12/11/2020,11/29/2020,11
+Exam,Final Exam,Applications,12/12/2020,11/29/2020,12
