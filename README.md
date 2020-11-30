@@ -9,7 +9,7 @@ Clone the repo from https://github.com/crawlive/GroupApplication.git into Eclips
 Default data files are provided in the src/application/datafiles folder. If you want to reset your test data, files are in the otherTestData folder under the readme file.
 JavaFX and Scenebuilder are recommended to be downloaded on your computer.
 To view the UML connected document in the vpproject folder, download Visual Paradigm: https://www.visual-paradigm.com/download/
-If you want to view the UML as a picture, check beneath the text files under the readme. 
+If you want to view the UML as a picture, check beneath the text files under the readme, unfortunately there are watermarks because I used the free version, but it is still readable when you zoom in.
 
 # Functionality
 All features function in the current version of this project, except for a random bug that will occur when sorting the dates for the "Date" list view.
