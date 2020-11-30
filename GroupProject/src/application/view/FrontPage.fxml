@@ -44,6 +44,9 @@
                            </children>
                         </StackPane>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button mnemonicParsing="false" onAction="#openAddCourse" styleClass="menuButton">
                      <graphic>
@@ -57,6 +60,9 @@
                            </children>
                         </StackPane>
                      </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Line endX="-50.0" startX="-100.0" stroke="#27ae60" strokeWidth="3.0" />
                   <ListView id="course_list_view" fx:id="courseView" prefWidth="0.0" VBox.vgrow="ALWAYS" />
@@ -102,7 +108,10 @@
                                                 </HBox>
                                              </children>
                                           </VBox>
-                                          <Button id="add-btn" mnemonicParsing="false" onAction="#openAddTask" prefHeight="50.0" prefWidth="50.0" text="+" />
+                                          <Button id="add-btn" mnemonicParsing="false" onAction="#openAddTask" prefHeight="50.0" prefWidth="50.0" text="+">
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor></Button>
                                        </children>
                                     </HBox>
                                     <VBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
@@ -175,6 +184,9 @@
                                                    <HBox.margin>
                                                       <Insets top="8.0" />
                                                    </HBox.margin>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
                                                 </Button>
                                              </children>
                                           </HBox>

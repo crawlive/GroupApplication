@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
@@ -25,33 +26,54 @@
       <Label layoutX="16.0" layoutY="184.0" prefHeight="23.0" prefWidth="60.0" text="Course:" />
       <Label layoutX="22.0" layoutY="278.0" text="Type:" />
       <Label layoutX="22.0" layoutY="373.0" text="Date:" />
-      <TextField fx:id="nameField" layoutX="94.0" layoutY="90.0" prefHeight="33.0" prefWidth="308.0" promptText="Enter Assignment Name" />
+      <TextField fx:id="nameField" layoutX="94.0" layoutY="90.0" prefHeight="33.0" prefWidth="308.0" promptText="Enter Assignment Name">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
       <CheckBox fx:id="notesBox" layoutX="69.0" layoutY="278.0" mnemonicParsing="false" onAction="#handleNotes" prefHeight="23.0" prefWidth="78.0" text="Notes">
          <font>
             <Font size="12.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </CheckBox>
       <CheckBox fx:id="homeworkBox" layoutX="147.0" layoutY="278.0" mnemonicParsing="false" onAction="#handleHomework" prefHeight="23.0" prefWidth="114.0" text="Homework">
          <font>
             <Font size="12.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </CheckBox>
       <CheckBox fx:id="quizBox" layoutX="261.0" layoutY="281.0" mnemonicParsing="false" onAction="#handleQuiz" text="Quiz">
          <font>
             <Font size="12.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </CheckBox>
       <CheckBox fx:id="examBox" layoutX="328.0" layoutY="281.0" mnemonicParsing="false" onAction="#handleExam" text="Exam">
          <font>
             <Font size="12.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </CheckBox>
       <CheckBox fx:id="meetingBox" layoutX="400.0" layoutY="281.0" mnemonicParsing="false" onAction="#handleMeeting" text="Meeting">
          <font>
             <Font size="12.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </CheckBox>
-      <Button fx:id="submitButton" layoutX="366.0" layoutY="396.0" mnemonicParsing="false" onAction="#submitAssignment" prefHeight="90.0" prefWidth="120.0" style="-fx-background-color: mediumspringgreen;" text="Submit" />
+      <Button fx:id="submitButton" layoutX="366.0" layoutY="396.0" mnemonicParsing="false" onAction="#submitAssignment" prefHeight="90.0" prefWidth="120.0" style="-fx-background-color: mediumspringgreen;" text="Submit">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="MEDIUMSPRINGGREEN" height="69.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" width="500.0" />
       <Label layoutX="23.0" layoutY="8.0" prefHeight="38.0" prefWidth="394.0" text="New Assignment/Task">
          <font>
@@ -59,7 +81,10 @@
          </font>
       </Label>
       <Label layoutX="20.0" layoutY="36.0" prefHeight="23.0" prefWidth="343.0" text="exams, meetings, etc." />
-      <DatePicker fx:id="dateField" layoutX="80.0" layoutY="368.0" prefHeight="31.0" prefWidth="170.0" />
+      <DatePicker fx:id="dateField" layoutX="80.0" layoutY="368.0" prefHeight="31.0" prefWidth="170.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></DatePicker>
       <Button alignment="CENTER" contentDisplay="CENTER" layoutX="435.0" layoutY="13.0" mnemonicParsing="false" onAction="#close" prefHeight="38.0" prefWidth="40.0" style="-fx-background-color: none;">
          <graphic>
             <StackPane prefHeight="31.0" prefWidth="39.0" style="-fx-background-color: none;">
@@ -68,10 +93,16 @@
                      <image>
                         <Image url="@Images/x-btn.png" />
                      </image>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </ImageView>
                </children></StackPane>
          </graphic>
       </Button>
-      <ChoiceBox fx:id="courseBox" layoutX="90.0" layoutY="180.0" prefHeight="33.0" prefWidth="308.0" />
+      <ChoiceBox fx:id="courseBox" layoutX="90.0" layoutY="180.0" prefHeight="33.0" prefWidth="308.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></ChoiceBox>
    </children>
 </AnchorPane>

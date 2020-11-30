@@ -91,6 +91,20 @@
 	-fx-text-fill: #8D8D8D;
 }
 
+.colorSelectionBtn:selected {
+	-fx-border-width: 3px;
+	-fx-border-color: #5794ff;
+	-fx-border-radius: 1px;
+	-fx-background-insets: 1;
+}
+
+.colorSelectionBtn:hover {
+	-fx-border-width: 3px;
+	-fx-border-color: #5794ff;
+	-fx-border-radius: 1px;
+	-fx-background-insets: 1;
+}
+
 /*** toggle button ***/
 .toggle-btn {
 	-fx-background-color: white;
