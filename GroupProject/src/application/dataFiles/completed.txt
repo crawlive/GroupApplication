@@ -1,1 +1,5 @@
-Exam,EXAM 1,Applications,10/07/2020,11/29/2020,1
+Exam,Final Exam,Applications,12/12/2020,11/29/2020,14
+Exam,EXAM3,Systems,12/11/2020,11/29/2020,13
+Exam,Exam 2,Applications,12/11/2020,11/29/2020,12
+Notes,Python 1,Select a Course,11/18/2020,11/29/2020,11
+Quiz,QUIZ 5,Applications,11/02/2020,11/29/2020,10
