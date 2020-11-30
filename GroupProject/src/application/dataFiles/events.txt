@@ -1,1 +1,4 @@
-Exam,EXAM 1,Applications,10/07/2020,11/29/2020,1
+Meeting,Group Meeting,Computer Architecture,11/30/2020,NULL,7
+Exam,Final Exam,Systems Programming,12/04/2020,NULL,10
+Exam,Final Exam,Operating Systems,12/07/2020,NULL,12
+Exam,Final Exam,Computer Architecture,12/07/2020,NULL,13
