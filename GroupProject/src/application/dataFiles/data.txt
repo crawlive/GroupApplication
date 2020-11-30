@@ -1,10 +1,17 @@
+  
 Homework,NULL,Select a Course,00/00/0000,NULL,0
-Exam,EXAM 1,Applications,10/07/2020,11/29/2020,1
-Homework,LAB 3,Applications,10/15/2020,11/29/2020,2
-Quiz,QUIZ 3,Applications,10/19/2020,11/29/2020,3
-Homework,LAB 4,Applications,10/22/2020,11/29/2020,4
-Notes,NOTES 3,Applications,10/23/2020,11/29/2020,5
-Notes,NOTES 2,Applications,10/23/2020,11/29/2020,6
-Quiz,QUIZ 4,Applications,10/26/2020,11/29/2020,7
-Homework,LAB 5,Applications,10/29/2020,11/29/2020,8
-Notes,NOTES 4,Applications,11/02/2020,11/29/2020,9
+Homework,Homework 3,Systems Programming,11/15/2020,NULL,1
+Homework,Homework 4,Systems Programming,11/22/2020,NULL,2
+Homework,Homework 5,Operating Systems,11/22/2020,NULL,3
+Quiz,Quiz 3,Operating Systems,11/25/2020,NULL,4
+Homework,Homework 4,Computer Architecture,11/27/2020,NULL,5
+Homework,Homework 5,Systems Programming,11/29/2020,NULL,6
+Meeting,Group Meeting,Computer Architecture,11/30/2020,NULL,7
+Quiz,Quiz 3,Systems Programming,12/02/2020,NULL,8
+Quiz,Quiz 5,Computer Architecture,12/02/2020,NULL,9
+Exam,Final Exam,Systems Programming,12/04/2020,NULL,10
+Homework,Homework 6,Operating Systems,12/06/2020,NULL,11
+Exam,Final Exam,Operating Systems,12/07/2020,NULL,12
+Exam,Final Exam,Computer Architecture,12/07/2020,NULL,13
+Quiz,Quiz 4,Systems Programming,12/09/2020,NULL,14
+Homework,Homework 3,Computer Architecture,12/11/2020,NULL,15
