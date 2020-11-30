@@ -1,3 +1,8 @@
+/*
+ * CourseCell.java - Controller for the Course Cell that extends the ListCell from ListView
+ * Changes the cell factory for the list view cells.
+ */
+
 package application.controller;
 
 import java.io.IOException;
@@ -24,9 +29,8 @@ public class CourseCell extends ListCell<String> {
 	public static String finalName;
 	private FrontPageController parentController;
 	private Button courseIcon = new Button();
-	
-	
-	/*
+
+	/**
 	 * Constructor
 	 * 
 	 * Creates cell instance with style configured
@@ -35,46 +39,53 @@ public class CourseCell extends ListCell<String> {
 		setParentController(parentController);
 		courseIcon.getStyleClass().add("menuCourseIcon");
 	}
-	
-	
+
+	/**
+	 * setParentController
+	 * 
+	 * @param the parentController loaded in FrontPageController
+	 * @return the parentController
+	 */
 	public void setParentController(FrontPageController parentController) {
-	    this.parentController = parentController;
+		this.parentController = parentController;
 	}
-	
+
+	/**
+	 * getParentController
+	 * 
+	 * @return the parentController
+	 */
 	public FrontPageController getParentController() {
 		return this.parentController;
 	}
-	
 
 	/*
-	 * udpateItem()
+	 * udpateItem
 	 * 
 	 * Overrides default list cell visuals
 	 */
 	@Override
 	protected void updateItem(String course, boolean empty) {
 		super.updateItem(course, empty);
-		
-		if(empty || course == null) {
-    		clearContent();
-    	} else {
-    		addContent(course);
-    		configureButtonHandler();
-    	}
+
+		if (empty || course == null) {
+			clearContent();
+		} else {
+			addContent(course);
+			configureButtonHandler();
+		}
 	}
 
-
 	/*
-	 * clearContent()
+	 * clearContent
 	 * 
 	 * Remove cell text and graphics
 	 */
 	private void clearContent() {
 		setText(null);
-		setGraphic(null);		
+		setGraphic(null);
 	}
-	
-	
+
 	/*
 	 * addContent
 	 * 
@@ -84,30 +95,36 @@ public class CourseCell extends ListCell<String> {
 		setText(null);
 		courseIcon.setText(AddCourseModel.findAbbreviation(course));
 		String finalColor = AddCourseModel.getColor(course);
-		courseIcon.setStyle("-fx-background-color: "+ finalColor + ";");
+		courseIcon.setStyle("-fx-background-color: " + finalColor + ";");
 		setGraphic(courseIcon);
 	}
-	
+
+	/*
+	 * getCourseName
+	 * 
+	 * @param the abbreviation of the course
+	 * 
+	 * @return the course name of a give abbreviation
+	 */
 	private String getCourseName(String abbreviation) {
 		String courseName = "";
 		String courseAbbreviation = "";
 		int size = MainModel.courses.size();
 		for (int i = 1; i < size; i++) {
 			String course = MainModel.courses.get(i);
-			if(course.contains(" ")){
-				courseAbbreviation = course.replaceAll("\\B.|\\P{L}", "").toUpperCase(); //only letters which are at the beginning of a word
+			if (course.contains(" ")) {
+				courseAbbreviation = course.replaceAll("\\B.|\\P{L}", "").toUpperCase(); // only letters which are at
+																							// the beginning of a word
+			} else {
+				courseAbbreviation = course.substring(0, 2).toUpperCase();
 			}
-			else{
-				courseAbbreviation = course.substring(0,2).toUpperCase();
-			}
-			if(abbreviation.equals(courseAbbreviation)){
+			if (abbreviation.equals(courseAbbreviation)) {
 				courseName = course;
 			}
 		}
 		return courseName;
 	}
-	
-	
+
 	/*
 	 * configureButtonHandler
 	 * 
@@ -115,11 +132,12 @@ public class CourseCell extends ListCell<String> {
 	 */
 	private void configureButtonHandler() {
 		courseIcon.setOnAction(new EventHandler<ActionEvent>() {
-		    @Override public void handle(ActionEvent event) {
-		        try {
-		        	finalName = getCourseName(courseIcon.getText());
-		        	
-		        	FXMLLoader loader = new FXMLLoader();
+			@Override
+			public void handle(ActionEvent event) {
+				try {
+					finalName = getCourseName(courseIcon.getText());
+
+					FXMLLoader loader = new FXMLLoader();
 					loader.setLocation(Main.class.getResource("view/EditCourse.fxml"));
 
 					AnchorPane modalPane = loader.load();
@@ -136,10 +154,10 @@ public class CourseCell extends ListCell<String> {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
-		    }
+			}
 		});
 	}
-	
+
 	/*
 	 * initModal
 	 *
@@ -160,5 +178,5 @@ public class CourseCell extends ListCell<String> {
 
 		return modal;
 	}
-	
+
 }

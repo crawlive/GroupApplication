@@ -8,16 +8,16 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Task {
-	String type; 		//notes, hw, quiz, exam, meeting [Notes, Homework, Quiz, Exam or Meeting]
-	String name;		//title
-	String course;		//course name
-	String date;		//due date
-	String ymd;			//date in YYYY/MM/DD format
+	String type; // notes, hw, quiz, exam, meeting [Notes, Homework, Quiz, Exam or Meeting]
+	String name; // title
+	String course; // course name
+	String date; // due date
+	String ymd; // date in YYYY/MM/DD format
 	int month;
 	int day;
 	int year;
 	int placement;
-	String completedDate; //Date completed for queue
+	String completedDate; // Date completed for queue
 	String completedYmd;
 
 	/*
@@ -34,8 +34,7 @@ public class Task {
 		type(type);
 	}
 
-
-	//---------------------Getters for the Task Class-------------------//
+	// ---------------------Getters for the Task Class-------------------//
 
 	/**
 	 * getName()
@@ -88,7 +87,7 @@ public class Task {
 	 * @return the completed date in ymd format
 	 */
 	public String getCompletedYmd() {
-	    return this.completedYmd;
+		return this.completedYmd;
 	}
 
 	/**
@@ -109,15 +108,14 @@ public class Task {
 		return placement;
 	}
 
-		
-	//---------------------Setters for the Task Class-------------------//
+	// ---------------------Setters for the Task Class-------------------//
 
 	/**
 	 * type()
 	 *
 	 * @param type the type to set
 	 */
-	public void type(String type){
+	public void type(String type) {
 		this.type = type;
 	}
 
@@ -126,33 +124,31 @@ public class Task {
 	 *
 	 * @param name the name to set
 	 */
-	public void name(String name){
+	public void name(String name) {
 		this.name = name;
 	}
-
 
 	/**
 	 * course()
 	 *
 	 * @param course the course to set
 	 */
-	public void course(String course){
+	public void course(String course) {
 		this.course = course;
 	}
-
 
 	/**
 	 * date()
 	 *
 	 * @param date the date to set
 	 */
-	public void date(String date){
+	public void date(String date) {
 		this.date = date;
 		parseDate();
 		this.ymd = this.year + "/" + this.month + "/" + this.day;
 	}
 
-	public void parseDate(){
+	public void parseDate() {
 		String regex = "[/]";
 		String[] tokeArr = this.date.split(regex);
 		this.month = Integer.parseInt(tokeArr[0]);
@@ -160,10 +156,10 @@ public class Task {
 		this.year = Integer.parseInt(tokeArr[2]);
 	}
 
-	public void completedDate(){
-		Date newDate = new Date();	//grabs the current date
+	public void completedDate() {
+		Date newDate = new Date(); // grabs the current date
 		SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/YYYY");
-	    String formattedDate = formatter.format(newDate);
+		String formattedDate = formatter.format(newDate);
 		this.completedDate = formattedDate;
 
 		String regex = "[/]";
@@ -175,10 +171,10 @@ public class Task {
 		completedYmd = yyyy + "/" + mm + "/" + dd;
 	}
 
-	public void setCompletedDate(String date){
+	public void setCompletedDate(String date) {
 		this.completedDate = date;
 
-		if(date.equals("NULL")) {
+		if (date.equals("NULL")) {
 			this.completedDate = "NULL";
 			this.completedYmd = 0000 + "/" + 00 + "/" + 00;
 		} else {
@@ -191,16 +187,16 @@ public class Task {
 		}
 	}
 
-	public void setCompletedYmd(){
+	public void setCompletedYmd() {
 		this.completedYmd = "NULL";
 	}
 
-	public void placement(int placement){
+	public void placement(int placement) {
 		this.placement = placement;
 	}
 
 	public String toString() {
-		String retString = type + "," + name + "," + course + "," + date + "," + completedDate + "," + placement +"\n";
+		String retString = type + "," + name + "," + course + "," + date + "," + completedDate + "," + placement + "\n";
 		return retString;
 	}
 

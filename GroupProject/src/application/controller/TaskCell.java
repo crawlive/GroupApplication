@@ -1,5 +1,9 @@
-package application.controller;
+/*
+ * TaskCell.java - Controller for the Task Cell that extends the ListCell from ListView
+ * Changes the cell factory for the list view cells.
+ */
 
+package application.controller;
 
 import application.model.AddCourseModel;
 import application.model.MainModel;
@@ -16,8 +20,8 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Priority;
 
-public class TaskCell extends ListCell<Task>{
-	
+public class TaskCell extends ListCell<Task> {
+
 	private Task task;
 	private GridPane gridPane = new GridPane();
 	private Button courseIcon = new Button();
@@ -26,17 +30,17 @@ public class TaskCell extends ListCell<Task>{
 	private Label typeLbl = new Label();
 	private Label dateLbl = new Label();
 	private CheckBox checkCompleted = new CheckBox();
-	
+
 	private FrontPageController parentController;
 	private boolean isComplete;
-	
-	/*
+
+	/**
 	 * Constructor
 	 * 
 	 * Creates cell instance with grid and labels configured
 	 */
 	public TaskCell(FrontPageController controller, boolean isComplete) {
-		this.isComplete=isComplete;
+		this.isComplete = isComplete;
 		setParentController(controller);
 		configureGrid();
 		configureItems();
@@ -44,37 +48,41 @@ public class TaskCell extends ListCell<Task>{
 		configureCheckboxHandler();
 	}
 
-	
+	/**
+	 * setParentController
+	 * 
+	 * @param the parentController loaded in FrontPageController
+	 * @return the parentController
+	 */
 	public void setParentController(FrontPageController parentController) {
-	    this.parentController = parentController;
+		this.parentController = parentController;
 	}
-	
-	/*
+
+	/**
 	 * configureGrid()
 	 * 
 	 * Configure grid layout
 	 */
 	private void configureGrid() {
-		
+
 		// adjust spacing
 		gridPane.setHgap(10);
 		gridPane.setPadding(new Insets(0, 0, 20, 0));
-		
+
 		// column configurations
 		ColumnConstraints col1 = new ColumnConstraints();
 		ColumnConstraints col2 = new ColumnConstraints();
-	    ColumnConstraints col3 = new ColumnConstraints();
-	    col3.setHgrow(Priority.ALWAYS);
-	    ColumnConstraints col4 = new ColumnConstraints();
-	    gridPane.getColumnConstraints().addAll(col1,col2,col3,col4);
-	    
-	    // right align labels
-	    GridPane.setHalignment(typeLbl, HPos.RIGHT);
+		ColumnConstraints col3 = new ColumnConstraints();
+		col3.setHgrow(Priority.ALWAYS);
+		ColumnConstraints col4 = new ColumnConstraints();
+		gridPane.getColumnConstraints().addAll(col1, col2, col3, col4);
+
+		// right align labels
+		GridPane.setHalignment(typeLbl, HPos.RIGHT);
 		GridPane.setHalignment(dateLbl, HPos.RIGHT);
 	}
 
-	
-	/*
+	/**
 	 * configureItems()
 	 * 
 	 * Configure grid items, attach styling
@@ -87,9 +95,8 @@ public class TaskCell extends ListCell<Task>{
 		typeLbl.getStyleClass().add("cellHeader");
 		dateLbl.getStyleClass().add("cellDate");
 	}
-	
-	
-	/*
+
+	/**
 	 * addItemsToGrid()
 	 * 
 	 * Adds fx items to grid
@@ -103,7 +110,7 @@ public class TaskCell extends ListCell<Task>{
 		gridPane.add(dateLbl, 3, 1, 1, 1);
 	}
 
-	/*
+	/**
 	 * udpateItem()
 	 * 
 	 * Overrides default list cell visuals
@@ -111,29 +118,27 @@ public class TaskCell extends ListCell<Task>{
 	@Override
 	protected void updateItem(Task task, boolean empty) {
 		super.updateItem(task, empty);
-		
+
 		this.task = task;
-		
-		if(empty || task == null) {
+
+		if (empty || task == null) {
 			clearContent();
-    	} else {
-    		addContent(task);
-    	}
+		} else {
+			addContent(task);
+		}
 	}
 
-
-	/*
+	/**
 	 * clearContent()
 	 * 
 	 * Remove cell text and graphics
 	 */
 	private void clearContent() {
 		setText(null);
-		setGraphic(null);		
+		setGraphic(null);
 	}
-	
-	
-	/*
+
+	/**
 	 * addContent
 	 * 
 	 * Add task data to cell by setting fx items
@@ -142,48 +147,47 @@ public class TaskCell extends ListCell<Task>{
 		setText(null);
 		courseIcon.setText(AddCourseModel.findAbbreviation(task.getCourse()));
 		String finalColor = AddCourseModel.getColor(task.getCourse());
-		courseIcon.setStyle("-fx-background-color: "+ finalColor + ";");
+		courseIcon.setStyle("-fx-background-color: " + finalColor + ";");
 		taskLbl.setText(task.getName());
 		courseLbl.setText(task.getCourse());
 		typeLbl.setText(task.getType());
-		//checkCompleted.setIndeterminate(false);
-		if(isComplete) {
+		// checkCompleted.setIndeterminate(false);
+		if (isComplete) {
 			dateLbl.setText("completed: " + task.getCompletedDate());
-			checkCompleted.setSelected(true);	
-		}
-		else {
+			checkCompleted.setSelected(true);
+		} else {
 			dateLbl.setText(task.getDate());
 			checkCompleted.setSelected(false);
 		}
 		setGraphic(gridPane);
 	}
-	
-	/*
+
+	/**
 	 * configureCheckboxHandler
 	 * 
-	 * If box is checked, task is moved to completed.
-	 * If box is unchecked, task is moved todo list.
+	 * If box is checked, task is moved to completed. If box is unchecked, task is
+	 * moved todo list.
 	 */
 	private void configureCheckboxHandler() {
 		EventHandler<ActionEvent> eh = new EventHandler<ActionEvent>() {
-		    @Override
-		    public void handle(ActionEvent event) {
-		        if (event.getSource() instanceof CheckBox) {
-		            if(checkCompleted.isSelected()) {
-		            	MainModel.addToCompleted(task);
-		            } else {
-		            	MainModel.removeFromCompleted(task);
-		            }
-			        //MainModel.updateKeys();											//update the keys in the taskMap
-		            refreshListViews();
-		        }
-		    }
+			@Override
+			public void handle(ActionEvent event) {
+				if (event.getSource() instanceof CheckBox) {
+					if (checkCompleted.isSelected()) {
+						MainModel.addToCompleted(task);
+					} else {
+						MainModel.removeFromCompleted(task);
+					}
+					// MainModel.updateKeys(); //update the keys in the taskMap
+					refreshListViews();
+				}
+			}
 		};
 
 		checkCompleted.setOnAction(eh);
 	}
-	
-	/*
+
+	/**
 	 * refreshListViews
 	 * 
 	 * Uses the FrontPageController to refresh the todo list.
@@ -191,11 +195,10 @@ public class TaskCell extends ListCell<Task>{
 	private void refreshListViews() {
 		if (this.parentController.getCurrentView().equals("todo")) {
 			this.parentController.loadTodoView();
-		}
-		else {
+		} else {
 			this.parentController.loadDateView();
 		}
 		this.parentController.loadEventsView();
 	}
-	
+
 }

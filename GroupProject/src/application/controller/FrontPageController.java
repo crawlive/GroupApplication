@@ -1,5 +1,5 @@
 /*
- * FrontPage Controller Class
+ * FrontPageController.java - Controller for the FrontPage.fxml view
  */
 package application.controller;
 
@@ -38,39 +38,38 @@ public class FrontPageController implements Initializable {
 	@FXML
 	private ToggleGroup todo_date_toggle;
 
-    @FXML
-    private Button courseBtn;
+	@FXML
+	private Button courseBtn;
 
-    @FXML
-    private Label noEventsMsg; // Text that shows when there are no events
+	@FXML
+	private Label noEventsMsg; // Text that shows when there are no events
 
-    @FXML
-    private TitledPane todoPane, completedPane;
+	@FXML
+	private TitledPane todoPane, completedPane;
 
-    @FXML
-    private ListView<Task> todoListView, completedListView, dateListView, eventsListView;
+	@FXML
+	private ListView<Task> todoListView, completedListView, dateListView, eventsListView;
 
-    @FXML
-    private ListView<String> courseView;
+	@FXML
+	private ListView<String> courseView;
 
-    @FXML
-    private TextArea notes_textarea;
+	@FXML
+	private TextArea notes_textarea;
 
-    @FXML
-    private Button notes_save;
-    
-    private String currentView; // "todo" or "date"
+	@FXML
+	private Button notes_save;
 
+	private String currentView; // "todo" or "date"
 
-    private ObservableList<Task> todoList;
-    private ObservableList<Task> completedTasks;
-    private ObservableList<Task> listByDate;
-    private ObservableList<Task> events;
-    private ObservableList<String> courses;
+	private ObservableList<Task> todoList;
+	private ObservableList<Task> completedTasks;
+	private ObservableList<Task> listByDate;
+	private ObservableList<Task> events;
+	private ObservableList<String> courses;
 
 	// ------------- SCENE CHANGES ----------------//
 
-	/*
+	/**
 	 * openAddTask
 	 *
 	 * Opens add task scene when user clicks new task button
@@ -88,12 +87,12 @@ public class FrontPageController implements Initializable {
 		NewAssignmentController controller = loader.getController();
 		controller.passStages(modal, window);
 		controller.setParentController(this);
-		
+
 		modal.show();
 
 	}
 
-	/*
+	/**
 	 * openAddCourse
 	 *
 	 * Opens add course scene when user clicks add course button
@@ -110,7 +109,7 @@ public class FrontPageController implements Initializable {
 		AddCourseController controller = loader.getController();
 		controller.passStages(modal, window);
 		controller.setParentController(this);
-		
+
 		modal.show();
 	}
 
@@ -169,13 +168,14 @@ public class FrontPageController implements Initializable {
 	public String getCurrentView() {
 		return currentView;
 	}
-	
-	/*
+
+	/**
 	 * saveNotes
 	 *
 	 * Grab the string from the text area and save it to the notes.txt
 	 */
-	@FXML void saveNotes(ActionEvent event){
+	@FXML
+	void saveNotes(ActionEvent event) {
 		String notes = notes_textarea.getText();
 		try {
 			TextModel.updateNotes(notes);
@@ -184,7 +184,7 @@ public class FrontPageController implements Initializable {
 		}
 	}
 
-	/*
+	/**
 	 * loadTodoView
 	 *
 	 * Load/display the list view(s) for the upcoming week of tasks and completed
@@ -201,7 +201,7 @@ public class FrontPageController implements Initializable {
 
 		todoList = FXCollections.observableArrayList();
 		completedTasks = FXCollections.observableArrayList();
-		
+
 		for (int key : MainModel.taskMap.keySet()) {
 			Task curr = MainModel.taskMap.get(key);
 
@@ -222,7 +222,7 @@ public class FrontPageController implements Initializable {
 
 	}
 
-	/*
+	/**
 	 * loadDateView
 	 *
 	 * Load/display the list view for tasks ordered by date
@@ -237,12 +237,12 @@ public class FrontPageController implements Initializable {
 		completedPane.setManaged(false);
 
 		listByDate = FXCollections.observableArrayList();
-		
+
 		int size = MainModel.getSortedDateArray().size();
 		for (int i = 1; i < size; i++) {
 			Task curr = MainModel.getSortedDateArray().get(i);
 
-			if (curr!=null) {
+			if (curr != null) {
 				listByDate.add(MainModel.getSortedDateArray().get(i));
 			}
 		}
@@ -254,7 +254,7 @@ public class FrontPageController implements Initializable {
 		dateListView.setCellFactory(dateListView -> new DateTaskCell());
 	}
 
-	/*
+	/**
 	 * loadEventsView
 	 *
 	 * Load/display the list view for events
@@ -277,39 +277,40 @@ public class FrontPageController implements Initializable {
 			noEventsMsg.setVisible(true);
 			noEventsMsg.setManaged(true);
 		}
-    }
+	}
 
-    /*
-     * loadCourseView
-     *
-     * Load/display the list view for events
-     */
-    void loadCourseView() {
-    	courses = FXCollections.observableArrayList();
+	/**
+	 * loadCourseView
+	 *
+	 * Load/display the list view for events
+	 */
+	void loadCourseView() {
+		courses = FXCollections.observableArrayList();
 
 		int size = MainModel.courses.size();
 		for (int i = 1; i < size; i++) {
 			courses.add(MainModel.courses.get(i));
 		}
-		
+
 		// add observable list to list view
 		courseView.setItems(courses);
 
-    	// customize the list view cells
+		// customize the list view cells
 		courseView.setCellFactory(courseView -> new CourseCell(this));
 
-    }
+	}
 
-    /*
-     * loadNotesView
-     *
-     * Load/display the list view for events
-     */
-    void loadNotesView() {
-    	String text = TextModel.importNotes();
-    	notes_textarea.setText(text);
-    }
+	// -------------NOTES----------------//
 
+	/**
+	 * loadNotesView
+	 *
+	 * Load/display the list view for events
+	 */
+	void loadNotesView() {
+		String text = TextModel.importNotes();
+		notes_textarea.setText(text);
+	}
 
 	// -------------INITIALIZATION----------------//
 

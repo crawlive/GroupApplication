@@ -1,3 +1,8 @@
+/*
+ * EventCell.java - Controller for the Event Cell that extends the ListCell from ListView
+ * Changes the cell factory for the list view cells.
+ */
+
 package application.controller;
 
 import application.model.AddCourseModel;
@@ -18,7 +23,7 @@ public class EventCell extends ListCell<Task> {
 	private Label courseLbl = new Label();
 	private Label dateLbl = new Label();
 
-	/*
+	/**
 	 * Constructor
 	 * 
 	 * Creates cell instance with grid and labels configured
@@ -28,33 +33,30 @@ public class EventCell extends ListCell<Task> {
 		configureItems();
 		addItemsToGrid();
 	}
-	
 
-	
-	/*
-	 * configureGrid()
+	/**
+	 * configureGrid
 	 * 
 	 * Configure grid layout / styling
 	 */
 	private void configureGrid() {
-		
+
 		// adjust spacing
 		gridPane.setHgap(10);
-		
+
 		// column configurations
 		ColumnConstraints col1 = new ColumnConstraints();
-	    ColumnConstraints col2 = new ColumnConstraints();
-	    col2.setHgrow(Priority.ALWAYS);
-	    ColumnConstraints col3 = new ColumnConstraints();
-	    gridPane.getColumnConstraints().addAll(col1,col2,col3);
-	    
-	    // right align labels
+		ColumnConstraints col2 = new ColumnConstraints();
+		col2.setHgrow(Priority.ALWAYS);
+		ColumnConstraints col3 = new ColumnConstraints();
+		gridPane.getColumnConstraints().addAll(col1, col2, col3);
+
+		// right align labels
 		GridPane.setHalignment(dateLbl, HPos.RIGHT);
 	}
 
-	
-	/*
-	 * configureItems()
+	/**
+	 * configureItems
 	 * 
 	 * Configure grid items, attach styling
 	 */
@@ -64,10 +66,9 @@ public class EventCell extends ListCell<Task> {
 		courseLbl.getStyleClass().add("cellSubHeader");
 		dateLbl.getStyleClass().add("cellDate");
 	}
-	
-	
-	/*
-	 * addItemsToGrid()
+
+	/**
+	 * addItemsToGrid
 	 * 
 	 * Adds fx items to grid
 	 */
@@ -78,48 +79,48 @@ public class EventCell extends ListCell<Task> {
 		gridPane.add(dateLbl, 3, 1, 1, 2);
 	}
 
-	/*
-	 * udpateItem()
+	/**
+	 * udpateItem
 	 * 
 	 * Overrides default list cell visuals
 	 */
 	@Override
 	protected void updateItem(Task task, boolean empty) {
 		super.updateItem(task, empty);
-		
-		if(empty || task == null) {
-    		clearContent();
-    	} else {
-    		addContent(task);
-    	}
+
+		if (empty || task == null) {
+			clearContent();
+		} else {
+			addContent(task);
+		}
 	}
 
-
-	/*
-	 * clearContent()
+	/**
+	 * clearContent
 	 * 
 	 * Remove cell text and graphics
 	 */
 	private void clearContent() {
 		setText(null);
-		setGraphic(null);		
+		setGraphic(null);
 	}
-	
-	
-	/*
+
+	/**
 	 * addContent
 	 * 
 	 * Add task data to cell by setting fx items
+	 * 
+	 * @param the task to be added
 	 */
 	private void addContent(Task task) {
 		setText(null);
 		courseIcon.setText(AddCourseModel.findAbbreviation(task.getCourse()));
 		String finalColor = AddCourseModel.getColor(task.getCourse());
-		courseIcon.setStyle("-fx-background-color: "+ finalColor + ";");
+		courseIcon.setStyle("-fx-background-color: " + finalColor + ";");
 		taskLbl.setText(task.getName());
 		courseLbl.setText(task.getCourse());
 		dateLbl.setText(task.getDate());
 		setGraphic(gridPane);
 	}
-	
+
 }
